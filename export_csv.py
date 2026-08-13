@@ -641,9 +641,14 @@ def export_csv(
       document.documentElement.lang = lang;
 
       const isEn = lang === 'en';
-      if (isEn && userTriggered && !localStorage.getItem(KEY_LEFT)) {{
-        document.getElementById('select-left').value = 'kjv';
-        document.getElementById('select-right').value = 'esv';
+      if (userTriggered) {{
+        if (isEn) {{
+          document.getElementById('select-left').value = 'kjv';
+          document.getElementById('select-right').value = 'esv';
+        }} else {{
+          document.getElementById('select-left').value = 'snpd';
+          document.getElementById('select-right').value = 'lxxhb';
+        }}
       }}
 
       // Text UI translations
@@ -875,9 +880,14 @@ def export_csv(
       $('html').attr('lang', lang);
 
       const isEn = lang === 'en';
-      if (isEn && userTriggered && !localStorage.getItem(KEY_LEFT)) {{
-        $('#select-left').val('kjv');
-        $('#select-right').val('esv');
+      if (userTriggered) {{
+        if (isEn) {{
+          $('#select-left').val('kjv');
+          $('#select-right').val('esv');
+        }} else {{
+          $('#select-left').val('snpd');
+          $('#select-right').val('lxxhb');
+        }}
       }}
 
       $('#main-h1').text(isEn ? 'Official Bible Reading Companion (Robert Roberts)' : 'Oficjalny Harmonogram Czytania Biblii (prawdybiblijne.com)');

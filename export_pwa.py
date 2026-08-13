@@ -581,9 +581,14 @@ PWA_HTML_TEMPLATE = """<!DOCTYPE html>
       document.documentElement.lang = lang;
 
       const isEn = lang === 'en';
-      if (isEn && userTriggered && !localStorage.getItem(KEY_LEFT)) {{
-        document.getElementById('select-left').value = 'kjv';
-        document.getElementById('select-right').value = 'esv';
+      if (userTriggered) {{
+        if (isEn) {{
+          document.getElementById('select-left').value = 'kjv';
+          document.getElementById('select-right').value = 'esv';
+        }} else {{
+          document.getElementById('select-left').value = 'snpd';
+          document.getElementById('select-right').value = 'lxxhb';
+        }}
       }}
 
       document.getElementById('pwa-h1').innerText = isEn ? 'Official Bible Reading Companion — Christadelphians' : 'Oficjalny Plan Czytania Biblii — Chrystadelfianie';
