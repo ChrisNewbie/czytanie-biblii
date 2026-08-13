@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Export Official Christadelphian Bible Reading Plan to PWA Web Application.
-Includes Dual Language (PL / EN + HiperBiblia Locale Sync), Floating Back to Top Button, Web Share API + Clipboard Toast for sharing daily reading links.
+Includes Dual Language (PL / EN + HiperBiblia Locale Sync), Default Today Date Picker, Floating Back to Top Button, Web Share API + Clipboard Toast for sharing daily reading links.
 """
 from __future__ import annotations
 
@@ -561,6 +561,9 @@ PWA_HTML_TEMPLATE = """<!DOCTYPE html>
       if (savedLeft) document.getElementById('select-left').value = savedLeft;
       if (savedRight) document.getElementById('select-right').value = savedRight;
 
+      const datePicker = document.getElementById('pwa-date-jump');
+      if (datePicker) datePicker.value = getTodayIso();
+
       window.addEventListener('scroll', () => {{
         const btn = document.getElementById('btn-back-to-top-pwa');
         if (btn) {{
@@ -805,7 +808,7 @@ def export_pwa(plan: list[dict], output_dir: Path):
     html_content = PWA_HTML_TEMPLATE.replace("{plan_json}", json.dumps(plan, ensure_ascii=False))
     (output_dir / "index.html").write_text(html_content, encoding="utf-8")
     (output_dir / "manifest.json").write_text(MANIFEST_JSON, encoding="utf-8")
-    print(f"Wygenerowano oficjalne PWA Wyroczni (PL / EN) z Locale Sync w: {output_dir}")
+    print(f"Wygenerowano oficjalne PWA Wyroczni z Domyślną Datą w: {output_dir}")
 
 
 if __name__ == "__main__":

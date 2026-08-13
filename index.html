@@ -10369,6 +10369,12 @@
 
       if (savedLeft) document.getElementById('select-left').value = savedLeft;
       if (savedRight) document.getElementById('select-right').value = savedRight;
+
+      // Automatyczne wstawienie dzisiejszej daty do pola kalendarza
+      const d = new Date();
+      const todayIso = d.toISOString().split('T')[0];
+      const dateInput = document.getElementById('input-date-jump');
+      if (dateInput) dateInput.value = todayIso;
       
       document.getElementById('select-left').addEventListener('change', updateTableLinks);
       document.getElementById('select-right').addEventListener('change', updateTableLinks);

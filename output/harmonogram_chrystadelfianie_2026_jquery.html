@@ -10374,6 +10374,11 @@
       if (savedLeft) $('#select-left').val(savedLeft);
       if (savedRight) $('#select-right').val(savedRight);
 
+      // Automatyczne wstawienie dzisiejszej daty do pola kalendarza
+      const d = new Date();
+      const todayIso = d.toISOString().split('T')[0];
+      $('#input-date-jump').val(todayIso);
+
       $('#select-left, #select-right').on('change', updateTableLinksJQuery);
       $('#input-date-jump').on('change', function() {
         jumpToDateJQuery($(this).val());

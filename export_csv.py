@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Export Official Christadelphian Bible Reading Plan to CSV and static HTML tables (Vanilla JS & jQuery versions).
-Fully compliant with 2026 Web Standards: Dual Language Support (PL / EN + HiperBiblia Locale Sync), Floating Back to Top Button, Share Button, Dark Mode, OpenGraph, WCAG 2.2 AAA, Print CSS & Security rel=noopener.
+Fully compliant with 2026 Web Standards: Dual Language Support (PL / EN + HiperBiblia Locale Sync), Default Today Date Picker, Floating Back to Top Button, Share Button, Dark Mode, OpenGraph, WCAG 2.2 AAA, Print CSS & Security rel=noopener.
 """
 from __future__ import annotations
 
@@ -614,6 +614,12 @@ def export_csv(
 
       if (savedLeft) document.getElementById('select-left').value = savedLeft;
       if (savedRight) document.getElementById('select-right').value = savedRight;
+
+      // Automatyczne wstawienie dzisiejszej daty do pola kalendarza
+      const d = new Date();
+      const todayIso = d.toISOString().split('T')[0];
+      const dateInput = document.getElementById('input-date-jump');
+      if (dateInput) dateInput.value = todayIso;
       
       document.getElementById('select-left').addEventListener('change', updateTableLinks);
       document.getElementById('select-right').addEventListener('change', updateTableLinks);
@@ -783,14 +789,14 @@ def export_csv(
 </html>
 """
         output_html.write_text(vanilla_doc, encoding="utf-8")
-        print(f"Zapisano statyczny HTML Vanilla JS z Przekazywaniem Locale: {output_html}")
+        print(f"Zapisano statyczny HTML Vanilla JS z Domyślną Datą: {output_html}")
 
         if output_en_html:
             # Pre-configured English HTML version
             en_doc = vanilla_doc.replace("<html lang=\"pl\">", "<html lang=\"en\">")
             en_doc = en_doc.replace("const savedLang = localStorage.getItem(KEY_LANG) || 'pl';", "const savedLang = 'en';")
             output_en_html.write_text(en_doc, encoding="utf-8")
-            print(f"Zapisano dedykowany HTML Angielski z Locale Sync: {output_en_html}")
+            print(f"Zapisano dedykowany HTML Angielski z Domyślną Datą: {output_en_html}")
 
     # 2. GENERACJA WERSJI JQUERY (STANDARD 2026)
     if output_jquery_html:
@@ -854,6 +860,11 @@ def export_csv(
 
       if (savedLeft) $('#select-left').val(savedLeft);
       if (savedRight) $('#select-right').val(savedRight);
+
+      // Automatyczne wstawienie dzisiejszej daty do pola kalendarza
+      const d = new Date();
+      const todayIso = d.toISOString().split('T')[0];
+      $('#input-date-jump').val(todayIso);
 
       $('#select-left, #select-right').on('change', updateTableLinksJQuery);
       $('#input-date-jump').on('change', function() {{
@@ -1017,7 +1028,7 @@ def export_csv(
 </html>
 """
         output_jquery_html.write_text(jquery_doc, encoding="utf-8")
-        print(f"Zapisano statyczny HTML z jQuery 3.7.1 z Sync Locale: {output_jquery_html}")
+        print(f"Zapisano statyczny HTML z jQuery 3.7.1 z Domyślną Datą: {output_jquery_html}")
 
 
 if __name__ == "__main__":

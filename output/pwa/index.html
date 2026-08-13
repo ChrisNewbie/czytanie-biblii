@@ -552,6 +552,9 @@
       if (savedLeft) document.getElementById('select-left').value = savedLeft;
       if (savedRight) document.getElementById('select-right').value = savedRight;
 
+      const datePicker = document.getElementById('pwa-date-jump');
+      if (datePicker) datePicker.value = getTodayIso();
+
       window.addEventListener('scroll', () => {{
         const btn = document.getElementById('btn-back-to-top-pwa');
         if (btn) {{
