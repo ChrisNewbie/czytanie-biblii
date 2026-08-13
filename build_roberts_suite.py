@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import argparse
 import datetime
+import shutil
 from pathlib import Path
 import sys
 
@@ -42,27 +43,32 @@ def main():
     jquery_html_file = args.out_dir / f"harmonogram_chrystadelfianie_{args.year}_jquery.html"
     export_csv(plan, csv_file, html_file, jquery_html_file)
 
-    # 3. Export PWA
+    # 3. Create root index.html copy for GitHub Pages root hosting
+    root_index = Path("index.html")
+    shutil.copyfile(html_file, root_index)
+
+    # 4. Export PWA
     pwa_dir = args.out_dir / "pwa"
     export_pwa(plan, pwa_dir)
 
-    # 4. Export Kindle EPUB
+    # 5. Export Kindle EPUB
     epub_file = args.out_dir / f"Biblia_Plan_Robertsa_{args.year}.epub"
     export_epub(plan, epub_file)
 
-    # 5. Export iCal (.ics)
+    # 6. Export iCal (.ics)
     ics_file = args.out_dir / f"Biblia_Plan_Robertsa_{args.year}.ics"
     start_date = datetime.date(args.year, 1, 1)
     export_ics(plan, ics_file, start_date)
 
     print("\n=======================================================")
     print(f" SUKCES! Zbudowano oficjalny pakiet Wyroczni na rok {args.year}:")
-    print(f" 1. Aplikacja PWA:         {pwa_dir.resolve() / 'index.html'}")
-    print(f" 2. Strona Vanilla JS:      {html_file.resolve()}")
-    print(f" 3. Strona z jQuery 3.7.1:  {jquery_html_file.resolve()}")
-    print(f" 4. E-book Kindle:         {epub_file.resolve()}")
-    print(f" 5. Kalendarz iCal:        {ics_file.resolve()}")
-    print(f" 6. Arkusz CSV:            {csv_file.resolve()}")
+    print(f" 1. GitHub Pages (root):   {root_index.resolve()}")
+    print(f" 2. Aplikacja PWA:         {pwa_dir.resolve() / 'index.html'}")
+    print(f" 3. Strona Vanilla JS:      {html_file.resolve()}")
+    print(f" 4. Strona z jQuery 3.7.1:  {jquery_html_file.resolve()}")
+    print(f" 5. E-book Kindle:         {epub_file.resolve()}")
+    print(f" 6. Kalendarz iCal:        {ics_file.resolve()}")
+    print(f" 7. Arkusz CSV:            {csv_file.resolve()}")
     print("=======================================================\n")
     return 0
 
