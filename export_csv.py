@@ -526,7 +526,7 @@ def export_csv(
     </tbody>
   </table>
 
-  <button id="btn-back-to-top" class="btn-back-to-top" onclick="scrollToTop()" aria-label="Wróć na górę strony">⬆️ Górę</button>
+  <button id="btn-back-to-top" class="btn-back-to-top" onclick="scrollToTop()" aria-label="Wróć na górę strony">⬆️ Do góry</button>
 
   <script>
     const KEY_LEFT = 'hiper_left_translation';
@@ -677,7 +677,7 @@ def export_csv(
     </tbody>
   </table>
 
-  <button id="btn-back-to-top" class="btn-back-to-top" onclick="scrollToTop()" aria-label="Wróć na górę strony">⬆️ Górę</button>
+  <button id="btn-back-to-top" class="btn-back-to-top" onclick="scrollToTop()" aria-label="Wróć na górę strony">⬆️ Do góry</button>
 
   <script>
     const KEY_LEFT = 'hiper_left_translation';

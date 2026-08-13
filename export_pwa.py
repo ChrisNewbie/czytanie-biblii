@@ -503,7 +503,7 @@ PWA_HTML_TEMPLATE = """<!DOCTYPE html>
 
   <div class="grid" id="plan-grid"></div>
 
-  <button id="btn-back-to-top-pwa" class="btn-back-to-top" onclick="scrollToTopPwa()" aria-label="Wróć na górę strony">⬆️ Górę</button>
+  <button id="btn-back-to-top-pwa" class="btn-back-to-top" onclick="scrollToTopPwa()" aria-label="Wróć na górę strony">⬆️ Do góry</button>
 
   <script>
     const PLAN_DATA = {plan_json};
