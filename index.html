@@ -10456,6 +10456,7 @@
     function updateTableLinks() {
       const left = document.getElementById('select-left').value;
       const right = document.getElementById('select-right').value;
+      const lang = currentLang || 'pl';
       localStorage.setItem(KEY_LEFT, left);
       localStorage.setItem(KEY_RIGHT, right);
 
@@ -10467,6 +10468,7 @@
             const urlObj = new URL(baseUrl);
             urlObj.searchParams.set('left', left);
             urlObj.searchParams.set('right', right);
+            urlObj.searchParams.set('locale', lang);
             link.href = urlObj.toString();
           } catch (e) {}
         }

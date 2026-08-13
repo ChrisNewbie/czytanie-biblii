@@ -613,6 +613,7 @@
         const urlObj = new URL(baseUrl);
         urlObj.searchParams.set('left', left);
         urlObj.searchParams.set('right', right);
+        urlObj.searchParams.set('locale', currentLang || 'pl');
         return urlObj.toString();
       }} catch (e) {{
         return baseUrl;

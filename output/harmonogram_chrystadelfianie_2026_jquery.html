@@ -10456,6 +10456,7 @@
     function updateTableLinksJQuery() {
       const left = $('#select-left').val();
       const right = $('#select-right').val();
+      const lang = currentLang || 'pl';
       localStorage.setItem(KEY_LEFT, left);
       localStorage.setItem(KEY_RIGHT, right);
 
@@ -10467,6 +10468,7 @@
             const urlObj = new URL(baseUrl);
             urlObj.searchParams.set('left', left);
             urlObj.searchParams.set('right', right);
+            urlObj.searchParams.set('locale', lang);
             $link.attr('href', urlObj.toString());
           } catch (e) {}
         }
