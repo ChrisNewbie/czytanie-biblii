@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Export Official Christadelphian Bible Reading Plan to PWA Web Application.
-Includes Dual Language (PL / EN + HiperBiblia Locale Sync), Traditional Tone ("Przejdź do daty"), Default Today Date Picker, Floating Back to Top Button, Web Share API + Clipboard Toast for sharing daily reading links.
+Includes Dual Language (PL / EN + HiperBiblia Locale Sync), Custom Favicons (SVG, PNG, Apple Touch Icon), Traditional Tone ("Przejdź do daty"), Default Today Date Picker, Floating Back to Top Button, Web Share API + Clipboard Toast for sharing daily reading links.
 """
 from __future__ import annotations
 
@@ -15,6 +15,9 @@ PWA_HTML_TEMPLATE = """<!DOCTYPE html>
   <title>Oficjalny Plan Czytania Biblii — Chrystadelfianie</title>
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#0f172a">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="alternate icon" href="favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -794,9 +797,20 @@ MANIFEST_JSON = """{
   "theme_color": "#1e293b",
   "icons": [
     {
-      "src": "https://hiperbiblia.com/favicon.ico",
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "favicon.png",
       "sizes": "64x64",
-      "type": "image/x-icon"
+      "type": "image/png"
     }
   ]
 }
@@ -808,7 +822,7 @@ def export_pwa(plan: list[dict], output_dir: Path):
     html_content = PWA_HTML_TEMPLATE.replace("{plan_json}", json.dumps(plan, ensure_ascii=False))
     (output_dir / "index.html").write_text(html_content, encoding="utf-8")
     (output_dir / "manifest.json").write_text(MANIFEST_JSON, encoding="utf-8")
-    print(f"Wygenerowano oficjalne PWA Wyroczni z 'Przejdź do daty' w: {output_dir}")
+    print(f"Wygenerowano oficjalne PWA Wyroczni z Favikonami w: {output_dir}")
 
 
 if __name__ == "__main__":

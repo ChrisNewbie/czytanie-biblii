@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="110" fill="#0f172a"/>
+  <rect x="24" y="24" width="464" height="464" rx="90" fill="none" stroke="#38bdf8" stroke-width="12" opacity="0.3"/>
+  
+  <!-- Left Page -->
+  <path d="M 80,140 Q 240,110 248,150 L 248,400 Q 240,360 80,380 Z" fill="#ffffff"/>
+  <!-- Right Page -->
+  <path d="M 432,140 Q 272,110 264,150 L 264,400 Q 272,360 432,380 Z" fill="#f8fafc"/>
+
+  <!-- Book Cover / Base -->
+  <path d="M 70,135 Q 240,105 256,145 Q 272,105 442,135 L 442,390 Q 272,365 256,410 Q 240,365 70,390 Z" fill="none" stroke="#fbbf24" stroke-width="16" stroke-linejoin="round"/>
+  
+  <!-- Spine / Center line -->
+  <line x1="256" y1="145" x2="256" y2="410" stroke="#d97706" stroke-width="10"/>
+
+  <!-- Bookmark Ribbon -->
+  <path d="M 256,145 L 256,330 L 275,310 L 294,330 L 294,145 Z" fill="#0284c7"/>
+
+  <!-- Text lines on left page -->
+  <line x1="120" y1="200" x2="215" y2="190" stroke="#cbd5e1" stroke-width="10" stroke-linecap="round"/>
+  <line x1="120" y1="240" x2="215" y2="230" stroke="#cbd5e1" stroke-width="10" stroke-linecap="round"/>
+  <line x1="120" y1="280" x2="215" y2="270" stroke="#cbd5e1" stroke-width="10" stroke-linecap="round"/>
+  <line x1="120" y1="320" x2="190" y2="312" stroke="#cbd5e1" stroke-width="10" stroke-linecap="round"/>
+
+  <!-- Text lines on right page -->
+  <line x1="297" y1="190" x2="392" y2="200" stroke="#cbd5e1" stroke-width="10" stroke-linecap="round"/>
+  <line x1="297" y1="230" x2="392" y2="240" stroke="#cbd5e1" stroke-width="10" stroke-linecap="round"/>
+  <line x1="297" y1="270" x2="392" y2="280" stroke="#cbd5e1" stroke-width="10" stroke-linecap="round"/>
+  <line x1="297" y1="312" x2="367" y2="320" stroke="#cbd5e1" stroke-width="10" stroke-linecap="round"/>
+</svg>

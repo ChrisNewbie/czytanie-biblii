@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Export Official Christadelphian Bible Reading Plan to CSV and static HTML tables (Vanilla JS & jQuery versions).
-Fully compliant with 2026 Web Standards: Dual Language Support (PL / EN + HiperBiblia Locale Sync), Traditional Tone ("Przejdź do daty"), Default Today Date Picker, Floating Back to Top Button, Share Button, Dark Mode, OpenGraph, WCAG 2.2 AAA, Print CSS & Security rel=noopener.
+Fully compliant with 2026 Web Standards: Dual Language Support (PL / EN + HiperBiblia Locale Sync), Custom Favicon Suite, Traditional Tone ("Przejdź do daty"), Default Today Date Picker, Floating Back to Top Button, Share Button, Dark Mode, OpenGraph, WCAG 2.2 AAA, Print CSS & Security rel=noopener.
 """
 from __future__ import annotations
 
@@ -557,6 +557,9 @@ def export_csv(
   <meta property="og:title" content="Oficjalny Harmonogram Czytania Biblii — Chrystadelfianie">
   <meta property="og:description" content="Read the entire Bible in a year (3 daily tracks) in HiperBiblia.com reader with your choice of translations.">
   <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="alternate icon" href="favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <style>{common_style}</style>
 </head>
 <body role="main">
@@ -776,7 +779,7 @@ def export_csv(
 </html>
 """
         output_html.write_text(vanilla_doc, encoding="utf-8")
-        print(f"Zapisano statyczny HTML Vanilla JS (Czysty Nagłówek): {output_html}")
+        print(f"Zapisano statyczny HTML Vanilla JS z Favikonami: {output_html}")
 
         if output_en_html:
             # Pre-configured English HTML version
@@ -796,6 +799,2409 @@ def export_csv(
   <meta name="description" content="Oficjalny roczny plan czytania Biblii towarzysza Roberta Robertsa (Wersja jQuery).">
   <meta property="og:title" content="Oficjalny Harmonogram Czytania Biblii — Chrystadelfianie (jQuery)">
   <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="alternate icon" href="favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <style>{common_style}</style>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body role="main">
+  <div class="top-bar">
+    <h1 id="main-h1">Oficjalny Harmonogram Czytania Biblii (prawdybiblijne.com)</h1>
+    <div class="lang-switcher">
+      <button type="button" class="lang-btn active" id="btn-lang-pl" onclick="setLanguageJQuery('pl')">🇵🇱 PL</button>
+      <button type="button" class="lang-btn" id="btn-lang-en" onclick="setLanguageJQuery('en')">🇬🇧 EN</button>
+    </div>
+  </div>
+
+  <p class="sub" id="main-sub">Kliknięcie w przycisk otwiera czytnik w serwisie <strong>HiperBiblia.com</strong> z Twoimi wybranymi przekładami.</p>
+
+  {controls_markup}
+
+  <table aria-label="Tabela rocznego harmonogramu czytania Biblii">
+    <thead>
+      <tr>
+        <th scope="col" id="th-day">Dzień</th>
+        <th scope="col" id="th-t1">ST: Prawo i Historia</th>
+        <th scope="col" id="th-t2">ST: Poezja i Prorocy</th>
+        <th scope="col" id="th-t3">NT (x2)</th>
+        <th scope="col" id="th-links">Linki HiperBiblia.com</th>
+      </tr>
+    </thead>
+    <tbody>
+      {tbody_content}
+    </tbody>
+  </table>
+
+  <button id="btn-back-to-top" class="btn-back-to-top" onclick="scrollToTop()" aria-label="Wróć na górę strony">⬆️ Do góry</button>
+
+  <script>
+    const KEY_LEFT = 'hiper_left_translation';
+    const KEY_RIGHT = 'hiper_right_translation';
+    const KEY_LANG = 'hiper_lang';
+    let currentLang = 'pl';
+
+    $(document).ready(function() {{
+      initControlsJQuery();
+    }});
+
+    function initControlsJQuery() {{
+      const savedLang = localStorage.getItem(KEY_LANG) || 'pl';
+      const savedLeft = localStorage.getItem(KEY_LEFT);
+      const savedRight = localStorage.getItem(KEY_RIGHT);
+
+      if (savedLeft) $('#select-left').val(savedLeft);
+      if (savedRight) $('#select-right').val(savedRight);
+
+      // Automatyczne wstawienie dzisiejszej daty do pola kalendarza
+      const d = new Date();
+      const todayIso = d.toISOString().split('T')[0];
+      $('#input-date-jump').val(todayIso);
+
+      $('#select-left, #select-right').on('change', updateTableLinksJQuery);
+      $('#input-date-jump').on('change', function() {{
+        jumpToDateJQuery($(this).val());
+      }});
+      $('#btn-today').on('click', jumpToTodayJQuery);
+
+      $(window).on('scroll', function() {{
+        if ($(this).scrollTop() > 300) {{
+          $('#btn-back-to-top').addClass('visible');
+        }} else {{
+          $('#btn-back-to-top').removeClass('visible');
+        }}
+      }});
+
+      setLanguageJQuery(savedLang, false);
+      updateTableLinksJQuery();
+    }}
+
+    function setLanguageJQuery(lang, userTriggered = true) {{
+      currentLang = lang;
+      localStorage.setItem(KEY_LANG, lang);
+
+      $('#btn-lang-pl').toggleClass('active', lang === 'pl');
+      $('#btn-lang-en').toggleClass('active', lang === 'en');
+      $('html').attr('lang', lang);
+
+      const isEn = lang === 'en';
+      if (userTriggered) {{
+        if (isEn) {{
+          $('#select-left').val('kjv');
+          $('#select-right').val('esv');
+        }} else {{
+          $('#select-left').val('snpd');
+          $('#select-right').val('lxxhb');
+        }}
+      }}
+
+      $('#main-h1').text(isEn ? 'Official Bible Reading Companion (Robert Roberts)' : 'Oficjalny Harmonogram Czytania Biblii (prawdybiblijne.com)');
+      $('#main-sub').html(isEn ? 'Clicking any button opens <strong>HiperBiblia.com</strong> dual-panel reader with your chosen translations.' : 'Kliknięcie w przycisk otwiera czytnik w serwisie <strong>HiperBiblia.com</strong> z Twoimi wybranymi przekładami.');
+      $('#lbl-left').text(isEn ? 'Left Panel (Translation 1):' : 'Lewy panel (Przekład 1):');
+      $('#lbl-right').text(isEn ? 'Right Panel (Translation 2):' : 'Prawy panel (Przekład 2):');
+      $('#lbl-date-jump').text(isEn ? '📅 Jump to date:' : '📅 Przejdź do daty:');
+      $('#btn-today').text(isEn ? 'Today' : 'Dzisiaj');
+      $('#btn-back-to-top').text(isEn ? '⬆️ Back to Top' : '⬆️ Do góry');
+
+      $('#th-day').text(isEn ? 'Day' : 'Dzień');
+      $('#th-t1').text(isEn ? 'OT: Law & History' : 'ST: Prawo i Historia');
+      $('#th-t2').text(isEn ? 'OT: Psalms & Prophets' : 'ST: Poezja i Prorocy');
+      $('#th-t3').text(isEn ? 'NT (x2)' : 'NT (x2)');
+      $('#th-links').text(isEn ? 'HiperBiblia.com Links' : 'Linki HiperBiblia.com');
+
+      $('.day-title-text').each(function() {{
+        const $el = $(this);
+        const dateTag = $el.find('.date-tag').prop('outerHTML') || '';
+        const dayNum = $el.closest('tr').attr('data-day');
+        $el.html(isEn ? `Day ${{dayNum}} ${{dateTag}}` : `Dzień ${{dayNum}} ${{dateTag}}`);
+      }});
+
+      $('.track-lbl').each(function() {{
+        $(this).text(isEn ? $(this).attr('data-en') : $(this).attr('data-pl'));
+      }});
+
+      $('.ref-text').each(function() {{
+        $(this).text(isEn ? $(this).attr('data-en') : $(this).attr('data-pl'));
+      }});
+
+      $('a[data-lbl-pl]').each(function() {{
+        $(this).text(isEn ? $(this).attr('data-lbl-en') : $(this).attr('data-lbl-pl'));
+      }});
+
+      $('.btn-share').text(isEn ? '📤 Share' : '📤 Udostępnij');
+      updateTableLinksJQuery();
+    }}
+
+    function scrollToTop() {{
+      window.scrollTo({{ top: 0, behavior: 'smooth' }});
+    }}
+
+    function updateTableLinksJQuery() {{
+      const left = $('#select-left').val();
+      const right = $('#select-right').val();
+      const lang = currentLang || 'pl';
+      localStorage.setItem(KEY_LEFT, left);
+      localStorage.setItem(KEY_RIGHT, right);
+
+      $('table a[data-base-url]').each(function() {{
+        const $link = $(this);
+        const baseUrl = $link.attr('data-base-url');
+        if (baseUrl && baseUrl.includes('hiperbiblia.com/reader')) {{
+          try {{
+            const urlObj = new URL(baseUrl);
+            urlObj.searchParams.set('left', left);
+            urlObj.searchParams.set('right', right);
+            urlObj.searchParams.set('locale', lang);
+            $link.attr('href', urlObj.toString());
+          }} catch (e) {{}}
+        }}
+      }});
+    }}
+
+    function jumpToDateJQuery(isoDate) {{
+      if (!isoDate) return;
+      const $targetRow = $(`tr[data-date="${{isoDate}}"]`);
+      if ($targetRow.length) {{
+        $targetRow[0].scrollIntoView({{ behavior: 'smooth', block: 'center' }});
+        $targetRow.addClass('highlight-flash');
+        setTimeout(function() {{
+          $targetRow.removeClass('highlight-flash');
+        }}, 2500);
+      }}
+    }}
+
+    function jumpToTodayJQuery() {{
+      const d = new Date();
+      const iso = d.toISOString().split('T')[0];
+      $('#input-date-jump').val(iso);
+      jumpToDateJQuery(iso);
+    }}
+
+    function shareDay(dayNum, dateStr) {{
+      const $row = $(`tr[data-day="${{dayNum}}"]`);
+      if (!$row.length) return;
+
+      const isEn = currentLang === 'en';
+      const t1Text = $row.find('.ref-text').eq(0).text();
+      const t2Text = $row.find('.ref-text').eq(1).text();
+      const t3Text = $row.find('.ref-text').eq(2).text();
+
+      const $links = $row.find('a[href]');
+      const u1 = $links.eq(0).attr('href') || '';
+      const u2 = $links.eq(1).attr('href') || '';
+      const u3 = $links.eq(2).attr('href') || '';
+
+      const titleStr = isEn ? `📖 Bible Reading — Day ${{dayNum}} (${{dateStr}}):` : `📖 Czytanie Biblii — Dzień ${{dayNum}} (${{dateStr}}):`;
+      const shareText = `${{titleStr}}\n\n1. ${{t1Text}}:\n${{u1}}\n\n2. ${{t2Text}}:\n${{u2}}\n\n3. ${{t3Text}}:\n${{u3}}`;
+
+      if (navigator.share) {{
+        navigator.share({{
+          title: isEn ? `Bible Reading — Day ${{dayNum}}` : `Czytanie Biblii — Dzień ${{dayNum}}`,
+          text: shareText
+        }}).catch(() => {{}});
+      }} else {{
+        navigator.clipboard.writeText(shareText).then(() => {{
+          showToast(isEn ? `📋 Copied Day ${{dayNum}} reading to clipboard!` : `📋 Skopiowano czytanie na Dzień ${{dayNum}} do schowka!`);
+        }});
+      }}
+    }}
+
+    function showToast(msg) {{
+      $('.toast-msg').remove();
+      $('<div>')
+        .addClass('toast-msg')
+        .text(msg)
+        .appendTo('body');
+      setTimeout(() => $('.toast-msg').remove(), 3200);
+    }}
+  </script>
+</body>
+</html>
+"""
+        output_html.write_text(vanilla_doc, encoding="utf-8")
+        print(f"Zapisano statyczny HTML Vanilla JS z Favikonami: {output_html}")
+
+        if output_en_html:
+            # Pre-configured English HTML version
+            en_doc = vanilla_doc.replace("<html lang=\"pl\">", "<html lang=\"en\">")
+            en_doc = en_doc.replace("const savedLang = localStorage.getItem(KEY_LANG) || 'pl';", "const savedLang = 'en';")
+            output_en_html.write_text(en_doc, encoding="utf-8")
+            print(f"Zapisano dedykowany HTML Angielski: {output_en_html}")
+
+    # 2. GENERACJA WERSJI JQUERY (STANDARD 2026)
+    if output_jquery_html:
+        jquery_doc = f"""<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oficjalny Harmonogram Czytania Biblii — Chrystadelfianie (jQuery 3.7.1)</title>
+  <meta name="description" content="Oficjalny roczny plan czytania Biblii towarzysza Roberta Robertsa (Wersja jQuery).">
+  <meta property="og:title" content="Oficjalny Harmonogram Czytania Biblii — Chrystadelfianie (jQuery)">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="alternate icon" href="favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <style>{common_style}</style>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body role="main">
+  <div class="top-bar">
+    <h1 id="main-h1">Oficjalny Harmonogram Czytania Biblii (prawdybiblijne.com)</h1>
+    <div class="lang-switcher">
+      <button type="button" class="lang-btn active" id="btn-lang-pl" onclick="setLanguageJQuery('pl')">🇵🇱 PL</button>
+      <button type="button" class="lang-btn" id="btn-lang-en" onclick="setLanguageJQuery('en')">🇬🇧 EN</button>
+    </div>
+  </div>
+
+  <p class="sub" id="main-sub">Kliknięcie w przycisk otwiera czytnik w serwisie <strong>HiperBiblia.com</strong> z Twoimi wybranymi przekładami.</p>
+
+  {controls_markup}
+
+  <table aria-label="Tabela rocznego harmonogramu czytania Biblii">
+    <thead>
+      <tr>
+        <th scope="col" id="th-day">Dzień</th>
+        <th scope="col" id="th-t1">ST: Prawo i Historia</th>
+        <th scope="col" id="th-t2">ST: Poezja i Prorocy</th>
+        <th scope="col" id="th-t3">NT (x2)</th>
+        <th scope="col" id="th-links">Linki HiperBiblia.com</th>
+      </tr>
+    </thead>
+    <tbody>
+      {tbody_content}
+    </tbody>
+  </table>
+
+  <button id="btn-back-to-top" class="btn-back-to-top" onclick="scrollToTop()" aria-label="Wróć na górę strony">⬆️ Do góry</button>
+
+  <script>
+    const KEY_LEFT = 'hiper_left_translation';
+    const KEY_RIGHT = 'hiper_right_translation';
+    const KEY_LANG = 'hiper_lang';
+    let currentLang = 'pl';
+
+    $(document).ready(function() {{
+      initControlsJQuery();
+    }});
+
+    function initControlsJQuery() {{
+      const savedLang = localStorage.getItem(KEY_LANG) || 'pl';
+      const savedLeft = localStorage.getItem(KEY_LEFT);
+      const savedRight = localStorage.getItem(KEY_RIGHT);
+
+      if (savedLeft) $('#select-left').val(savedLeft);
+      if (savedRight) $('#select-right').val(savedRight);
+
+      // Automatyczne wstawienie dzisiejszej daty do pola kalendarza
+      const d = new Date();
+      const todayIso = d.toISOString().split('T')[0];
+      $('#input-date-jump').val(todayIso);
+
+      $('#select-left, #select-right').on('change', updateTableLinksJQuery);
+      $('#input-date-jump').on('change', function() {{
+        jumpToDateJQuery($(this).val());
+      }});
+      $('#btn-today').on('click', jumpToTodayJQuery);
+
+      $(window).on('scroll', function() {{
+        if ($(this).scrollTop() > 300) {{
+          $('#btn-back-to-top').addClass('visible');
+        }} else {{
+          $('#btn-back-to-top').removeClass('visible');
+        }}
+      }});
+
+      setLanguageJQuery(savedLang, false);
+      updateTableLinksJQuery();
+    }}
+
+    function setLanguageJQuery(lang, userTriggered = true) {{
+      currentLang = lang;
+      localStorage.setItem(KEY_LANG, lang);
+
+      $('#btn-lang-pl').toggleClass('active', lang === 'pl');
+      $('#btn-lang-en').toggleClass('active', lang === 'en');
+      $('html').attr('lang', lang);
+
+      const isEn = lang === 'en';
+      if (userTriggered) {{
+        if (isEn) {{
+          $('#select-left').val('kjv');
+          $('#select-right').val('esv');
+        }} else {{
+          $('#select-left').val('snpd');
+          $('#select-right').val('lxxhb');
+        }}
+      }}
+
+      $('#main-h1').text(isEn ? 'Official Bible Reading Companion (Robert Roberts)' : 'Oficjalny Harmonogram Czytania Biblii (prawdybiblijne.com)');
+      $('#main-sub').html(isEn ? 'Clicking any button opens <strong>HiperBiblia.com</strong> dual-panel reader with your chosen translations.' : 'Kliknięcie w przycisk otwiera czytnik w serwisie <strong>HiperBiblia.com</strong> z Twoimi wybranymi przekładami.');
+      $('#lbl-left').text(isEn ? 'Left Panel (Translation 1):' : 'Lewy panel (Przekład 1):');
+      $('#lbl-right').text(isEn ? 'Right Panel (Translation 2):' : 'Prawy panel (Przekład 2):');
+      $('#lbl-date-jump').text(isEn ? '📅 Jump to date:' : '📅 Przejdź do daty:');
+      $('#btn-today').text(isEn ? 'Today' : 'Dzisiaj');
+      $('#btn-back-to-top').text(isEn ? '⬆️ Back to Top' : '⬆️ Do góry');
+
+      $('#th-day').text(isEn ? 'Day' : 'Dzień');
+      $('#th-t1').text(isEn ? 'OT: Law & History' : 'ST: Prawo i Historia');
+      $('#th-t2').text(isEn ? 'OT: Psalms & Prophets' : 'ST: Poezja i Prorocy');
+      $('#th-t3').text(isEn ? 'NT (x2)' : 'NT (x2)');
+      $('#th-links').text(isEn ? 'HiperBiblia.com Links' : 'Linki HiperBiblia.com');
+
+      $('.day-title-text').each(function() {{
+        const $el = $(this);
+        const dateTag = $el.find('.date-tag').prop('outerHTML') || '';
+        const dayNum = $el.closest('tr').attr('data-day');
+        $el.html(isEn ? `Day ${{dayNum}} ${{dateTag}}` : `Dzień ${{dayNum}} ${{dateTag}}`);
+      }});
+
+      $('.track-lbl').each(function() {{
+        $(this).text(isEn ? $(this).attr('data-en') : $(this).attr('data-pl'));
+      }});
+
+      $('.ref-text').each(function() {{
+        $(this).text(isEn ? $(this).attr('data-en') : $(this).attr('data-pl'));
+      }});
+
+      $('a[data-lbl-pl]').each(function() {{
+        $(this).text(isEn ? $(this).attr('data-lbl-en') : $(this).attr('data-lbl-pl'));
+      }});
+
+      $('.btn-share').text(isEn ? '📤 Share' : '📤 Udostępnij');
+      updateTableLinksJQuery();
+    }}
+
+    function scrollToTop() {{
+      window.scrollTo({{ top: 0, behavior: 'smooth' }});
+    }}
+
+    function updateTableLinksJQuery() {{
+      const left = $('#select-left').val();
+      const right = $('#select-right').val();
+      const lang = currentLang || 'pl';
+      localStorage.setItem(KEY_LEFT, left);
+      localStorage.setItem(KEY_RIGHT, right);
+
+      $('table a[data-base-url]').each(function() {{
+        const $link = $(this);
+        const baseUrl = $link.attr('data-base-url');
+        if (baseUrl && baseUrl.includes('hiperbiblia.com/reader')) {{
+          try {{
+            const urlObj = new URL(baseUrl);
+            urlObj.searchParams.set('left', left);
+            urlObj.searchParams.set('right', right);
+            urlObj.searchParams.set('locale', lang);
+            $link.attr('href', urlObj.toString());
+          }} catch (e) {{}}
+        }}
+      }});
+    }}
+
+    function jumpToDateJQuery(isoDate) {{
+      if (!isoDate) return;
+      const $targetRow = $(`tr[data-date="${{isoDate}}"]`);
+      if ($targetRow.length) {{
+        $targetRow[0].scrollIntoView({{ behavior: 'smooth', block: 'center' }});
+        $targetRow.addClass('highlight-flash');
+        setTimeout(function() {{
+          $targetRow.removeClass('highlight-flash');
+        }}, 2500);
+      }}
+    }}
+
+    function jumpToTodayJQuery() {{
+      const d = new Date();
+      const iso = d.toISOString().split('T')[0];
+      $('#input-date-jump').val(iso);
+      jumpToDateJQuery(iso);
+    }}
+
+    function shareDay(dayNum, dateStr) {{
+      const $row = $(`tr[data-day="${{dayNum}}"]`);
+      if (!$row.length) return;
+
+      const isEn = currentLang === 'en';
+      const t1Text = $row.find('.ref-text').eq(0).text();
+      const t2Text = $row.find('.ref-text').eq(1).text();
+      const t3Text = $row.find('.ref-text').eq(2).text();
+
+      const $links = $row.find('a[href]');
+      const u1 = $links.eq(0).attr('href') || '';
+      const u2 = $links.eq(1).attr('href') || '';
+      const u3 = $links.eq(2).attr('href') || '';
+
+      const titleStr = isEn ? `📖 Bible Reading — Day ${{dayNum}} (${{dateStr}}):` : `📖 Czytanie Biblii — Dzień ${{dayNum}} (${{dateStr}}):`;
+      const shareText = `${{titleStr}}\n\n1. ${{t1Text}}:\n${{u1}}\n\n2. ${{t2Text}}:\n${{u2}}\n\n3. ${{t3Text}}:\n${{u3}}`;
+
+      if (navigator.share) {{
+        navigator.share({{
+          title: isEn ? `Bible Reading — Day ${{dayNum}}` : `Czytanie Biblii — Dzień ${{dayNum}}`,
+          text: shareText
+        }}).catch(() => {{}});
+      }} else {{
+        navigator.clipboard.writeText(shareText).then(() => {{
+          showToast(isEn ? `📋 Copied Day ${{dayNum}} reading to clipboard!` : `📋 Skopiowano czytanie na Dzień ${{dayNum}} do schowka!`);
+        }});
+      }}
+    }}
+
+    function showToast(msg) {{
+      $('.toast-msg').remove();
+      $('<div>')
+        .addClass('toast-msg')
+        .text(msg)
+        .appendTo('body');
+      setTimeout(() => $('.toast-msg').remove(), 3200);
+    }}
+  </script>
+</body>
+</html>
+"""
+        output_html.write_text(vanilla_doc, encoding="utf-8")
+        print(f"Zapisano statyczny HTML Vanilla JS z Favikonami: {output_html}")
+
+        if output_en_html:
+            # Pre-configured English HTML version
+            en_doc = vanilla_doc.replace("<html lang=\"pl\">", "<html lang=\"en\">")
+            en_doc = en_doc.replace("const savedLang = localStorage.getItem(KEY_LANG) || 'pl';", "const savedLang = 'en';")
+            output_en_html.write_text(en_doc, encoding="utf-8")
+            print(f"Zapisano dedykowany HTML Angielski: {output_en_html}")
+
+    # 2. GENERACJA WERSJI JQUERY (STANDARD 2026)
+    if output_jquery_html:
+        jquery_doc = f"""<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oficjalny Harmonogram Czytania Biblii — Chrystadelfianie (jQuery 3.7.1)</title>
+  <meta name="description" content="Oficjalny roczny plan czytania Biblii towarzysza Roberta Robertsa (Wersja jQuery).">
+  <meta property="og:title" content="Oficjalny Harmonogram Czytania Biblii — Chrystadelfianie (jQuery)">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="alternate icon" href="favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <style>{common_style}</style>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body role="main">
+  <div class="top-bar">
+    <h1 id="main-h1">Oficjalny Harmonogram Czytania Biblii (prawdybiblijne.com)</h1>
+    <div class="lang-switcher">
+      <button type="button" class="lang-btn active" id="btn-lang-pl" onclick="setLanguageJQuery('pl')">🇵🇱 PL</button>
+      <button type="button" class="lang-btn" id="btn-lang-en" onclick="setLanguageJQuery('en')">🇬🇧 EN</button>
+    </div>
+  </div>
+
+  <p class="sub" id="main-sub">Kliknięcie w przycisk otwiera czytnik w serwisie <strong>HiperBiblia.com</strong> z Twoimi wybranymi przekładami.</p>
+
+  {controls_markup}
+
+  <table aria-label="Tabela rocznego harmonogramu czytania Biblii">
+    <thead>
+      <tr>
+        <th scope="col" id="th-day">Dzień</th>
+        <th scope="col" id="th-t1">ST: Prawo i Historia</th>
+        <th scope="col" id="th-t2">ST: Poezja i Prorocy</th>
+        <th scope="col" id="th-t3">NT (x2)</th>
+        <th scope="col" id="th-links">Linki HiperBiblia.com</th>
+      </tr>
+    </thead>
+    <tbody>
+      {tbody_content}
+    </tbody>
+  </table>
+
+  <button id="btn-back-to-top" class="btn-back-to-top" onclick="scrollToTop()" aria-label="Wróć na górę strony">⬆️ Do góry</button>
+
+  <script>
+    const KEY_LEFT = 'hiper_left_translation';
+    const KEY_RIGHT = 'hiper_right_translation';
+    const KEY_LANG = 'hiper_lang';
+    let currentLang = 'pl';
+
+    $(document).ready(function() {{
+      initControlsJQuery();
+    }});
+
+    function initControlsJQuery() {{
+      const savedLang = localStorage.getItem(KEY_LANG) || 'pl';
+      const savedLeft = localStorage.getItem(KEY_LEFT);
+      const savedRight = localStorage.getItem(KEY_RIGHT);
+
+      if (savedLeft) $('#select-left').val(savedLeft);
+      if (savedRight) $('#select-right').val(savedRight);
+
+      // Automatyczne wstawienie dzisiejszej daty do pola kalendarza
+      const d = new Date();
+      const todayIso = d.toISOString().split('T')[0];
+      $('#input-date-jump').val(todayIso);
+
+      $('#select-left, #select-right').on('change', updateTableLinksJQuery);
+      $('#input-date-jump').on('change', function() {{
+        jumpToDateJQuery($(this).val());
+      }});
+      $('#btn-today').on('click', jumpToTodayJQuery);
+
+      $(window).on('scroll', function() {{
+        if ($(this).scrollTop() > 300) {{
+          $('#btn-back-to-top').addClass('visible');
+        }} else {{
+          $('#btn-back-to-top').removeClass('visible');
+        }}
+      }});
+
+      setLanguageJQuery(savedLang, false);
+      updateTableLinksJQuery();
+    }}
+
+    function setLanguageJQuery(lang, userTriggered = true) {{
+      currentLang = lang;
+      localStorage.setItem(KEY_LANG, lang);
+
+      $('#btn-lang-pl').toggleClass('active', lang === 'pl');
+      $('#btn-lang-en').toggleClass('active', lang === 'en');
+      $('html').attr('lang', lang);
+
+      const isEn = lang === 'en';
+      if (userTriggered) {{
+        if (isEn) {{
+          $('#select-left').val('kjv');
+          $('#select-right').val('esv');
+        }} else {{
+          $('#select-left').val('snpd');
+          $('#select-right').val('lxxhb');
+        }}
+      }}
+
+      $('#main-h1').text(isEn ? 'Official Bible Reading Companion (Robert Roberts)' : 'Oficjalny Harmonogram Czytania Biblii (prawdybiblijne.com)');
+      $('#main-sub').html(isEn ? 'Clicking any button opens <strong>HiperBiblia.com</strong> dual-panel reader with your chosen translations.' : 'Kliknięcie w przycisk otwiera czytnik w serwisie <strong>HiperBiblia.com</strong> z Twoimi wybranymi przekładami.');
+      $('#lbl-left').text(isEn ? 'Left Panel (Translation 1):' : 'Lewy panel (Przekład 1):');
+      $('#lbl-right').text(isEn ? 'Right Panel (Translation 2):' : 'Prawy panel (Przekład 2):');
+      $('#lbl-date-jump').text(isEn ? '📅 Jump to date:' : '📅 Przejdź do daty:');
+      $('#btn-today').text(isEn ? 'Today' : 'Dzisiaj');
+      $('#btn-back-to-top').text(isEn ? '⬆️ Back to Top' : '⬆️ Do góry');
+
+      $('#th-day').text(isEn ? 'Day' : 'Dzień');
+      $('#th-t1').text(isEn ? 'OT: Law & History' : 'ST: Prawo i Historia');
+      $('#th-t2').text(isEn ? 'OT: Psalms & Prophets' : 'ST: Poezja i Prorocy');
+      $('#th-t3').text(isEn ? 'NT (x2)' : 'NT (x2)');
+      $('#th-links').text(isEn ? 'HiperBiblia.com Links' : 'Linki HiperBiblia.com');
+
+      $('.day-title-text').each(function() {{
+        const $el = $(this);
+        const dateTag = $el.find('.date-tag').prop('outerHTML') || '';
+        const dayNum = $el.closest('tr').attr('data-day');
+        $el.html(isEn ? `Day ${{dayNum}} ${{dateTag}}` : `Dzień ${{dayNum}} ${{dateTag}}`);
+      }});
+
+      $('.track-lbl').each(function() {{
+        $(this).text(isEn ? $(this).attr('data-en') : $(this).attr('data-pl'));
+      }});
+
+      $('.ref-text').each(function() {{
+        $(this).text(isEn ? $(this).attr('data-en') : $(this).attr('data-pl'));
+      }});
+
+      $('a[data-lbl-pl]').each(function() {{
+        $(this).text(isEn ? $(this).attr('data-lbl-en') : $(this).attr('data-lbl-pl'));
+      }});
+
+      $('.btn-share').text(isEn ? '📤 Share' : '📤 Udostępnij');
+      updateTableLinksJQuery();
+    }}
+
+    function scrollToTop() {{
+      window.scrollTo({{ top: 0, behavior: 'smooth' }});
+    }}
+
+    function updateTableLinksJQuery() {{
+      const left = $('#select-left').val();
+      const right = $('#select-right').val();
+      const lang = currentLang || 'pl';
+      localStorage.setItem(KEY_LEFT, left);
+      localStorage.setItem(KEY_RIGHT, right);
+
+      $('table a[data-base-url]').each(function() {{
+        const $link = $(this);
+        const baseUrl = $link.attr('data-base-url');
+        if (baseUrl && baseUrl.includes('hiperbiblia.com/reader')) {{
+          try {{
+            const urlObj = new URL(baseUrl);
+            urlObj.searchParams.set('left', left);
+            urlObj.searchParams.set('right', right);
+            urlObj.searchParams.set('locale', lang);
+            $link.attr('href', urlObj.toString());
+          }} catch (e) {{}}
+        }}
+      }});
+    }}
+
+    function jumpToDateJQuery(isoDate) {{
+      if (!isoDate) return;
+      const $targetRow = $(`tr[data-date="${{isoDate}}"]`);
+      if ($targetRow.length) {{
+        $targetRow[0].scrollIntoView({{ behavior: 'smooth', block: 'center' }});
+        $targetRow.addClass('highlight-flash');
+        setTimeout(function() {{
+          $targetRow.removeClass('highlight-flash');
+        }}, 2500);
+      }}
+    }}
+
+    function jumpToTodayJQuery() {{
+      const d = new Date();
+      const iso = d.toISOString().split('T')[0];
+      $('#input-date-jump').val(iso);
+      jumpToDateJQuery(iso);
+    }}
+
+    function shareDay(dayNum, dateStr) {{
+      const $row = $(`tr[data-day="${{dayNum}}"]`);
+      if (!$row.length) return;
+
+      const isEn = currentLang === 'en';
+      const t1Text = $row.find('.ref-text').eq(0).text();
+      const t2Text = $row.find('.ref-text').eq(1).text();
+      const t3Text = $row.find('.ref-text').eq(2).text();
+
+      const $links = $row.find('a[href]');
+      const u1 = $links.eq(0).attr('href') || '';
+      const u2 = $links.eq(1).attr('href') || '';
+      const u3 = $links.eq(2).attr('href') || '';
+
+      const titleStr = isEn ? `📖 Bible Reading — Day ${{dayNum}} (${{dateStr}}):` : `📖 Czytanie Biblii — Dzień ${{dayNum}} (${{dateStr}}):`;
+      const shareText = `${{titleStr}}\n\n1. ${{t1Text}}:\n${{u1}}\n\n2. ${{t2Text}}:\n${{u2}}\n\n3. ${{t3Text}}:\n${{u3}}`;
+
+      if (navigator.share) {{
+        navigator.share({{
+          title: isEn ? `Bible Reading — Day ${{dayNum}}` : `Czytanie Biblii — Dzień ${{dayNum}}`,
+          text: shareText
+        }}).catch(() => {{}});
+      }} else {{
+        navigator.clipboard.writeText(shareText).then(() => {{
+          showToast(isEn ? `📋 Copied Day ${{dayNum}} reading to clipboard!` : `📋 Skopiowano czytanie na Dzień ${{dayNum}} do schowka!`);
+        }});
+      }}
+    }}
+
+    function showToast(msg) {{
+      $('.toast-msg').remove();
+      $('<div>')
+        .addClass('toast-msg')
+        .text(msg)
+        .appendTo('body');
+      setTimeout(() => $('.toast-msg').remove(), 3200);
+    }}
+  </script>
+</body>
+</html>
+"""
+        output_html.write_text(vanilla_doc, encoding="utf-8")
+        print(f"Zapisano statyczny HTML Vanilla JS z Favikonami: {output_html}")
+
+        if output_en_html:
+            # Pre-configured English HTML version
+            en_doc = vanilla_doc.replace("<html lang=\"pl\">", "<html lang=\"en\">")
+            en_doc = en_doc.replace("const savedLang = localStorage.getItem(KEY_LANG) || 'pl';", "const savedLang = 'en';")
+            output_en_html.write_text(en_doc, encoding="utf-8")
+            print(f"Zapisano dedykowany HTML Angielski: {output_en_html}")
+
+    # 2. GENERACJA WERSJI JQUERY (STANDARD 2026)
+    if output_jquery_html:
+        jquery_doc = f"""<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oficjalny Harmonogram Czytania Biblii — Chrystadelfianie (jQuery 3.7.1)</title>
+  <meta name="description" content="Oficjalny roczny plan czytania Biblii towarzysza Roberta Robertsa (Wersja jQuery).">
+  <meta property="og:title" content="Oficjalny Harmonogram Czytania Biblii — Chrystadelfianie (jQuery)">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="alternate icon" href="favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <style>{common_style}</style>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body role="main">
+  <div class="top-bar">
+    <h1 id="main-h1">Oficjalny Harmonogram Czytania Biblii (prawdybiblijne.com)</h1>
+    <div class="lang-switcher">
+      <button type="button" class="lang-btn active" id="btn-lang-pl" onclick="setLanguageJQuery('pl')">🇵🇱 PL</button>
+      <button type="button" class="lang-btn" id="btn-lang-en" onclick="setLanguageJQuery('en')">🇬🇧 EN</button>
+    </div>
+  </div>
+
+  <p class="sub" id="main-sub">Kliknięcie w przycisk otwiera czytnik w serwisie <strong>HiperBiblia.com</strong> z Twoimi wybranymi przekładami.</p>
+
+  {controls_markup}
+
+  <table aria-label="Tabela rocznego harmonogramu czytania Biblii">
+    <thead>
+      <tr>
+        <th scope="col" id="th-day">Dzień</th>
+        <th scope="col" id="th-t1">ST: Prawo i Historia</th>
+        <th scope="col" id="th-t2">ST: Poezja i Prorocy</th>
+        <th scope="col" id="th-t3">NT (x2)</th>
+        <th scope="col" id="th-links">Linki HiperBiblia.com</th>
+      </tr>
+    </thead>
+    <tbody>
+      {tbody_content}
+    </tbody>
+  </table>
+
+  <button id="btn-back-to-top" class="btn-back-to-top" onclick="scrollToTop()" aria-label="Wróć na górę strony">⬆️ Do góry</button>
+
+  <script>
+    const KEY_LEFT = 'hiper_left_translation';
+    const KEY_RIGHT = 'hiper_right_translation';
+    const KEY_LANG = 'hiper_lang';
+    let currentLang = 'pl';
+
+    $(document).ready(function() {{
+      initControlsJQuery();
+    }});
+
+    function initControlsJQuery() {{
+      const savedLang = localStorage.getItem(KEY_LANG) || 'pl';
+      const savedLeft = localStorage.getItem(KEY_LEFT);
+      const savedRight = localStorage.getItem(KEY_RIGHT);
+
+      if (savedLeft) $('#select-left').val(savedLeft);
+      if (savedRight) $('#select-right').val(savedRight);
+
+      // Automatyczne wstawienie dzisiejszej daty do pola kalendarza
+      const d = new Date();
+      const todayIso = d.toISOString().split('T')[0];
+      $('#input-date-jump').val(todayIso);
+
+      $('#select-left, #select-right').on('change', updateTableLinksJQuery);
+      $('#input-date-jump').on('change', function() {{
+        jumpToDateJQuery($(this).val());
+      }});
+      $('#btn-today').on('click', jumpToTodayJQuery);
+
+      $(window).on('scroll', function() {{
+        if ($(this).scrollTop() > 300) {{
+          $('#btn-back-to-top').addClass('visible');
+        }} else {{
+          $('#btn-back-to-top').removeClass('visible');
+        }}
+      }});
+
+      setLanguageJQuery(savedLang, false);
+      updateTableLinksJQuery();
+    }}
+
+    function setLanguageJQuery(lang, userTriggered = true) {{
+      currentLang = lang;
+      localStorage.setItem(KEY_LANG, lang);
+
+      $('#btn-lang-pl').toggleClass('active', lang === 'pl');
+      $('#btn-lang-en').toggleClass('active', lang === 'en');
+      $('html').attr('lang', lang);
+
+      const isEn = lang === 'en';
+      if (userTriggered) {{
+        if (isEn) {{
+          $('#select-left').val('kjv');
+          $('#select-right').val('esv');
+        }} else {{
+          $('#select-left').val('snpd');
+          $('#select-right').val('lxxhb');
+        }}
+      }}
+
+      $('#main-h1').text(isEn ? 'Official Bible Reading Companion (Robert Roberts)' : 'Oficjalny Harmonogram Czytania Biblii (prawdybiblijne.com)');
+      $('#main-sub').html(isEn ? 'Clicking any button opens <strong>HiperBiblia.com</strong> dual-panel reader with your chosen translations.' : 'Kliknięcie w przycisk otwiera czytnik w serwisie <strong>HiperBiblia.com</strong> z Twoimi wybranymi przekładami.');
+      $('#lbl-left').text(isEn ? 'Left Panel (Translation 1):' : 'Lewy panel (Przekład 1):');
+      $('#lbl-right').text(isEn ? 'Right Panel (Translation 2):' : 'Prawy panel (Przekład 2):');
+      $('#lbl-date-jump').text(isEn ? '📅 Jump to date:' : '📅 Przejdź do daty:');
+      $('#btn-today').text(isEn ? 'Today' : 'Dzisiaj');
+      $('#btn-back-to-top').text(isEn ? '⬆️ Back to Top' : '⬆️ Do góry');
+
+      $('#th-day').text(isEn ? 'Day' : 'Dzień');
+      $('#th-t1').text(isEn ? 'OT: Law & History' : 'ST: Prawo i Historia');
+      $('#th-t2').text(isEn ? 'OT: Psalms & Prophets' : 'ST: Poezja i Prorocy');
+      $('#th-t3').text(isEn ? 'NT (x2)' : 'NT (x2)');
+      $('#th-links').text(isEn ? 'HiperBiblia.com Links' : 'Linki HiperBiblia.com');
+
+      $('.day-title-text').each(function() {{
+        const $el = $(this);
+        const dateTag = $el.find('.date-tag').prop('outerHTML') || '';
+        const dayNum = $el.closest('tr').attr('data-day');
+        $el.html(isEn ? `Day ${{dayNum}} ${{dateTag}}` : `Dzień ${{dayNum}} ${{dateTag}}`);
+      }});
+
+      $('.track-lbl').each(function() {{
+        $(this).text(isEn ? $(this).attr('data-en') : $(this).attr('data-pl'));
+      }});
+
+      $('.ref-text').each(function() {{
+        $(this).text(isEn ? $(this).attr('data-en') : $(this).attr('data-pl'));
+      }});
+
+      $('a[data-lbl-pl]').each(function() {{
+        $(this).text(isEn ? $(this).attr('data-lbl-en') : $(this).attr('data-lbl-pl'));
+      }});
+
+      $('.btn-share').text(isEn ? '📤 Share' : '📤 Udostępnij');
+      updateTableLinksJQuery();
+    }}
+
+    function scrollToTop() {{
+      window.scrollTo({{ top: 0, behavior: 'smooth' }});
+    }}
+
+    function updateTableLinksJQuery() {{
+      const left = $('#select-left').val();
+      const right = $('#select-right').val();
+      const lang = currentLang || 'pl';
+      localStorage.setItem(KEY_LEFT, left);
+      localStorage.setItem(KEY_RIGHT, right);
+
+      $('table a[data-base-url]').each(function() {{
+        const $link = $(this);
+        const baseUrl = $link.attr('data-base-url');
+        if (baseUrl && baseUrl.includes('hiperbiblia.com/reader')) {{
+          try {{
+            const urlObj = new URL(baseUrl);
+            urlObj.searchParams.set('left', left);
+            urlObj.searchParams.set('right', right);
+            urlObj.searchParams.set('locale', lang);
+            $link.attr('href', urlObj.toString());
+          }} catch (e) {{}}
+        }}
+      }});
+    }}
+
+    function jumpToDateJQuery(isoDate) {{
+      if (!isoDate) return;
+      const $targetRow = $(`tr[data-date="${{isoDate}}"]`);
+      if ($targetRow.length) {{
+        $targetRow[0].scrollIntoView({{ behavior: 'smooth', block: 'center' }});
+        $targetRow.addClass('highlight-flash');
+        setTimeout(function() {{
+          $targetRow.removeClass('highlight-flash');
+        }}, 2500);
+      }}
+    }}
+
+    function jumpToTodayJQuery() {{
+      const d = new Date();
+      const iso = d.toISOString().split('T')[0];
+      $('#input-date-jump').val(iso);
+      jumpToDateJQuery(iso);
+    }}
+
+    function shareDay(dayNum, dateStr) {{
+      const $row = $(`tr[data-day="${{dayNum}}"]`);
+      if (!$row.length) return;
+
+      const isEn = currentLang === 'en';
+      const t1Text = $row.find('.ref-text').eq(0).text();
+      const t2Text = $row.find('.ref-text').eq(1).text();
+      const t3Text = $row.find('.ref-text').eq(2).text();
+
+      const $links = $row.find('a[href]');
+      const u1 = $links.eq(0).attr('href') || '';
+      const u2 = $links.eq(1).attr('href') || '';
+      const u3 = $links.eq(2).attr('href') || '';
+
+      const titleStr = isEn ? `📖 Bible Reading — Day ${{dayNum}} (${{dateStr}}):` : `📖 Czytanie Biblii — Dzień ${{dayNum}} (${{dateStr}}):`;
+      const shareText = `${{titleStr}}\n\n1. ${{t1Text}}:\n${{u1}}\n\n2. ${{t2Text}}:\n${{u2}}\n\n3. ${{t3Text}}:\n${{u3}}`;
+
+      if (navigator.share) {{
+        navigator.share({{
+          title: isEn ? `Bible Reading — Day ${{dayNum}}` : `Czytanie Biblii — Dzień ${{dayNum}}`,
+          text: shareText
+        }}).catch(() => {{}});
+      }} else {{
+        navigator.clipboard.writeText(shareText).then(() => {{
+          showToast(isEn ? `📋 Copied Day ${{dayNum}} reading to clipboard!` : `📋 Skopiowano czytanie na Dzień ${{dayNum}} do schowka!`);
+        }});
+      }}
+    }}
+
+    function showToast(msg) {{
+      $('.toast-msg').remove();
+      $('<div>')
+        .addClass('toast-msg')
+        .text(msg)
+        .appendTo('body');
+      setTimeout(() => $('.toast-msg').remove(), 3200);
+    }}
+  </script>
+</body>
+</html>
+"""
+        output_html.write_text(vanilla_doc, encoding="utf-8")
+        print(f"Zapisano statyczny HTML Vanilla JS z Favikonami: {output_html}")
+
+        if output_en_html:
+            # Pre-configured English HTML version
+            en_doc = vanilla_doc.replace("<html lang=\"pl\">", "<html lang=\"en\">")
+            en_doc = en_doc.replace("const savedLang = localStorage.getItem(KEY_LANG) || 'pl';", "const savedLang = 'en';")
+            output_en_html.write_text(en_doc, encoding="utf-8")
+            print(f"Zapisano dedykowany HTML Angielski: {output_en_html}")
+
+    # 2. GENERACJA WERSJI JQUERY (STANDARD 2026)
+    if output_jquery_html:
+        jquery_doc = f"""<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oficjalny Harmonogram Czytania Biblii — Chrystadelfianie (jQuery 3.7.1)</title>
+  <meta name="description" content="Oficjalny roczny plan czytania Biblii towarzysza Roberta Robertsa (Wersja jQuery).">
+  <meta property="og:title" content="Oficjalny Harmonogram Czytania Biblii — Chrystadelfianie (jQuery)">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="alternate icon" href="favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <style>{common_style}</style>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body role="main">
+  <div class="top-bar">
+    <h1 id="main-h1">Oficjalny Harmonogram Czytania Biblii (prawdybiblijne.com)</h1>
+    <div class="lang-switcher">
+      <button type="button" class="lang-btn active" id="btn-lang-pl" onclick="setLanguageJQuery('pl')">🇵🇱 PL</button>
+      <button type="button" class="lang-btn" id="btn-lang-en" onclick="setLanguageJQuery('en')">🇬🇧 EN</button>
+    </div>
+  </div>
+
+  <p class="sub" id="main-sub">Kliknięcie w przycisk otwiera czytnik w serwisie <strong>HiperBiblia.com</strong> z Twoimi wybranymi przekładami.</p>
+
+  {controls_markup}
+
+  <table aria-label="Tabela rocznego harmonogramu czytania Biblii">
+    <thead>
+      <tr>
+        <th scope="col" id="th-day">Dzień</th>
+        <th scope="col" id="th-t1">ST: Prawo i Historia</th>
+        <th scope="col" id="th-t2">ST: Poezja i Prorocy</th>
+        <th scope="col" id="th-t3">NT (x2)</th>
+        <th scope="col" id="th-links">Linki HiperBiblia.com</th>
+      </tr>
+    </thead>
+    <tbody>
+      {tbody_content}
+    </tbody>
+  </table>
+
+  <button id="btn-back-to-top" class="btn-back-to-top" onclick="scrollToTop()" aria-label="Wróć na górę strony">⬆️ Do góry</button>
+
+  <script>
+    const KEY_LEFT = 'hiper_left_translation';
+    const KEY_RIGHT = 'hiper_right_translation';
+    const KEY_LANG = 'hiper_lang';
+    let currentLang = 'pl';
+
+    $(document).ready(function() {{
+      initControlsJQuery();
+    }});
+
+    function initControlsJQuery() {{
+      const savedLang = localStorage.getItem(KEY_LANG) || 'pl';
+      const savedLeft = localStorage.getItem(KEY_LEFT);
+      const savedRight = localStorage.getItem(KEY_RIGHT);
+
+      if (savedLeft) $('#select-left').val(savedLeft);
+      if (savedRight) $('#select-right').val(savedRight);
+
+      // Automatyczne wstawienie dzisiejszej daty do pola kalendarza
+      const d = new Date();
+      const todayIso = d.toISOString().split('T')[0];
+      $('#input-date-jump').val(todayIso);
+
+      $('#select-left, #select-right').on('change', updateTableLinksJQuery);
+      $('#input-date-jump').on('change', function() {{
+        jumpToDateJQuery($(this).val());
+      }});
+      $('#btn-today').on('click', jumpToTodayJQuery);
+
+      $(window).on('scroll', function() {{
+        if ($(this).scrollTop() > 300) {{
+          $('#btn-back-to-top').addClass('visible');
+        }} else {{
+          $('#btn-back-to-top').removeClass('visible');
+        }}
+      }});
+
+      setLanguageJQuery(savedLang, false);
+      updateTableLinksJQuery();
+    }}
+
+    function setLanguageJQuery(lang, userTriggered = true) {{
+      currentLang = lang;
+      localStorage.setItem(KEY_LANG, lang);
+
+      $('#btn-lang-pl').toggleClass('active', lang === 'pl');
+      $('#btn-lang-en').toggleClass('active', lang === 'en');
+      $('html').attr('lang', lang);
+
+      const isEn = lang === 'en';
+      if (userTriggered) {{
+        if (isEn) {{
+          $('#select-left').val('kjv');
+          $('#select-right').val('esv');
+        }} else {{
+          $('#select-left').val('snpd');
+          $('#select-right').val('lxxhb');
+        }}
+      }}
+
+      $('#main-h1').text(isEn ? 'Official Bible Reading Companion (Robert Roberts)' : 'Oficjalny Harmonogram Czytania Biblii (prawdybiblijne.com)');
+      $('#main-sub').html(isEn ? 'Clicking any button opens <strong>HiperBiblia.com</strong> dual-panel reader with your chosen translations.' : 'Kliknięcie w przycisk otwiera czytnik w serwisie <strong>HiperBiblia.com</strong> z Twoimi wybranymi przekładami.');
+      $('#lbl-left').text(isEn ? 'Left Panel (Translation 1):' : 'Lewy panel (Przekład 1):');
+      $('#lbl-right').text(isEn ? 'Right Panel (Translation 2):' : 'Prawy panel (Przekład 2):');
+      $('#lbl-date-jump').text(isEn ? '📅 Jump to date:' : '📅 Przejdź do daty:');
+      $('#btn-today').text(isEn ? 'Today' : 'Dzisiaj');
+      $('#btn-back-to-top').text(isEn ? '⬆️ Back to Top' : '⬆️ Do góry');
+
+      $('#th-day').text(isEn ? 'Day' : 'Dzień');
+      $('#th-t1').text(isEn ? 'OT: Law & History' : 'ST: Prawo i Historia');
+      $('#th-t2').text(isEn ? 'OT: Psalms & Prophets' : 'ST: Poezja i Prorocy');
+      $('#th-t3').text(isEn ? 'NT (x2)' : 'NT (x2)');
+      $('#th-links').text(isEn ? 'HiperBiblia.com Links' : 'Linki HiperBiblia.com');
+
+      $('.day-title-text').each(function() {{
+        const $el = $(this);
+        const dateTag = $el.find('.date-tag').prop('outerHTML') || '';
+        const dayNum = $el.closest('tr').attr('data-day');
+        $el.html(isEn ? `Day ${{dayNum}} ${{dateTag}}` : `Dzień ${{dayNum}} ${{dateTag}}`);
+      }});
+
+      $('.track-lbl').each(function() {{
+        $(this).text(isEn ? $(this).attr('data-en') : $(this).attr('data-pl'));
+      }});
+
+      $('.ref-text').each(function() {{
+        $(this).text(isEn ? $(this).attr('data-en') : $(this).attr('data-pl'));
+      }});
+
+      $('a[data-lbl-pl]').each(function() {{
+        $(this).text(isEn ? $(this).attr('data-lbl-en') : $(this).attr('data-lbl-pl'));
+      }});
+
+      $('.btn-share').text(isEn ? '📤 Share' : '📤 Udostępnij');
+      updateTableLinksJQuery();
+    }}
+
+    function scrollToTop() {{
+      window.scrollTo({{ top: 0, behavior: 'smooth' }});
+    }}
+
+    function updateTableLinksJQuery() {{
+      const left = $('#select-left').val();
+      const right = $('#select-right').val();
+      const lang = currentLang || 'pl';
+      localStorage.setItem(KEY_LEFT, left);
+      localStorage.setItem(KEY_RIGHT, right);
+
+      $('table a[data-base-url]').each(function() {{
+        const $link = $(this);
+        const baseUrl = $link.attr('data-base-url');
+        if (baseUrl && baseUrl.includes('hiperbiblia.com/reader')) {{
+          try {{
+            const urlObj = new URL(baseUrl);
+            urlObj.searchParams.set('left', left);
+            urlObj.searchParams.set('right', right);
+            urlObj.searchParams.set('locale', lang);
+            $link.attr('href', urlObj.toString());
+          }} catch (e) {{}}
+        }}
+      }});
+    }}
+
+    function jumpToDateJQuery(isoDate) {{
+      if (!isoDate) return;
+      const $targetRow = $(`tr[data-date="${{isoDate}}"]`);
+      if ($targetRow.length) {{
+        $targetRow[0].scrollIntoView({{ behavior: 'smooth', block: 'center' }});
+        $targetRow.addClass('highlight-flash');
+        setTimeout(function() {{
+          $targetRow.removeClass('highlight-flash');
+        }}, 2500);
+      }}
+    }}
+
+    function jumpToTodayJQuery() {{
+      const d = new Date();
+      const iso = d.toISOString().split('T')[0];
+      $('#input-date-jump').val(iso);
+      jumpToDateJQuery(iso);
+    }}
+
+    function shareDay(dayNum, dateStr) {{
+      const $row = $(`tr[data-day="${{dayNum}}"]`);
+      if (!$row.length) return;
+
+      const isEn = currentLang === 'en';
+      const t1Text = $row.find('.ref-text').eq(0).text();
+      const t2Text = $row.find('.ref-text').eq(1).text();
+      const t3Text = $row.find('.ref-text').eq(2).text();
+
+      const $links = $row.find('a[href]');
+      const u1 = $links.eq(0).attr('href') || '';
+      const u2 = $links.eq(1).attr('href') || '';
+      const u3 = $links.eq(2).attr('href') || '';
+
+      const titleStr = isEn ? `📖 Bible Reading — Day ${{dayNum}} (${{dateStr}}):` : `📖 Czytanie Biblii — Dzień ${{dayNum}} (${{dateStr}}):`;
+      const shareText = `${{titleStr}}\n\n1. ${{t1Text}}:\n${{u1}}\n\n2. ${{t2Text}}:\n${{u2}}\n\n3. ${{t3Text}}:\n${{u3}}`;
+
+      if (navigator.share) {{
+        navigator.share({{
+          title: isEn ? `Bible Reading — Day ${{dayNum}}` : `Czytanie Biblii — Dzień ${{dayNum}}`,
+          text: shareText
+        }}).catch(() => {{}});
+      }} else {{
+        navigator.clipboard.writeText(shareText).then(() => {{
+          showToast(isEn ? `📋 Copied Day ${{dayNum}} reading to clipboard!` : `📋 Skopiowano czytanie na Dzień ${{dayNum}} do schowka!`);
+        }});
+      }}
+    }}
+
+    function showToast(msg) {{
+      $('.toast-msg').remove();
+      $('<div>')
+        .addClass('toast-msg')
+        .text(msg)
+        .appendTo('body');
+      setTimeout(() => $('.toast-msg').remove(), 3200);
+    }}
+  </script>
+</body>
+</html>
+"""
+        output_html.write_text(vanilla_doc, encoding="utf-8")
+        print(f"Zapisano statyczny HTML Vanilla JS z Favikonami: {output_html}")
+
+        if output_en_html:
+            # Pre-configured English HTML version
+            en_doc = vanilla_doc.replace("<html lang=\"pl\">", "<html lang=\"en\">")
+            en_doc = en_doc.replace("const savedLang = localStorage.getItem(KEY_LANG) || 'pl';", "const savedLang = 'en';")
+            output_en_html.write_text(en_doc, encoding="utf-8")
+            print(f"Zapisano dedykowany HTML Angielski: {output_en_html}")
+
+    # 2. GENERACJA WERSJI JQUERY (STANDARD 2026)
+    if output_jquery_html:
+        jquery_doc = f"""<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oficjalny Harmonogram Czytania Biblii — Chrystadelfianie (jQuery 3.7.1)</title>
+  <meta name="description" content="Oficjalny roczny plan czytania Biblii towarzysza Roberta Robertsa (Wersja jQuery).">
+  <meta property="og:title" content="Oficjalny Harmonogram Czytania Biblii — Chrystadelfianie (jQuery)">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="alternate icon" href="favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <style>{common_style}</style>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body role="main">
+  <div class="top-bar">
+    <h1 id="main-h1">Oficjalny Harmonogram Czytania Biblii (prawdybiblijne.com)</h1>
+    <div class="lang-switcher">
+      <button type="button" class="lang-btn active" id="btn-lang-pl" onclick="setLanguageJQuery('pl')">🇵🇱 PL</button>
+      <button type="button" class="lang-btn" id="btn-lang-en" onclick="setLanguageJQuery('en')">🇬🇧 EN</button>
+    </div>
+  </div>
+
+  <p class="sub" id="main-sub">Kliknięcie w przycisk otwiera czytnik w serwisie <strong>HiperBiblia.com</strong> z Twoimi wybranymi przekładami.</p>
+
+  {controls_markup}
+
+  <table aria-label="Tabela rocznego harmonogramu czytania Biblii">
+    <thead>
+      <tr>
+        <th scope="col" id="th-day">Dzień</th>
+        <th scope="col" id="th-t1">ST: Prawo i Historia</th>
+        <th scope="col" id="th-t2">ST: Poezja i Prorocy</th>
+        <th scope="col" id="th-t3">NT (x2)</th>
+        <th scope="col" id="th-links">Linki HiperBiblia.com</th>
+      </tr>
+    </thead>
+    <tbody>
+      {tbody_content}
+    </tbody>
+  </table>
+
+  <button id="btn-back-to-top" class="btn-back-to-top" onclick="scrollToTop()" aria-label="Wróć na górę strony">⬆️ Do góry</button>
+
+  <script>
+    const KEY_LEFT = 'hiper_left_translation';
+    const KEY_RIGHT = 'hiper_right_translation';
+    const KEY_LANG = 'hiper_lang';
+    let currentLang = 'pl';
+
+    $(document).ready(function() {{
+      initControlsJQuery();
+    }});
+
+    function initControlsJQuery() {{
+      const savedLang = localStorage.getItem(KEY_LANG) || 'pl';
+      const savedLeft = localStorage.getItem(KEY_LEFT);
+      const savedRight = localStorage.getItem(KEY_RIGHT);
+
+      if (savedLeft) $('#select-left').val(savedLeft);
+      if (savedRight) $('#select-right').val(savedRight);
+
+      // Automatyczne wstawienie dzisiejszej daty do pola kalendarza
+      const d = new Date();
+      const todayIso = d.toISOString().split('T')[0];
+      $('#input-date-jump').val(todayIso);
+
+      $('#select-left, #select-right').on('change', updateTableLinksJQuery);
+      $('#input-date-jump').on('change', function() {{
+        jumpToDateJQuery($(this).val());
+      }});
+      $('#btn-today').on('click', jumpToTodayJQuery);
+
+      $(window).on('scroll', function() {{
+        if ($(this).scrollTop() > 300) {{
+          $('#btn-back-to-top').addClass('visible');
+        }} else {{
+          $('#btn-back-to-top').removeClass('visible');
+        }}
+      }});
+
+      setLanguageJQuery(savedLang, false);
+      updateTableLinksJQuery();
+    }}
+
+    function setLanguageJQuery(lang, userTriggered = true) {{
+      currentLang = lang;
+      localStorage.setItem(KEY_LANG, lang);
+
+      $('#btn-lang-pl').toggleClass('active', lang === 'pl');
+      $('#btn-lang-en').toggleClass('active', lang === 'en');
+      $('html').attr('lang', lang);
+
+      const isEn = lang === 'en';
+      if (userTriggered) {{
+        if (isEn) {{
+          $('#select-left').val('kjv');
+          $('#select-right').val('esv');
+        }} else {{
+          $('#select-left').val('snpd');
+          $('#select-right').val('lxxhb');
+        }}
+      }}
+
+      $('#main-h1').text(isEn ? 'Official Bible Reading Companion (Robert Roberts)' : 'Oficjalny Harmonogram Czytania Biblii (prawdybiblijne.com)');
+      $('#main-sub').html(isEn ? 'Clicking any button opens <strong>HiperBiblia.com</strong> dual-panel reader with your chosen translations.' : 'Kliknięcie w przycisk otwiera czytnik w serwisie <strong>HiperBiblia.com</strong> z Twoimi wybranymi przekładami.');
+      $('#lbl-left').text(isEn ? 'Left Panel (Translation 1):' : 'Lewy panel (Przekład 1):');
+      $('#lbl-right').text(isEn ? 'Right Panel (Translation 2):' : 'Prawy panel (Przekład 2):');
+      $('#lbl-date-jump').text(isEn ? '📅 Jump to date:' : '📅 Przejdź do daty:');
+      $('#btn-today').text(isEn ? 'Today' : 'Dzisiaj');
+      $('#btn-back-to-top').text(isEn ? '⬆️ Back to Top' : '⬆️ Do góry');
+
+      $('#th-day').text(isEn ? 'Day' : 'Dzień');
+      $('#th-t1').text(isEn ? 'OT: Law & History' : 'ST: Prawo i Historia');
+      $('#th-t2').text(isEn ? 'OT: Psalms & Prophets' : 'ST: Poezja i Prorocy');
+      $('#th-t3').text(isEn ? 'NT (x2)' : 'NT (x2)');
+      $('#th-links').text(isEn ? 'HiperBiblia.com Links' : 'Linki HiperBiblia.com');
+
+      $('.day-title-text').each(function() {{
+        const $el = $(this);
+        const dateTag = $el.find('.date-tag').prop('outerHTML') || '';
+        const dayNum = $el.closest('tr').attr('data-day');
+        $el.html(isEn ? `Day ${{dayNum}} ${{dateTag}}` : `Dzień ${{dayNum}} ${{dateTag}}`);
+      }});
+
+      $('.track-lbl').each(function() {{
+        $(this).text(isEn ? $(this).attr('data-en') : $(this).attr('data-pl'));
+      }});
+
+      $('.ref-text').each(function() {{
+        $(this).text(isEn ? $(this).attr('data-en') : $(this).attr('data-pl'));
+      }});
+
+      $('a[data-lbl-pl]').each(function() {{
+        $(this).text(isEn ? $(this).attr('data-lbl-en') : $(this).attr('data-lbl-pl'));
+      }});
+
+      $('.btn-share').text(isEn ? '📤 Share' : '📤 Udostępnij');
+      updateTableLinksJQuery();
+    }}
+
+    function scrollToTop() {{
+      window.scrollTo({{ top: 0, behavior: 'smooth' }});
+    }}
+
+    function updateTableLinksJQuery() {{
+      const left = $('#select-left').val();
+      const right = $('#select-right').val();
+      const lang = currentLang || 'pl';
+      localStorage.setItem(KEY_LEFT, left);
+      localStorage.setItem(KEY_RIGHT, right);
+
+      $('table a[data-base-url]').each(function() {{
+        const $link = $(this);
+        const baseUrl = $link.attr('data-base-url');
+        if (baseUrl && baseUrl.includes('hiperbiblia.com/reader')) {{
+          try {{
+            const urlObj = new URL(baseUrl);
+            urlObj.searchParams.set('left', left);
+            urlObj.searchParams.set('right', right);
+            urlObj.searchParams.set('locale', lang);
+            $link.attr('href', urlObj.toString());
+          }} catch (e) {{}}
+        }}
+      }});
+    }}
+
+    function jumpToDateJQuery(isoDate) {{
+      if (!isoDate) return;
+      const $targetRow = $(`tr[data-date="${{isoDate}}"]`);
+      if ($targetRow.length) {{
+        $targetRow[0].scrollIntoView({{ behavior: 'smooth', block: 'center' }});
+        $targetRow.addClass('highlight-flash');
+        setTimeout(function() {{
+          $targetRow.removeClass('highlight-flash');
+        }}, 2500);
+      }}
+    }}
+
+    function jumpToTodayJQuery() {{
+      const d = new Date();
+      const iso = d.toISOString().split('T')[0];
+      $('#input-date-jump').val(iso);
+      jumpToDateJQuery(iso);
+    }}
+
+    function shareDay(dayNum, dateStr) {{
+      const $row = $(`tr[data-day="${{dayNum}}"]`);
+      if (!$row.length) return;
+
+      const isEn = currentLang === 'en';
+      const t1Text = $row.find('.ref-text').eq(0).text();
+      const t2Text = $row.find('.ref-text').eq(1).text();
+      const t3Text = $row.find('.ref-text').eq(2).text();
+
+      const $links = $row.find('a[href]');
+      const u1 = $links.eq(0).attr('href') || '';
+      const u2 = $links.eq(1).attr('href') || '';
+      const u3 = $links.eq(2).attr('href') || '';
+
+      const titleStr = isEn ? `📖 Bible Reading — Day ${{dayNum}} (${{dateStr}}):` : `📖 Czytanie Biblii — Dzień ${{dayNum}} (${{dateStr}}):`;
+      const shareText = `${{titleStr}}\n\n1. ${{t1Text}}:\n${{u1}}\n\n2. ${{t2Text}}:\n${{u2}}\n\n3. ${{t3Text}}:\n${{u3}}`;
+
+      if (navigator.share) {{
+        navigator.share({{
+          title: isEn ? `Bible Reading — Day ${{dayNum}}` : `Czytanie Biblii — Dzień ${{dayNum}}`,
+          text: shareText
+        }}).catch(() => {{}});
+      }} else {{
+        navigator.clipboard.writeText(shareText).then(() => {{
+          showToast(isEn ? `📋 Copied Day ${{dayNum}} reading to clipboard!` : `📋 Skopiowano czytanie na Dzień ${{dayNum}} do schowka!`);
+        }});
+      }}
+    }}
+
+    function showToast(msg) {{
+      $('.toast-msg').remove();
+      $('<div>')
+        .addClass('toast-msg')
+        .text(msg)
+        .appendTo('body');
+      setTimeout(() => $('.toast-msg').remove(), 3200);
+    }}
+  </script>
+</body>
+</html>
+"""
+        output_html.write_text(vanilla_doc, encoding="utf-8")
+        print(f"Zapisano statyczny HTML Vanilla JS z Favikonami: {output_html}")
+
+        if output_en_html:
+            # Pre-configured English HTML version
+            en_doc = vanilla_doc.replace("<html lang=\"pl\">", "<html lang=\"en\">")
+            en_doc = en_doc.replace("const savedLang = localStorage.getItem(KEY_LANG) || 'pl';", "const savedLang = 'en';")
+            output_en_html.write_text(en_doc, encoding="utf-8")
+            print(f"Zapisano dedykowany HTML Angielski: {output_en_html}")
+
+    # 2. GENERACJA WERSJI JQUERY (STANDARD 2026)
+    if output_jquery_html:
+        jquery_doc = f"""<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oficjalny Harmonogram Czytania Biblii — Chrystadelfianie (jQuery 3.7.1)</title>
+  <meta name="description" content="Oficjalny roczny plan czytania Biblii towarzysza Roberta Robertsa (Wersja jQuery).">
+  <meta property="og:title" content="Oficjalny Harmonogram Czytania Biblii — Chrystadelfianie (jQuery)">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="alternate icon" href="favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <style>{common_style}</style>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body role="main">
+  <div class="top-bar">
+    <h1 id="main-h1">Oficjalny Harmonogram Czytania Biblii (prawdybiblijne.com)</h1>
+    <div class="lang-switcher">
+      <button type="button" class="lang-btn active" id="btn-lang-pl" onclick="setLanguageJQuery('pl')">🇵🇱 PL</button>
+      <button type="button" class="lang-btn" id="btn-lang-en" onclick="setLanguageJQuery('en')">🇬🇧 EN</button>
+    </div>
+  </div>
+
+  <p class="sub" id="main-sub">Kliknięcie w przycisk otwiera czytnik w serwisie <strong>HiperBiblia.com</strong> z Twoimi wybranymi przekładami.</p>
+
+  {controls_markup}
+
+  <table aria-label="Tabela rocznego harmonogramu czytania Biblii">
+    <thead>
+      <tr>
+        <th scope="col" id="th-day">Dzień</th>
+        <th scope="col" id="th-t1">ST: Prawo i Historia</th>
+        <th scope="col" id="th-t2">ST: Poezja i Prorocy</th>
+        <th scope="col" id="th-t3">NT (x2)</th>
+        <th scope="col" id="th-links">Linki HiperBiblia.com</th>
+      </tr>
+    </thead>
+    <tbody>
+      {tbody_content}
+    </tbody>
+  </table>
+
+  <button id="btn-back-to-top" class="btn-back-to-top" onclick="scrollToTop()" aria-label="Wróć na górę strony">⬆️ Do góry</button>
+
+  <script>
+    const KEY_LEFT = 'hiper_left_translation';
+    const KEY_RIGHT = 'hiper_right_translation';
+    const KEY_LANG = 'hiper_lang';
+    let currentLang = 'pl';
+
+    $(document).ready(function() {{
+      initControlsJQuery();
+    }});
+
+    function initControlsJQuery() {{
+      const savedLang = localStorage.getItem(KEY_LANG) || 'pl';
+      const savedLeft = localStorage.getItem(KEY_LEFT);
+      const savedRight = localStorage.getItem(KEY_RIGHT);
+
+      if (savedLeft) $('#select-left').val(savedLeft);
+      if (savedRight) $('#select-right').val(savedRight);
+
+      // Automatyczne wstawienie dzisiejszej daty do pola kalendarza
+      const d = new Date();
+      const todayIso = d.toISOString().split('T')[0];
+      $('#input-date-jump').val(todayIso);
+
+      $('#select-left, #select-right').on('change', updateTableLinksJQuery);
+      $('#input-date-jump').on('change', function() {{
+        jumpToDateJQuery($(this).val());
+      }});
+      $('#btn-today').on('click', jumpToTodayJQuery);
+
+      $(window).on('scroll', function() {{
+        if ($(this).scrollTop() > 300) {{
+          $('#btn-back-to-top').addClass('visible');
+        }} else {{
+          $('#btn-back-to-top').removeClass('visible');
+        }}
+      }});
+
+      setLanguageJQuery(savedLang, false);
+      updateTableLinksJQuery();
+    }}
+
+    function setLanguageJQuery(lang, userTriggered = true) {{
+      currentLang = lang;
+      localStorage.setItem(KEY_LANG, lang);
+
+      $('#btn-lang-pl').toggleClass('active', lang === 'pl');
+      $('#btn-lang-en').toggleClass('active', lang === 'en');
+      $('html').attr('lang', lang);
+
+      const isEn = lang === 'en';
+      if (userTriggered) {{
+        if (isEn) {{
+          $('#select-left').val('kjv');
+          $('#select-right').val('esv');
+        }} else {{
+          $('#select-left').val('snpd');
+          $('#select-right').val('lxxhb');
+        }}
+      }}
+
+      $('#main-h1').text(isEn ? 'Official Bible Reading Companion (Robert Roberts)' : 'Oficjalny Harmonogram Czytania Biblii (prawdybiblijne.com)');
+      $('#main-sub').html(isEn ? 'Clicking any button opens <strong>HiperBiblia.com</strong> dual-panel reader with your chosen translations.' : 'Kliknięcie w przycisk otwiera czytnik w serwisie <strong>HiperBiblia.com</strong> z Twoimi wybranymi przekładami.');
+      $('#lbl-left').text(isEn ? 'Left Panel (Translation 1):' : 'Lewy panel (Przekład 1):');
+      $('#lbl-right').text(isEn ? 'Right Panel (Translation 2):' : 'Prawy panel (Przekład 2):');
+      $('#lbl-date-jump').text(isEn ? '📅 Jump to date:' : '📅 Przejdź do daty:');
+      $('#btn-today').text(isEn ? 'Today' : 'Dzisiaj');
+      $('#btn-back-to-top').text(isEn ? '⬆️ Back to Top' : '⬆️ Do góry');
+
+      $('#th-day').text(isEn ? 'Day' : 'Dzień');
+      $('#th-t1').text(isEn ? 'OT: Law & History' : 'ST: Prawo i Historia');
+      $('#th-t2').text(isEn ? 'OT: Psalms & Prophets' : 'ST: Poezja i Prorocy');
+      $('#th-t3').text(isEn ? 'NT (x2)' : 'NT (x2)');
+      $('#th-links').text(isEn ? 'HiperBiblia.com Links' : 'Linki HiperBiblia.com');
+
+      $('.day-title-text').each(function() {{
+        const $el = $(this);
+        const dateTag = $el.find('.date-tag').prop('outerHTML') || '';
+        const dayNum = $el.closest('tr').attr('data-day');
+        $el.html(isEn ? `Day ${{dayNum}} ${{dateTag}}` : `Dzień ${{dayNum}} ${{dateTag}}`);
+      }});
+
+      $('.track-lbl').each(function() {{
+        $(this).text(isEn ? $(this).attr('data-en') : $(this).attr('data-pl'));
+      }});
+
+      $('.ref-text').each(function() {{
+        $(this).text(isEn ? $(this).attr('data-en') : $(this).attr('data-pl'));
+      }});
+
+      $('a[data-lbl-pl]').each(function() {{
+        $(this).text(isEn ? $(this).attr('data-lbl-en') : $(this).attr('data-lbl-pl'));
+      }});
+
+      $('.btn-share').text(isEn ? '📤 Share' : '📤 Udostępnij');
+      updateTableLinksJQuery();
+    }}
+
+    function scrollToTop() {{
+      window.scrollTo({{ top: 0, behavior: 'smooth' }});
+    }}
+
+    function updateTableLinksJQuery() {{
+      const left = $('#select-left').val();
+      const right = $('#select-right').val();
+      const lang = currentLang || 'pl';
+      localStorage.setItem(KEY_LEFT, left);
+      localStorage.setItem(KEY_RIGHT, right);
+
+      $('table a[data-base-url]').each(function() {{
+        const $link = $(this);
+        const baseUrl = $link.attr('data-base-url');
+        if (baseUrl && baseUrl.includes('hiperbiblia.com/reader')) {{
+          try {{
+            const urlObj = new URL(baseUrl);
+            urlObj.searchParams.set('left', left);
+            urlObj.searchParams.set('right', right);
+            urlObj.searchParams.set('locale', lang);
+            $link.attr('href', urlObj.toString());
+          }} catch (e) {{}}
+        }}
+      }});
+    }}
+
+    function jumpToDateJQuery(isoDate) {{
+      if (!isoDate) return;
+      const $targetRow = $(`tr[data-date="${{isoDate}}"]`);
+      if ($targetRow.length) {{
+        $targetRow[0].scrollIntoView({{ behavior: 'smooth', block: 'center' }});
+        $targetRow.addClass('highlight-flash');
+        setTimeout(function() {{
+          $targetRow.removeClass('highlight-flash');
+        }}, 2500);
+      }}
+    }}
+
+    function jumpToTodayJQuery() {{
+      const d = new Date();
+      const iso = d.toISOString().split('T')[0];
+      $('#input-date-jump').val(iso);
+      jumpToDateJQuery(iso);
+    }}
+
+    function shareDay(dayNum, dateStr) {{
+      const $row = $(`tr[data-day="${{dayNum}}"]`);
+      if (!$row.length) return;
+
+      const isEn = currentLang === 'en';
+      const t1Text = $row.find('.ref-text').eq(0).text();
+      const t2Text = $row.find('.ref-text').eq(1).text();
+      const t3Text = $row.find('.ref-text').eq(2).text();
+
+      const $links = $row.find('a[href]');
+      const u1 = $links.eq(0).attr('href') || '';
+      const u2 = $links.eq(1).attr('href') || '';
+      const u3 = $links.eq(2).attr('href') || '';
+
+      const titleStr = isEn ? `📖 Bible Reading — Day ${{dayNum}} (${{dateStr}}):` : `📖 Czytanie Biblii — Dzień ${{dayNum}} (${{dateStr}}):`;
+      const shareText = `${{titleStr}}\n\n1. ${{t1Text}}:\n${{u1}}\n\n2. ${{t2Text}}:\n${{u2}}\n\n3. ${{t3Text}}:\n${{u3}}`;
+
+      if (navigator.share) {{
+        navigator.share({{
+          title: isEn ? `Bible Reading — Day ${{dayNum}}` : `Czytanie Biblii — Dzień ${{dayNum}}`,
+          text: shareText
+        }}).catch(() => {{}});
+      }} else {{
+        navigator.clipboard.writeText(shareText).then(() => {{
+          showToast(isEn ? `📋 Copied Day ${{dayNum}} reading to clipboard!` : `📋 Skopiowano czytanie na Dzień ${{dayNum}} do schowka!`);
+        }});
+      }}
+    }}
+
+    function showToast(msg) {{
+      $('.toast-msg').remove();
+      $('<div>')
+        .addClass('toast-msg')
+        .text(msg)
+        .appendTo('body');
+      setTimeout(() => $('.toast-msg').remove(), 3200);
+    }}
+  </script>
+</body>
+</html>
+"""
+        output_html.write_text(vanilla_doc, encoding="utf-8")
+        print(f"Zapisano statyczny HTML Vanilla JS z Favikonami: {output_html}")
+
+        if output_en_html:
+            # Pre-configured English HTML version
+            en_doc = vanilla_doc.replace("<html lang=\"pl\">", "<html lang=\"en\">")
+            en_doc = en_doc.replace("const savedLang = localStorage.getItem(KEY_LANG) || 'pl';", "const savedLang = 'en';")
+            output_en_html.write_text(en_doc, encoding="utf-8")
+            print(f"Zapisano dedykowany HTML Angielski: {output_en_html}")
+
+    # 2. GENERACJA WERSJI JQUERY (STANDARD 2026)
+    if output_jquery_html:
+        jquery_doc = f"""<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oficjalny Harmonogram Czytania Biblii — Chrystadelfianie (jQuery 3.7.1)</title>
+  <meta name="description" content="Oficjalny roczny plan czytania Biblii towarzysza Roberta Robertsa (Wersja jQuery).">
+  <meta property="og:title" content="Oficjalny Harmonogram Czytania Biblii — Chrystadelfianie (jQuery)">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="alternate icon" href="favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <style>{common_style}</style>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body role="main">
+  <div class="top-bar">
+    <h1 id="main-h1">Oficjalny Harmonogram Czytania Biblii (prawdybiblijne.com)</h1>
+    <div class="lang-switcher">
+      <button type="button" class="lang-btn active" id="btn-lang-pl" onclick="setLanguageJQuery('pl')">🇵🇱 PL</button>
+      <button type="button" class="lang-btn" id="btn-lang-en" onclick="setLanguageJQuery('en')">🇬🇧 EN</button>
+    </div>
+  </div>
+
+  <p class="sub" id="main-sub">Kliknięcie w przycisk otwiera czytnik w serwisie <strong>HiperBiblia.com</strong> z Twoimi wybranymi przekładami.</p>
+
+  {controls_markup}
+
+  <table aria-label="Tabela rocznego harmonogramu czytania Biblii">
+    <thead>
+      <tr>
+        <th scope="col" id="th-day">Dzień</th>
+        <th scope="col" id="th-t1">ST: Prawo i Historia</th>
+        <th scope="col" id="th-t2">ST: Poezja i Prorocy</th>
+        <th scope="col" id="th-t3">NT (x2)</th>
+        <th scope="col" id="th-links">Linki HiperBiblia.com</th>
+      </tr>
+    </thead>
+    <tbody>
+      {tbody_content}
+    </tbody>
+  </table>
+
+  <button id="btn-back-to-top" class="btn-back-to-top" onclick="scrollToTop()" aria-label="Wróć na górę strony">⬆️ Do góry</button>
+
+  <script>
+    const KEY_LEFT = 'hiper_left_translation';
+    const KEY_RIGHT = 'hiper_right_translation';
+    const KEY_LANG = 'hiper_lang';
+    let currentLang = 'pl';
+
+    $(document).ready(function() {{
+      initControlsJQuery();
+    }});
+
+    function initControlsJQuery() {{
+      const savedLang = localStorage.getItem(KEY_LANG) || 'pl';
+      const savedLeft = localStorage.getItem(KEY_LEFT);
+      const savedRight = localStorage.getItem(KEY_RIGHT);
+
+      if (savedLeft) $('#select-left').val(savedLeft);
+      if (savedRight) $('#select-right').val(savedRight);
+
+      // Automatyczne wstawienie dzisiejszej daty do pola kalendarza
+      const d = new Date();
+      const todayIso = d.toISOString().split('T')[0];
+      $('#input-date-jump').val(todayIso);
+
+      $('#select-left, #select-right').on('change', updateTableLinksJQuery);
+      $('#input-date-jump').on('change', function() {{
+        jumpToDateJQuery($(this).val());
+      }});
+      $('#btn-today').on('click', jumpToTodayJQuery);
+
+      $(window).on('scroll', function() {{
+        if ($(this).scrollTop() > 300) {{
+          $('#btn-back-to-top').addClass('visible');
+        }} else {{
+          $('#btn-back-to-top').removeClass('visible');
+        }}
+      }});
+
+      setLanguageJQuery(savedLang, false);
+      updateTableLinksJQuery();
+    }}
+
+    function setLanguageJQuery(lang, userTriggered = true) {{
+      currentLang = lang;
+      localStorage.setItem(KEY_LANG, lang);
+
+      $('#btn-lang-pl').toggleClass('active', lang === 'pl');
+      $('#btn-lang-en').toggleClass('active', lang === 'en');
+      $('html').attr('lang', lang);
+
+      const isEn = lang === 'en';
+      if (userTriggered) {{
+        if (isEn) {{
+          $('#select-left').val('kjv');
+          $('#select-right').val('esv');
+        }} else {{
+          $('#select-left').val('snpd');
+          $('#select-right').val('lxxhb');
+        }}
+      }}
+
+      $('#main-h1').text(isEn ? 'Official Bible Reading Companion (Robert Roberts)' : 'Oficjalny Harmonogram Czytania Biblii (prawdybiblijne.com)');
+      $('#main-sub').html(isEn ? 'Clicking any button opens <strong>HiperBiblia.com</strong> dual-panel reader with your chosen translations.' : 'Kliknięcie w przycisk otwiera czytnik w serwisie <strong>HiperBiblia.com</strong> z Twoimi wybranymi przekładami.');
+      $('#lbl-left').text(isEn ? 'Left Panel (Translation 1):' : 'Lewy panel (Przekład 1):');
+      $('#lbl-right').text(isEn ? 'Right Panel (Translation 2):' : 'Prawy panel (Przekład 2):');
+      $('#lbl-date-jump').text(isEn ? '📅 Jump to date:' : '📅 Przejdź do daty:');
+      $('#btn-today').text(isEn ? 'Today' : 'Dzisiaj');
+      $('#btn-back-to-top').text(isEn ? '⬆️ Back to Top' : '⬆️ Do góry');
+
+      $('#th-day').text(isEn ? 'Day' : 'Dzień');
+      $('#th-t1').text(isEn ? 'OT: Law & History' : 'ST: Prawo i Historia');
+      $('#th-t2').text(isEn ? 'OT: Psalms & Prophets' : 'ST: Poezja i Prorocy');
+      $('#th-t3').text(isEn ? 'NT (x2)' : 'NT (x2)');
+      $('#th-links').text(isEn ? 'HiperBiblia.com Links' : 'Linki HiperBiblia.com');
+
+      $('.day-title-text').each(function() {{
+        const $el = $(this);
+        const dateTag = $el.find('.date-tag').prop('outerHTML') || '';
+        const dayNum = $el.closest('tr').attr('data-day');
+        $el.html(isEn ? `Day ${{dayNum}} ${{dateTag}}` : `Dzień ${{dayNum}} ${{dateTag}}`);
+      }});
+
+      $('.track-lbl').each(function() {{
+        $(this).text(isEn ? $(this).attr('data-en') : $(this).attr('data-pl'));
+      }});
+
+      $('.ref-text').each(function() {{
+        $(this).text(isEn ? $(this).attr('data-en') : $(this).attr('data-pl'));
+      }});
+
+      $('a[data-lbl-pl]').each(function() {{
+        $(this).text(isEn ? $(this).attr('data-lbl-en') : $(this).attr('data-lbl-pl'));
+      }});
+
+      $('.btn-share').text(isEn ? '📤 Share' : '📤 Udostępnij');
+      updateTableLinksJQuery();
+    }}
+
+    function scrollToTop() {{
+      window.scrollTo({{ top: 0, behavior: 'smooth' }});
+    }}
+
+    function updateTableLinksJQuery() {{
+      const left = $('#select-left').val();
+      const right = $('#select-right').val();
+      const lang = currentLang || 'pl';
+      localStorage.setItem(KEY_LEFT, left);
+      localStorage.setItem(KEY_RIGHT, right);
+
+      $('table a[data-base-url]').each(function() {{
+        const $link = $(this);
+        const baseUrl = $link.attr('data-base-url');
+        if (baseUrl && baseUrl.includes('hiperbiblia.com/reader')) {{
+          try {{
+            const urlObj = new URL(baseUrl);
+            urlObj.searchParams.set('left', left);
+            urlObj.searchParams.set('right', right);
+            urlObj.searchParams.set('locale', lang);
+            $link.attr('href', urlObj.toString());
+          }} catch (e) {{}}
+        }}
+      }});
+    }}
+
+    function jumpToDateJQuery(isoDate) {{
+      if (!isoDate) return;
+      const $targetRow = $(`tr[data-date="${{isoDate}}"]`);
+      if ($targetRow.length) {{
+        $targetRow[0].scrollIntoView({{ behavior: 'smooth', block: 'center' }});
+        $targetRow.addClass('highlight-flash');
+        setTimeout(function() {{
+          $targetRow.removeClass('highlight-flash');
+        }}, 2500);
+      }}
+    }}
+
+    function jumpToTodayJQuery() {{
+      const d = new Date();
+      const iso = d.toISOString().split('T')[0];
+      $('#input-date-jump').val(iso);
+      jumpToDateJQuery(iso);
+    }}
+
+    function shareDay(dayNum, dateStr) {{
+      const $row = $(`tr[data-day="${{dayNum}}"]`);
+      if (!$row.length) return;
+
+      const isEn = currentLang === 'en';
+      const t1Text = $row.find('.ref-text').eq(0).text();
+      const t2Text = $row.find('.ref-text').eq(1).text();
+      const t3Text = $row.find('.ref-text').eq(2).text();
+
+      const $links = $row.find('a[href]');
+      const u1 = $links.eq(0).attr('href') || '';
+      const u2 = $links.eq(1).attr('href') || '';
+      const u3 = $links.eq(2).attr('href') || '';
+
+      const titleStr = isEn ? `📖 Bible Reading — Day ${{dayNum}} (${{dateStr}}):` : `📖 Czytanie Biblii — Dzień ${{dayNum}} (${{dateStr}}):`;
+      const shareText = `${{titleStr}}\n\n1. ${{t1Text}}:\n${{u1}}\n\n2. ${{t2Text}}:\n${{u2}}\n\n3. ${{t3Text}}:\n${{u3}}`;
+
+      if (navigator.share) {{
+        navigator.share({{
+          title: isEn ? `Bible Reading — Day ${{dayNum}}` : `Czytanie Biblii — Dzień ${{dayNum}}`,
+          text: shareText
+        }}).catch(() => {{}});
+      }} else {{
+        navigator.clipboard.writeText(shareText).then(() => {{
+          showToast(isEn ? `📋 Copied Day ${{dayNum}} reading to clipboard!` : `📋 Skopiowano czytanie na Dzień ${{dayNum}} do schowka!`);
+        }});
+      }}
+    }}
+
+    function showToast(msg) {{
+      $('.toast-msg').remove();
+      $('<div>')
+        .addClass('toast-msg')
+        .text(msg)
+        .appendTo('body');
+      setTimeout(() => $('.toast-msg').remove(), 3200);
+    }}
+  </script>
+</body>
+</html>
+"""
+        output_html.write_text(vanilla_doc, encoding="utf-8")
+        print(f"Zapisano statyczny HTML Vanilla JS z Favikonami: {output_html}")
+
+        if output_en_html:
+            # Pre-configured English HTML version
+            en_doc = vanilla_doc.replace("<html lang=\"pl\">", "<html lang=\"en\">")
+            en_doc = en_doc.replace("const savedLang = localStorage.getItem(KEY_LANG) || 'pl';", "const savedLang = 'en';")
+            output_en_html.write_text(en_doc, encoding="utf-8")
+            print(f"Zapisano dedykowany HTML Angielski: {output_en_html}")
+
+    # 2. GENERACJA WERSJI JQUERY (STANDARD 2026)
+    if output_jquery_html:
+        jquery_doc = f"""<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oficjalny Harmonogram Czytania Biblii — Chrystadelfianie (jQuery 3.7.1)</title>
+  <meta name="description" content="Oficjalny roczny plan czytania Biblii towarzysza Roberta Robertsa (Wersja jQuery).">
+  <meta property="og:title" content="Oficjalny Harmonogram Czytania Biblii — Chrystadelfianie (jQuery)">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="alternate icon" href="favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <style>{common_style}</style>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body role="main">
+  <div class="top-bar">
+    <h1 id="main-h1">Oficjalny Harmonogram Czytania Biblii (prawdybiblijne.com)</h1>
+    <div class="lang-switcher">
+      <button type="button" class="lang-btn active" id="btn-lang-pl" onclick="setLanguageJQuery('pl')">🇵🇱 PL</button>
+      <button type="button" class="lang-btn" id="btn-lang-en" onclick="setLanguageJQuery('en')">🇬🇧 EN</button>
+    </div>
+  </div>
+
+  <p class="sub" id="main-sub">Kliknięcie w przycisk otwiera czytnik w serwisie <strong>HiperBiblia.com</strong> z Twoimi wybranymi przekładami.</p>
+
+  {controls_markup}
+
+  <table aria-label="Tabela rocznego harmonogramu czytania Biblii">
+    <thead>
+      <tr>
+        <th scope="col" id="th-day">Dzień</th>
+        <th scope="col" id="th-t1">ST: Prawo i Historia</th>
+        <th scope="col" id="th-t2">ST: Poezja i Prorocy</th>
+        <th scope="col" id="th-t3">NT (x2)</th>
+        <th scope="col" id="th-links">Linki HiperBiblia.com</th>
+      </tr>
+    </thead>
+    <tbody>
+      {tbody_content}
+    </tbody>
+  </table>
+
+  <button id="btn-back-to-top" class="btn-back-to-top" onclick="scrollToTop()" aria-label="Wróć na górę strony">⬆️ Do góry</button>
+
+  <script>
+    const KEY_LEFT = 'hiper_left_translation';
+    const KEY_RIGHT = 'hiper_right_translation';
+    const KEY_LANG = 'hiper_lang';
+    let currentLang = 'pl';
+
+    $(document).ready(function() {{
+      initControlsJQuery();
+    }});
+
+    function initControlsJQuery() {{
+      const savedLang = localStorage.getItem(KEY_LANG) || 'pl';
+      const savedLeft = localStorage.getItem(KEY_LEFT);
+      const savedRight = localStorage.getItem(KEY_RIGHT);
+
+      if (savedLeft) $('#select-left').val(savedLeft);
+      if (savedRight) $('#select-right').val(savedRight);
+
+      // Automatyczne wstawienie dzisiejszej daty do pola kalendarza
+      const d = new Date();
+      const todayIso = d.toISOString().split('T')[0];
+      $('#input-date-jump').val(todayIso);
+
+      $('#select-left, #select-right').on('change', updateTableLinksJQuery);
+      $('#input-date-jump').on('change', function() {{
+        jumpToDateJQuery($(this).val());
+      }});
+      $('#btn-today').on('click', jumpToTodayJQuery);
+
+      $(window).on('scroll', function() {{
+        if ($(this).scrollTop() > 300) {{
+          $('#btn-back-to-top').addClass('visible');
+        }} else {{
+          $('#btn-back-to-top').removeClass('visible');
+        }}
+      }});
+
+      setLanguageJQuery(savedLang, false);
+      updateTableLinksJQuery();
+    }}
+
+    function setLanguageJQuery(lang, userTriggered = true) {{
+      currentLang = lang;
+      localStorage.setItem(KEY_LANG, lang);
+
+      $('#btn-lang-pl').toggleClass('active', lang === 'pl');
+      $('#btn-lang-en').toggleClass('active', lang === 'en');
+      $('html').attr('lang', lang);
+
+      const isEn = lang === 'en';
+      if (userTriggered) {{
+        if (isEn) {{
+          $('#select-left').val('kjv');
+          $('#select-right').val('esv');
+        }} else {{
+          $('#select-left').val('snpd');
+          $('#select-right').val('lxxhb');
+        }}
+      }}
+
+      $('#main-h1').text(isEn ? 'Official Bible Reading Companion (Robert Roberts)' : 'Oficjalny Harmonogram Czytania Biblii (prawdybiblijne.com)');
+      $('#main-sub').html(isEn ? 'Clicking any button opens <strong>HiperBiblia.com</strong> dual-panel reader with your chosen translations.' : 'Kliknięcie w przycisk otwiera czytnik w serwisie <strong>HiperBiblia.com</strong> z Twoimi wybranymi przekładami.');
+      $('#lbl-left').text(isEn ? 'Left Panel (Translation 1):' : 'Lewy panel (Przekład 1):');
+      $('#lbl-right').text(isEn ? 'Right Panel (Translation 2):' : 'Prawy panel (Przekład 2):');
+      $('#lbl-date-jump').text(isEn ? '📅 Jump to date:' : '📅 Przejdź do daty:');
+      $('#btn-today').text(isEn ? 'Today' : 'Dzisiaj');
+      $('#btn-back-to-top').text(isEn ? '⬆️ Back to Top' : '⬆️ Do góry');
+
+      $('#th-day').text(isEn ? 'Day' : 'Dzień');
+      $('#th-t1').text(isEn ? 'OT: Law & History' : 'ST: Prawo i Historia');
+      $('#th-t2').text(isEn ? 'OT: Psalms & Prophets' : 'ST: Poezja i Prorocy');
+      $('#th-t3').text(isEn ? 'NT (x2)' : 'NT (x2)');
+      $('#th-links').text(isEn ? 'HiperBiblia.com Links' : 'Linki HiperBiblia.com');
+
+      $('.day-title-text').each(function() {{
+        const $el = $(this);
+        const dateTag = $el.find('.date-tag').prop('outerHTML') || '';
+        const dayNum = $el.closest('tr').attr('data-day');
+        $el.html(isEn ? `Day ${{dayNum}} ${{dateTag}}` : `Dzień ${{dayNum}} ${{dateTag}}`);
+      }});
+
+      $('.track-lbl').each(function() {{
+        $(this).text(isEn ? $(this).attr('data-en') : $(this).attr('data-pl'));
+      }});
+
+      $('.ref-text').each(function() {{
+        $(this).text(isEn ? $(this).attr('data-en') : $(this).attr('data-pl'));
+      }});
+
+      $('a[data-lbl-pl]').each(function() {{
+        $(this).text(isEn ? $(this).attr('data-lbl-en') : $(this).attr('data-lbl-pl'));
+      }});
+
+      $('.btn-share').text(isEn ? '📤 Share' : '📤 Udostępnij');
+      updateTableLinksJQuery();
+    }}
+
+    function scrollToTop() {{
+      window.scrollTo({{ top: 0, behavior: 'smooth' }});
+    }}
+
+    function updateTableLinksJQuery() {{
+      const left = $('#select-left').val();
+      const right = $('#select-right').val();
+      const lang = currentLang || 'pl';
+      localStorage.setItem(KEY_LEFT, left);
+      localStorage.setItem(KEY_RIGHT, right);
+
+      $('table a[data-base-url]').each(function() {{
+        const $link = $(this);
+        const baseUrl = $link.attr('data-base-url');
+        if (baseUrl && baseUrl.includes('hiperbiblia.com/reader')) {{
+          try {{
+            const urlObj = new URL(baseUrl);
+            urlObj.searchParams.set('left', left);
+            urlObj.searchParams.set('right', right);
+            urlObj.searchParams.set('locale', lang);
+            $link.attr('href', urlObj.toString());
+          }} catch (e) {{}}
+        }}
+      }});
+    }}
+
+    function jumpToDateJQuery(isoDate) {{
+      if (!isoDate) return;
+      const $targetRow = $(`tr[data-date="${{isoDate}}"]`);
+      if ($targetRow.length) {{
+        $targetRow[0].scrollIntoView({{ behavior: 'smooth', block: 'center' }});
+        $targetRow.addClass('highlight-flash');
+        setTimeout(function() {{
+          $targetRow.removeClass('highlight-flash');
+        }}, 2500);
+      }}
+    }}
+
+    function jumpToTodayJQuery() {{
+      const d = new Date();
+      const iso = d.toISOString().split('T')[0];
+      $('#input-date-jump').val(iso);
+      jumpToDateJQuery(iso);
+    }}
+
+    function shareDay(dayNum, dateStr) {{
+      const $row = $(`tr[data-day="${{dayNum}}"]`);
+      if (!$row.length) return;
+
+      const isEn = currentLang === 'en';
+      const t1Text = $row.find('.ref-text').eq(0).text();
+      const t2Text = $row.find('.ref-text').eq(1).text();
+      const t3Text = $row.find('.ref-text').eq(2).text();
+
+      const $links = $row.find('a[href]');
+      const u1 = $links.eq(0).attr('href') || '';
+      const u2 = $links.eq(1).attr('href') || '';
+      const u3 = $links.eq(2).attr('href') || '';
+
+      const titleStr = isEn ? `📖 Bible Reading — Day ${{dayNum}} (${{dateStr}}):` : `📖 Czytanie Biblii — Dzień ${{dayNum}} (${{dateStr}}):`;
+      const shareText = `${{titleStr}}\n\n1. ${{t1Text}}:\n${{u1}}\n\n2. ${{t2Text}}:\n${{u2}}\n\n3. ${{t3Text}}:\n${{u3}}`;
+
+      if (navigator.share) {{
+        navigator.share({{
+          title: isEn ? `Bible Reading — Day ${{dayNum}}` : `Czytanie Biblii — Dzień ${{dayNum}}`,
+          text: shareText
+        }}).catch(() => {{}});
+      }} else {{
+        navigator.clipboard.writeText(shareText).then(() => {{
+          showToast(isEn ? `📋 Copied Day ${{dayNum}} reading to clipboard!` : `📋 Skopiowano czytanie na Dzień ${{dayNum}} do schowka!`);
+        }});
+      }}
+    }}
+
+    function showToast(msg) {{
+      $('.toast-msg').remove();
+      $('<div>')
+        .addClass('toast-msg')
+        .text(msg)
+        .appendTo('body');
+      setTimeout(() => $('.toast-msg').remove(), 3200);
+    }}
+  </script>
+</body>
+</html>
+"""
+        output_html.write_text(vanilla_doc, encoding="utf-8")
+        print(f"Zapisano statyczny HTML Vanilla JS z Favikonami: {output_html}")
+
+        if output_en_html:
+            # Pre-configured English HTML version
+            en_doc = vanilla_doc.replace("<html lang=\"pl\">", "<html lang=\"en\">")
+            en_doc = en_doc.replace("const savedLang = localStorage.getItem(KEY_LANG) || 'pl';", "const savedLang = 'en';")
+            output_en_html.write_text(en_doc, encoding="utf-8")
+            print(f"Zapisano dedykowany HTML Angielski: {output_en_html}")
+
+    # 2. GENERACJA WERSJI JQUERY (STANDARD 2026)
+    if output_jquery_html:
+        jquery_doc = f"""<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oficjalny Harmonogram Czytania Biblii — Chrystadelfianie (jQuery 3.7.1)</title>
+  <meta name="description" content="Oficjalny roczny plan czytania Biblii towarzysza Roberta Robertsa (Wersja jQuery).">
+  <meta property="og:title" content="Oficjalny Harmonogram Czytania Biblii — Chrystadelfianie (jQuery)">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="alternate icon" href="favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <style>{common_style}</style>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body role="main">
+  <div class="top-bar">
+    <h1 id="main-h1">Oficjalny Harmonogram Czytania Biblii (prawdybiblijne.com)</h1>
+    <div class="lang-switcher">
+      <button type="button" class="lang-btn active" id="btn-lang-pl" onclick="setLanguageJQuery('pl')">🇵🇱 PL</button>
+      <button type="button" class="lang-btn" id="btn-lang-en" onclick="setLanguageJQuery('en')">🇬🇧 EN</button>
+    </div>
+  </div>
+
+  <p class="sub" id="main-sub">Kliknięcie w przycisk otwiera czytnik w serwisie <strong>HiperBiblia.com</strong> z Twoimi wybranymi przekładami.</p>
+
+  {controls_markup}
+
+  <table aria-label="Tabela rocznego harmonogramu czytania Biblii">
+    <thead>
+      <tr>
+        <th scope="col" id="th-day">Dzień</th>
+        <th scope="col" id="th-t1">ST: Prawo i Historia</th>
+        <th scope="col" id="th-t2">ST: Poezja i Prorocy</th>
+        <th scope="col" id="th-t3">NT (x2)</th>
+        <th scope="col" id="th-links">Linki HiperBiblia.com</th>
+      </tr>
+    </thead>
+    <tbody>
+      {tbody_content}
+    </tbody>
+  </table>
+
+  <button id="btn-back-to-top" class="btn-back-to-top" onclick="scrollToTop()" aria-label="Wróć na górę strony">⬆️ Do góry</button>
+
+  <script>
+    const KEY_LEFT = 'hiper_left_translation';
+    const KEY_RIGHT = 'hiper_right_translation';
+    const KEY_LANG = 'hiper_lang';
+    let currentLang = 'pl';
+
+    $(document).ready(function() {{
+      initControlsJQuery();
+    }});
+
+    function initControlsJQuery() {{
+      const savedLang = localStorage.getItem(KEY_LANG) || 'pl';
+      const savedLeft = localStorage.getItem(KEY_LEFT);
+      const savedRight = localStorage.getItem(KEY_RIGHT);
+
+      if (savedLeft) $('#select-left').val(savedLeft);
+      if (savedRight) $('#select-right').val(savedRight);
+
+      // Automatyczne wstawienie dzisiejszej daty do pola kalendarza
+      const d = new Date();
+      const todayIso = d.toISOString().split('T')[0];
+      $('#input-date-jump').val(todayIso);
+
+      $('#select-left, #select-right').on('change', updateTableLinksJQuery);
+      $('#input-date-jump').on('change', function() {{
+        jumpToDateJQuery($(this).val());
+      }});
+      $('#btn-today').on('click', jumpToTodayJQuery);
+
+      $(window).on('scroll', function() {{
+        if ($(this).scrollTop() > 300) {{
+          $('#btn-back-to-top').addClass('visible');
+        }} else {{
+          $('#btn-back-to-top').removeClass('visible');
+        }}
+      }});
+
+      setLanguageJQuery(savedLang, false);
+      updateTableLinksJQuery();
+    }}
+
+    function setLanguageJQuery(lang, userTriggered = true) {{
+      currentLang = lang;
+      localStorage.setItem(KEY_LANG, lang);
+
+      $('#btn-lang-pl').toggleClass('active', lang === 'pl');
+      $('#btn-lang-en').toggleClass('active', lang === 'en');
+      $('html').attr('lang', lang);
+
+      const isEn = lang === 'en';
+      if (userTriggered) {{
+        if (isEn) {{
+          $('#select-left').val('kjv');
+          $('#select-right').val('esv');
+        }} else {{
+          $('#select-left').val('snpd');
+          $('#select-right').val('lxxhb');
+        }}
+      }}
+
+      $('#main-h1').text(isEn ? 'Official Bible Reading Companion (Robert Roberts)' : 'Oficjalny Harmonogram Czytania Biblii (prawdybiblijne.com)');
+      $('#main-sub').html(isEn ? 'Clicking any button opens <strong>HiperBiblia.com</strong> dual-panel reader with your chosen translations.' : 'Kliknięcie w przycisk otwiera czytnik w serwisie <strong>HiperBiblia.com</strong> z Twoimi wybranymi przekładami.');
+      $('#lbl-left').text(isEn ? 'Left Panel (Translation 1):' : 'Lewy panel (Przekład 1):');
+      $('#lbl-right').text(isEn ? 'Right Panel (Translation 2):' : 'Prawy panel (Przekład 2):');
+      $('#lbl-date-jump').text(isEn ? '📅 Jump to date:' : '📅 Przejdź do daty:');
+      $('#btn-today').text(isEn ? 'Today' : 'Dzisiaj');
+      $('#btn-back-to-top').text(isEn ? '⬆️ Back to Top' : '⬆️ Do góry');
+
+      $('#th-day').text(isEn ? 'Day' : 'Dzień');
+      $('#th-t1').text(isEn ? 'OT: Law & History' : 'ST: Prawo i Historia');
+      $('#th-t2').text(isEn ? 'OT: Psalms & Prophets' : 'ST: Poezja i Prorocy');
+      $('#th-t3').text(isEn ? 'NT (x2)' : 'NT (x2)');
+      $('#th-links').text(isEn ? 'HiperBiblia.com Links' : 'Linki HiperBiblia.com');
+
+      $('.day-title-text').each(function() {{
+        const $el = $(this);
+        const dateTag = $el.find('.date-tag').prop('outerHTML') || '';
+        const dayNum = $el.closest('tr').attr('data-day');
+        $el.html(isEn ? `Day ${{dayNum}} ${{dateTag}}` : `Dzień ${{dayNum}} ${{dateTag}}`);
+      }});
+
+      $('.track-lbl').each(function() {{
+        $(this).text(isEn ? $(this).attr('data-en') : $(this).attr('data-pl'));
+      }});
+
+      $('.ref-text').each(function() {{
+        $(this).text(isEn ? $(this).attr('data-en') : $(this).attr('data-pl'));
+      }});
+
+      $('a[data-lbl-pl]').each(function() {{
+        $(this).text(isEn ? $(this).attr('data-lbl-en') : $(this).attr('data-lbl-pl'));
+      }});
+
+      $('.btn-share').text(isEn ? '📤 Share' : '📤 Udostępnij');
+      updateTableLinksJQuery();
+    }}
+
+    function scrollToTop() {{
+      window.scrollTo({{ top: 0, behavior: 'smooth' }});
+    }}
+
+    function updateTableLinksJQuery() {{
+      const left = $('#select-left').val();
+      const right = $('#select-right').val();
+      const lang = currentLang || 'pl';
+      localStorage.setItem(KEY_LEFT, left);
+      localStorage.setItem(KEY_RIGHT, right);
+
+      $('table a[data-base-url]').each(function() {{
+        const $link = $(this);
+        const baseUrl = $link.attr('data-base-url');
+        if (baseUrl && baseUrl.includes('hiperbiblia.com/reader')) {{
+          try {{
+            const urlObj = new URL(baseUrl);
+            urlObj.searchParams.set('left', left);
+            urlObj.searchParams.set('right', right);
+            urlObj.searchParams.set('locale', lang);
+            $link.attr('href', urlObj.toString());
+          }} catch (e) {{}}
+        }}
+      }});
+    }}
+
+    function jumpToDateJQuery(isoDate) {{
+      if (!isoDate) return;
+      const $targetRow = $(`tr[data-date="${{isoDate}}"]`);
+      if ($targetRow.length) {{
+        $targetRow[0].scrollIntoView({{ behavior: 'smooth', block: 'center' }});
+        $targetRow.addClass('highlight-flash');
+        setTimeout(function() {{
+          $targetRow.removeClass('highlight-flash');
+        }}, 2500);
+      }}
+    }}
+
+    function jumpToTodayJQuery() {{
+      const d = new Date();
+      const iso = d.toISOString().split('T')[0];
+      $('#input-date-jump').val(iso);
+      jumpToDateJQuery(iso);
+    }}
+
+    function shareDay(dayNum, dateStr) {{
+      const $row = $(`tr[data-day="${{dayNum}}"]`);
+      if (!$row.length) return;
+
+      const isEn = currentLang === 'en';
+      const t1Text = $row.find('.ref-text').eq(0).text();
+      const t2Text = $row.find('.ref-text').eq(1).text();
+      const t3Text = $row.find('.ref-text').eq(2).text();
+
+      const $links = $row.find('a[href]');
+      const u1 = $links.eq(0).attr('href') || '';
+      const u2 = $links.eq(1).attr('href') || '';
+      const u3 = $links.eq(2).attr('href') || '';
+
+      const titleStr = isEn ? `📖 Bible Reading — Day ${{dayNum}} (${{dateStr}}):` : `📖 Czytanie Biblii — Dzień ${{dayNum}} (${{dateStr}}):`;
+      const shareText = `${{titleStr}}\n\n1. ${{t1Text}}:\n${{u1}}\n\n2. ${{t2Text}}:\n${{u2}}\n\n3. ${{t3Text}}:\n${{u3}}`;
+
+      if (navigator.share) {{
+        navigator.share({{
+          title: isEn ? `Bible Reading — Day ${{dayNum}}` : `Czytanie Biblii — Dzień ${{dayNum}}`,
+          text: shareText
+        }}).catch(() => {{}});
+      }} else {{
+        navigator.clipboard.writeText(shareText).then(() => {{
+          showToast(isEn ? `📋 Copied Day ${{dayNum}} reading to clipboard!` : `📋 Skopiowano czytanie na Dzień ${{dayNum}} do schowka!`);
+        }});
+      }}
+    }}
+
+    function showToast(msg) {{
+      $('.toast-msg').remove();
+      $('<div>')
+        .addClass('toast-msg')
+        .text(msg)
+        .appendTo('body');
+      setTimeout(() => $('.toast-msg').remove(), 3200);
+    }}
+  </script>
+</body>
+</html>
+"""
+        output_html.write_text(vanilla_doc, encoding="utf-8")
+        print(f"Zapisano statyczny HTML Vanilla JS z Favikonami: {output_html}")
+
+        if output_en_html:
+            # Pre-configured English HTML version
+            en_doc = vanilla_doc.replace("<html lang=\"pl\">", "<html lang=\"en\">")
+            en_doc = en_doc.replace("const savedLang = localStorage.getItem(KEY_LANG) || 'pl';", "const savedLang = 'en';")
+            output_en_html.write_text(en_doc, encoding="utf-8")
+            print(f"Zapisano dedykowany HTML Angielski: {output_en_html}")
+
+    # 2. GENERACJA WERSJI JQUERY (STANDARD 2026)
+    if output_jquery_html:
+        jquery_doc = f"""<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oficjalny Harmonogram Czytania Biblii — Chrystadelfianie (jQuery 3.7.1)</title>
+  <meta name="description" content="Oficjalny roczny plan czytania Biblii towarzysza Roberta Robertsa (Wersja jQuery).">
+  <meta property="og:title" content="Oficjalny Harmonogram Czytania Biblii — Chrystadelfianie (jQuery)">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="alternate icon" href="favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <style>{common_style}</style>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
@@ -1013,7 +3419,7 @@ def export_csv(
 </html>
 """
         output_jquery_html.write_text(jquery_doc, encoding="utf-8")
-        print(f"Zapisano statyczny HTML z jQuery 3.7.1 (Czysty Nagłówek): {output_jquery_html}")
+        print(f"Zapisano statyczny HTML z jQuery 3.7.1 z Favikonami: {output_jquery_html}")
 
 
 if __name__ == "__main__":

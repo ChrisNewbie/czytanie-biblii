@@ -5,7 +5,7 @@ X-WR-CALNAME:Biblia — Plan Robertsa (HiperBiblia)
 X-WR-TIMEZONE:Europe/Warsaw
 BEGIN:VEVENT
 UID:roberts-plan-day-1-20260101@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260101
 DTEND;VALUE=DATE:20260102
 SUMMARY:Biblia (Dzień 1): 1 Księga Mojżesza, rozdział 1 i 2; Psalm 1 i 2; Ewangelia Mateusza, rozdział 1 i 2
@@ -13,7 +13,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 1\n1. ST (Prawo/Historia):
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-2-20260102@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260102
 DTEND;VALUE=DATE:20260103
 SUMMARY:Biblia (Dzień 2): 1 Księga Mojżesza, rozdział 3 i 4; Psalm 3, 4 i 5; Ewangelia Mateusza, rozdział 3 i 4
@@ -21,7 +21,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 2\n1. ST (Prawo/Historia):
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-3-20260103@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260103
 DTEND;VALUE=DATE:20260104
 SUMMARY:Biblia (Dzień 3): 1 Księga Mojżesza, rozdział 5 i 6; Psalm 6, 7 i 8; Ewangelia Mateusza, rozdział 5
@@ -29,7 +29,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 3\n1. ST (Prawo/Historia):
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-4-20260104@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260104
 DTEND;VALUE=DATE:20260105
 SUMMARY:Biblia (Dzień 4): 1 Księga Mojżesza, rozdział 7 i 8; Psalm 9 i 10; Ewangelia Mateusza, rozdział 6
@@ -37,7 +37,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 4\n1. ST (Prawo/Historia):
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-5-20260105@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260105
 DTEND;VALUE=DATE:20260106
 SUMMARY:Biblia (Dzień 5): 1 Księga Mojżesza, rozdział 9 i 10; Psalm 11, 12 i 13; Ewangelia Mateusza, rozdział 7
@@ -45,7 +45,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 5\n1. ST (Prawo/Historia):
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-6-20260106@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260106
 DTEND;VALUE=DATE:20260107
 SUMMARY:Biblia (Dzień 6): 1 Księga Mojżesza, rozdział 11 i 12; Psalm 14, 15 i 16; Ewangelia Mateusza, rozdział 8
@@ -53,7 +53,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 6\n1. ST (Prawo/Historia):
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-7-20260107@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260107
 DTEND;VALUE=DATE:20260108
 SUMMARY:Biblia (Dzień 7): 1 Księga Mojżesza, rozdział 13 i 14; Psalm 17; Ewangelia Mateusza, rozdział 9
@@ -61,7 +61,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 7\n1. ST (Prawo/Historia):
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-8-20260108@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260108
 DTEND;VALUE=DATE:20260109
 SUMMARY:Biblia (Dzień 8): 1 Księga Mojżesza, rozdział 15 i 16; Psalm 18; Ewangelia Mateusza, rozdział 10
@@ -69,7 +69,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 8\n1. ST (Prawo/Historia):
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-9-20260109@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260109
 DTEND;VALUE=DATE:20260110
 SUMMARY:Biblia (Dzień 9): 1 Księga Mojżesza, rozdział 17 i 18; Psalm 19, 20 i 21; Ewangelia Mateusza, rozdział 11
@@ -77,7 +77,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 9\n1. ST (Prawo/Historia):
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-10-20260110@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260110
 DTEND;VALUE=DATE:20260111
 SUMMARY:Biblia (Dzień 10): 1 Księga Mojżesza, rozdział 19; Psalm 22; Ewangelia Mateusza, rozdział 12
@@ -85,7 +85,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 10\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-11-20260111@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260111
 DTEND;VALUE=DATE:20260112
 SUMMARY:Biblia (Dzień 11): 1 Księga Mojżesza, rozdział 20 i 21; Psalm 23, 24 i 25; Ewangelia Mateusza, rozdział 13
@@ -93,7 +93,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 11\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-12-20260112@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260112
 DTEND;VALUE=DATE:20260113
 SUMMARY:Biblia (Dzień 12): 1 Księga Mojżesza, rozdział 22 i 23; Psalm 26, 27 i 28; Ewangelia Mateusza, rozdział 14
@@ -101,7 +101,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 12\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-13-20260113@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260113
 DTEND;VALUE=DATE:20260114
 SUMMARY:Biblia (Dzień 13): 1 Księga Mojżesza, rozdział 24; Psalm 29 i 30; Ewangelia Mateusza, rozdział 15
@@ -109,7 +109,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 13\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-14-20260114@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260114
 DTEND;VALUE=DATE:20260115
 SUMMARY:Biblia (Dzień 14): 1 Księga Mojżesza, rozdział 25 i 26; Psalm 31; Ewangelia Mateusza, rozdział 16
@@ -117,7 +117,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 14\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-15-20260115@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260115
 DTEND;VALUE=DATE:20260116
 SUMMARY:Biblia (Dzień 15): 1 Księga Mojżesza, rozdział 27; Psalm 32; Ewangelia Mateusza, rozdział 17
@@ -125,7 +125,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 15\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-16-20260116@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260116
 DTEND;VALUE=DATE:20260117
 SUMMARY:Biblia (Dzień 16): 1 Księga Mojżesza, rozdział 28 i 29; Psalm 33; Ewangelia Mateusza, rozdział 18
@@ -133,7 +133,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 16\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-17-20260117@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260117
 DTEND;VALUE=DATE:20260118
 SUMMARY:Biblia (Dzień 17): 1 Księga Mojżesza, rozdział 30; Psalm 34; Ewangelia Mateusza, rozdział 19
@@ -141,7 +141,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 17\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-18-20260118@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260118
 DTEND;VALUE=DATE:20260119
 SUMMARY:Biblia (Dzień 18): 1 Księga Mojżesza, rozdział 31; Psalm 35; Ewangelia Mateusza, rozdział 20
@@ -149,7 +149,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 18\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-19-20260119@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260119
 DTEND;VALUE=DATE:20260120
 SUMMARY:Biblia (Dzień 19): 1 Księga Mojżesza, rozdział 32 i 33; Psalm 36; Ewangelia Mateusza, rozdział 21
@@ -157,7 +157,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 19\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-20-20260120@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260120
 DTEND;VALUE=DATE:20260121
 SUMMARY:Biblia (Dzień 20): 1 Księga Mojżesza, rozdział 34 i 35; Psalm 37; Ewangelia Mateusza, rozdział 22
@@ -165,7 +165,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 20\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-21-20260121@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260121
 DTEND;VALUE=DATE:20260122
 SUMMARY:Biblia (Dzień 21): 1 Księga Mojżesza, rozdział 36; Psalm 38; Ewangelia Mateusza, rozdział 23
@@ -173,7 +173,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 21\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-22-20260122@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260122
 DTEND;VALUE=DATE:20260123
 SUMMARY:Biblia (Dzień 22): 1 Księga Mojżesza, rozdział 37; Psalm 39 i 40; Ewangelia Mateusza, rozdział 24
@@ -181,7 +181,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 22\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-23-20260123@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260123
 DTEND;VALUE=DATE:20260124
 SUMMARY:Biblia (Dzień 23): 1 Księga Mojżesza, rozdział 38; Psalm 41, 42 i 43; Ewangelia Mateusza, rozdział 25
@@ -189,7 +189,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 23\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-24-20260124@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260124
 DTEND;VALUE=DATE:20260125
 SUMMARY:Biblia (Dzień 24): 1 Księga Mojżesza, rozdział 39 i 40; Psalm 44; Ewangelia Mateusza, rozdział 26
@@ -197,7 +197,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 24\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-25-20260125@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260125
 DTEND;VALUE=DATE:20260126
 SUMMARY:Biblia (Dzień 25): 1 Księga Mojżesza, rozdział 41; Psalm 45; Ewangelia Mateusza, rozdział 27
@@ -205,7 +205,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 25\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-26-20260126@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260126
 DTEND;VALUE=DATE:20260127
 SUMMARY:Biblia (Dzień 26): 1 Księga Mojżesza, rozdział 42 i 43; Psalm 46, 47 i 48; Ewangelia Mateusza, rozdział 28
@@ -213,7 +213,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 26\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-27-20260127@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260127
 DTEND;VALUE=DATE:20260128
 SUMMARY:Biblia (Dzień 27): 1 Księga Mojżesza, rozdział 44 i 45; Psalm 49; List do Rzymian, rozdział 1 i 2
@@ -221,7 +221,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 27\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-28-20260128@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260128
 DTEND;VALUE=DATE:20260129
 SUMMARY:Biblia (Dzień 28): 1 Księga Mojżesza, rozdział 46 i 47; Psalm 50; List do Rzymian, rozdział 3 i 4
@@ -229,7 +229,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 28\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-29-20260129@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260129
 DTEND;VALUE=DATE:20260130
 SUMMARY:Biblia (Dzień 29): 1 Księga Mojżesza, rozdział 48, 49 i 50; Psalm 51 i 52; List do Rzymian, rozdział 5 i 6
@@ -237,7 +237,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 29\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-30-20260130@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260130
 DTEND;VALUE=DATE:20260131
 SUMMARY:Biblia (Dzień 30): 2 Księga Mojżesza, rozdział 1 i 2; Psalm 53, 54, i 55; List do Rzymian, rozdział 7 i 8
@@ -245,7 +245,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 30\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-31-20260131@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260131
 DTEND;VALUE=DATE:20260201
 SUMMARY:Biblia (Dzień 31): 2 Księga Mojżesza, rozdział 3 i 4; Psalm 56 i 57; List do Rzymian, rozdział 9
@@ -253,7 +253,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 31\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-32-20260201@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260201
 DTEND;VALUE=DATE:20260202
 SUMMARY:Biblia (Dzień 32): 2 Księga Mojżesza, rozdział 5 i 6; Psalm 58 i 59; List do Rzymian, rozdział 10 i 11
@@ -261,7 +261,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 32\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-33-20260202@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260202
 DTEND;VALUE=DATE:20260203
 SUMMARY:Biblia (Dzień 33): 2 Księga Mojżesza, rozdział 7 i 8; Psalm 60 i 61; List do Rzymian, rozdział 12
@@ -269,7 +269,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 33\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-34-20260203@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260203
 DTEND;VALUE=DATE:20260204
 SUMMARY:Biblia (Dzień 34): 2 Księga Mojżesza, rozdział 9; Psalm 62 i 63; List do Rzymian, rozdział 13 i 14
@@ -277,7 +277,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 34\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-35-20260204@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260204
 DTEND;VALUE=DATE:20260205
 SUMMARY:Biblia (Dzień 35): 2 Księga Mojżesza, rozdział 10; Psalm 64 i 65; List do Rzymian, rozdział 15 i 16
@@ -285,7 +285,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 35\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-36-20260205@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260205
 DTEND;VALUE=DATE:20260206
 SUMMARY:Biblia (Dzień 36): 2 Księga Mojżesza, rozdział 11 i 12; Psalm 66 i 67; Ewangelia Marka, rozdział 1
@@ -293,7 +293,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 36\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-37-20260206@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260206
 DTEND;VALUE=DATE:20260207
 SUMMARY:Biblia (Dzień 37): 2 Księga Mojżesza, rozdział 13 i 14; Psalm 68; Ewangelia Marka, rozdział 2
@@ -301,7 +301,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 37\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-38-20260207@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260207
 DTEND;VALUE=DATE:20260208
 SUMMARY:Biblia (Dzień 38): 2 Księga Mojżesza, rozdział 15; Psalm 69; Ewangelia Marka, rozdział 3
@@ -309,7 +309,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 38\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-39-20260208@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260208
 DTEND;VALUE=DATE:20260209
 SUMMARY:Biblia (Dzień 39): 2 Księga Mojżesza, rozdział 16; Psalm 70 i 71; Ewangelia Marka, rozdział 4
@@ -317,7 +317,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 39\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-40-20260209@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260209
 DTEND;VALUE=DATE:20260210
 SUMMARY:Biblia (Dzień 40): 2 Księga Mojżesza, rozdział 17 i 18; Psalm 72; Ewangelia Marka, rozdział 5
@@ -325,7 +325,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 40\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-41-20260210@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260210
 DTEND;VALUE=DATE:20260211
 SUMMARY:Biblia (Dzień 41): 2 Księga Mojżesza, rozdział 19 i 20; Psalm 73; Ewangelia Marka, rozdział 6
@@ -333,7 +333,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 41\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-42-20260211@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260211
 DTEND;VALUE=DATE:20260212
 SUMMARY:Biblia (Dzień 42): 2 Księga Mojżesza, rozdział 21; Psalm 74; Ewangelia Marka, rozdział 7
@@ -341,7 +341,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 42\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-43-20260212@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260212
 DTEND;VALUE=DATE:20260213
 SUMMARY:Biblia (Dzień 43): 2 Księga Mojżesza, rozdział 22; Psalm 75 i 76; Ewangelia Marka, rozdział 8
@@ -349,7 +349,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 43\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-44-20260213@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260213
 DTEND;VALUE=DATE:20260214
 SUMMARY:Biblia (Dzień 44): 2 Księga Mojżesza, rozdział 23; Psalm 77; Ewangelia Marka, rozdział 9
@@ -357,7 +357,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 44\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-45-20260214@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260214
 DTEND;VALUE=DATE:20260215
 SUMMARY:Biblia (Dzień 45): 2 Księga Mojżesza, rozdział 24 i 25; Psalm 78; Ewangelia Marka, rozdział 10
@@ -365,7 +365,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 45\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-46-20260215@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260215
 DTEND;VALUE=DATE:20260216
 SUMMARY:Biblia (Dzień 46): 2 Księga Mojżesza, rozdział 26; Psalm 79 i 80; Ewangelia Marka, rozdział 11
@@ -373,7 +373,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 46\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-47-20260216@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260216
 DTEND;VALUE=DATE:20260217
 SUMMARY:Biblia (Dzień 47): 2 Księga Mojżesza, rozdział 27; Psalm 81 i 82; Ewangelia Marka, rozdział 12
@@ -381,7 +381,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 47\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-48-20260217@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260217
 DTEND;VALUE=DATE:20260218
 SUMMARY:Biblia (Dzień 48): 2 Księga Mojżesza, rozdział 28; Psalm 83 i 84; Ewangelia Marka, rozdział 13
@@ -389,7 +389,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 48\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-49-20260218@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260218
 DTEND;VALUE=DATE:20260219
 SUMMARY:Biblia (Dzień 49): 2 Księga Mojżesza, rozdział 29; Psalm 85 i 86; Ewangelia Marka, rozdział 14
@@ -397,7 +397,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 49\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-50-20260219@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260219
 DTEND;VALUE=DATE:20260220
 SUMMARY:Biblia (Dzień 50): 2 Księga Mojżesza, rozdział 30; Psalm 87 i 88; Ewangelia Marka, rozdział 15 i 16
@@ -405,7 +405,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 50\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-51-20260220@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260220
 DTEND;VALUE=DATE:20260221
 SUMMARY:Biblia (Dzień 51): 2 Księga Mojżesza, rozdział 31 i 32; Psalm 89; 1 List do Koryntian, rozdział 1 i 2
@@ -413,7 +413,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 51\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-52-20260221@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260221
 DTEND;VALUE=DATE:20260222
 SUMMARY:Biblia (Dzień 52): 2 Księga Mojżesza, rozdział 33 i 34; Psalm 90 i 91; 1 List do Koryntian, rozdział 3
@@ -421,7 +421,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 52\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-53-20260222@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260222
 DTEND;VALUE=DATE:20260223
 SUMMARY:Biblia (Dzień 53): 2 Księga Mojżesza, rozdział 35; Psalm 92 i 93; 1 List do Koryntian, rozdział 4 i 5
@@ -429,7 +429,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 53\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-54-20260223@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260223
 DTEND;VALUE=DATE:20260224
 SUMMARY:Biblia (Dzień 54): 2 Księga Mojżesza, rozdział 36; Psalm 94 i 95; 1 List do Koryntian, rozdział 6
@@ -437,7 +437,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 54\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-55-20260224@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260224
 DTEND;VALUE=DATE:20260225
 SUMMARY:Biblia (Dzień 55): 2 Księga Mojżesza, rozdział 37; Psalm 96, 97, 98 i 99; 1 List do Koryntian, rozdział 7
@@ -445,7 +445,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 55\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-56-20260225@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260225
 DTEND;VALUE=DATE:20260226
 SUMMARY:Biblia (Dzień 56): 2 Księga Mojżesza, rozdział 38; Psalm 100 i 101; 1 List do Koryntian, rozdział 8 i 9
@@ -453,7 +453,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 56\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-57-20260226@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260226
 DTEND;VALUE=DATE:20260227
 SUMMARY:Biblia (Dzień 57): 2 Księga Mojżesza, rozdział 39 i 40; Psalm 102; 1 List do Koryntian, rozdział 10
@@ -461,7 +461,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 57\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-58-20260227@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260227
 DTEND;VALUE=DATE:20260228
 SUMMARY:Biblia (Dzień 58): 3 Księga Mojżesza, rozdział 1 i 2; Psalm 103; 1 List do Koryntian, rozdział 11
@@ -469,7 +469,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 58\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-59-20260228@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260228
 DTEND;VALUE=DATE:20260301
 SUMMARY:Biblia (Dzień 59): 3 Księga Mojżesza, rozdział 3 i 4; Psalm 104; 1 List do Koryntian, rozdział 12 i 13
@@ -477,7 +477,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 59\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-60-20260301@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260301
 DTEND;VALUE=DATE:20260302
 SUMMARY:Biblia (Dzień 60): 3 Księga Mojżesza, rozdział 5 i 6; Psalm 105; 1 List do Koryntian, rozdział 14
@@ -485,7 +485,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 60\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-61-20260302@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260302
 DTEND;VALUE=DATE:20260303
 SUMMARY:Biblia (Dzień 61): 3 Księga Mojżesza, rozdział 7; Psalm 106; 1 List do Koryntian, rozdział 15
@@ -493,7 +493,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 61\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-62-20260303@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260303
 DTEND;VALUE=DATE:20260304
 SUMMARY:Biblia (Dzień 62): 3 Księga Mojżesza, rozdział 8; Psalm 107; 1 List do Koryntian, rozdział 16
@@ -501,7 +501,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 62\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-63-20260304@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260304
 DTEND;VALUE=DATE:20260305
 SUMMARY:Biblia (Dzień 63): 3 Księga Mojżesza, rozdział 9 i 10; Psalm 108 i 109; 2 List do Koryntian, rozdział 1 i 2
@@ -509,7 +509,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 63\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-64-20260305@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260305
 DTEND;VALUE=DATE:20260306
 SUMMARY:Biblia (Dzień 64): 3 Księga Mojżesza, rozdział 11; Psalm 110, 111 i 112; 2 List do Koryntian, rozdział 3 i 4
@@ -517,7 +517,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 64\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-65-20260306@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260306
 DTEND;VALUE=DATE:20260307
 SUMMARY:Biblia (Dzień 65): 3 Księga Mojżesza, rozdział 12 i 13; Psalm 113 i 114; 2 List do Koryntian, rozdział 5, 6 i 7
@@ -525,7 +525,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 65\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-66-20260307@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260307
 DTEND;VALUE=DATE:20260308
 SUMMARY:Biblia (Dzień 66): 3 Księga Mojżesza, rozdział 14; Psalm 115 i 116; 2 List do Koryntian, rozdział 8 i 9
@@ -533,7 +533,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 66\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-67-20260308@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260308
 DTEND;VALUE=DATE:20260309
 SUMMARY:Biblia (Dzień 67): 3 Księga Mojżesza, rozdział 15; Psalm 117 i 118; 2 List do Koryntian, rozdział 10 i 11
@@ -541,7 +541,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 67\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-68-20260309@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260309
 DTEND;VALUE=DATE:20260310
 SUMMARY:Biblia (Dzień 68): 3 Księga Mojżesza, rozdział 16; Psalm 119, wersety 1 - 40; 2 List do Koryntian, rozdział 12 i 13
@@ -549,7 +549,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 68\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-69-20260310@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260310
 DTEND;VALUE=DATE:20260311
 SUMMARY:Biblia (Dzień 69): 3 Księga Mojżesza, rozdział 17 i 18; Psalm 119, wersety 41- 80; Ewangelia Łukasza, rozdział 1
@@ -557,7 +557,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 69\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-70-20260311@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260311
 DTEND;VALUE=DATE:20260312
 SUMMARY:Biblia (Dzień 70): 3 Księga Mojżesza, rozdział 19; Psalm 119, wersety 81-128; Ewangelia Łukasza, rozdział 2
@@ -565,7 +565,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 70\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-71-20260312@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260312
 DTEND;VALUE=DATE:20260313
 SUMMARY:Biblia (Dzień 71): 3 Księga Mojżesza, rozdział 20; Psalm 119, wersety 129-176; Ewangelia Łukasza, rozdział 3
@@ -573,7 +573,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 71\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-72-20260313@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260313
 DTEND;VALUE=DATE:20260314
 SUMMARY:Biblia (Dzień 72): 3 Księga Mojżesza, rozdział 21; Psalm 120, 121, 122, 123 i 124; Ewangelia Łukasza, rozdział 4
@@ -581,7 +581,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 72\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-73-20260314@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260314
 DTEND;VALUE=DATE:20260315
 SUMMARY:Biblia (Dzień 73): 3 Księga Mojżesza, rozdział 22; Psalm 125, 126 i 127; Ewangelia Łukasza, rozdział 5
@@ -589,7 +589,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 73\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-74-20260315@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260315
 DTEND;VALUE=DATE:20260316
 SUMMARY:Biblia (Dzień 74): 3 Księga Mojżesza, rozdział 23; Psalm 128, 129 i 130; Ewangelia Łukasza, rozdział 6
@@ -597,7 +597,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 74\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-75-20260316@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260316
 DTEND;VALUE=DATE:20260317
 SUMMARY:Biblia (Dzień 75): 3 Księga Mojżesza, rozdział 24; Psalm 131, 132, 133 i 134; Ewangelia Łukasza, rozdział 7
@@ -605,7 +605,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 75\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-76-20260317@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260317
 DTEND;VALUE=DATE:20260318
 SUMMARY:Biblia (Dzień 76): 3 Księga Mojżesza, rozdział 25; Psalm 135 i 136; Ewangelia Łukasza, rozdział 8
@@ -613,7 +613,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 76\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-77-20260318@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260318
 DTEND;VALUE=DATE:20260319
 SUMMARY:Biblia (Dzień 77): 3 Księga Mojżesza, rozdział 26; Psalm 137, 138 i 139; Ewangelia Łukasza, rozdział 9
@@ -621,7 +621,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 77\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-78-20260319@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260319
 DTEND;VALUE=DATE:20260320
 SUMMARY:Biblia (Dzień 78): 3 Księga Mojżesza, rozdział 27; Psalm 140, 141 i 142; Ewangelia Łukasza, rozdział 10
@@ -629,7 +629,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 78\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-79-20260320@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260320
 DTEND;VALUE=DATE:20260321
 SUMMARY:Biblia (Dzień 79): 4 Księga Mojżesza, rozdział 1; Psalm 143 i 144; Ewangelia Łukasza, rozdział 11
@@ -637,7 +637,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 79\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-80-20260321@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260321
 DTEND;VALUE=DATE:20260322
 SUMMARY:Biblia (Dzień 80): 4 Księga Mojżesza, rozdział 2; Psalm 145, 146 i 147; Ewangelia Łukasza, rozdział 12
@@ -645,7 +645,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 80\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-81-20260322@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260322
 DTEND;VALUE=DATE:20260323
 SUMMARY:Biblia (Dzień 81): 4 Księga Mojżesza, rozdział 3; Psalm 148, 149 i 150; Ewangelia Łukasza, rozdział 13 i 14
@@ -653,7 +653,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 81\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-82-20260323@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260323
 DTEND;VALUE=DATE:20260324
 SUMMARY:Biblia (Dzień 82): 4 Księga Mojżesza, rozdział 4; Księga Przysłów, rozdział 1; Ewangelia Łukasza, rozdział 15
@@ -661,7 +661,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 82\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-83-20260324@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260324
 DTEND;VALUE=DATE:20260325
 SUMMARY:Biblia (Dzień 83): 4 Księga Mojżesza, rozdział 5; Księga Przysłów, rozdział 2; Ewangelia Łukasza, rozdział 16
@@ -669,7 +669,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 83\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-84-20260325@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260325
 DTEND;VALUE=DATE:20260326
 SUMMARY:Biblia (Dzień 84): 4 Księga Mojżesza, rozdział 6; Księga Przysłów, rozdział 3; Ewangelia Łukasza, rozdział 17
@@ -677,7 +677,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 84\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-85-20260326@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260326
 DTEND;VALUE=DATE:20260327
 SUMMARY:Biblia (Dzień 85): 4 Księga Mojżesza, rozdział 7; Księga Przysłów, rozdział 4; Ewangelia Łukasza, rozdział 18
@@ -685,7 +685,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 85\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-86-20260327@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260327
 DTEND;VALUE=DATE:20260328
 SUMMARY:Biblia (Dzień 86): 4 Księga Mojżesza, rozdział 8 i 9; Księga Przysłów, rozdział 5; Ewangelia Łukasza, rozdział 19
@@ -693,7 +693,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 86\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-87-20260328@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260328
 DTEND;VALUE=DATE:20260329
 SUMMARY:Biblia (Dzień 87): 4 Księga Mojżesza, rozdział 10; Księga Przysłów, rozdział 6; Ewangelia Łukasza, rozdział 20
@@ -701,7 +701,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 87\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-88-20260329@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260329
 DTEND;VALUE=DATE:20260330
 SUMMARY:Biblia (Dzień 88): 4 Księga Mojżesza, rozdział 11; Księga Przysłów, rozdział 7; Ewangelia Łukasza, rozdział 21
@@ -709,7 +709,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 88\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-89-20260330@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260330
 DTEND;VALUE=DATE:20260331
 SUMMARY:Biblia (Dzień 89): 4 Księga Mojżesza, rozdział 12 i 13; Księga Przysłów, rozdział 8 i 9; Ewangelia Łukasza, rozdział 22
@@ -717,7 +717,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 89\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-90-20260331@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260331
 DTEND;VALUE=DATE:20260401
 SUMMARY:Biblia (Dzień 90): 4 Księga Mojżesza, rozdział 14; Księga Przysłów, rozdział 10; Ewangelia Łukasza, rozdział 23
@@ -725,7 +725,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 90\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-91-20260401@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260401
 DTEND;VALUE=DATE:20260402
 SUMMARY:Biblia (Dzień 91): 4 Księga Mojżesza, rozdział 15; Księga Przysłów, rozdział 11; Ewangelia Łukasza, rozdział 24
@@ -733,7 +733,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 91\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-92-20260402@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260402
 DTEND;VALUE=DATE:20260403
 SUMMARY:Biblia (Dzień 92): 4 Księga Mojżesza, rozdział 16; Księga Przysłów, rozdział 12; List do Galacjan, rozdział 1 i 2
@@ -741,7 +741,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 92\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-93-20260403@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260403
 DTEND;VALUE=DATE:20260404
 SUMMARY:Biblia (Dzień 93): 4 Księga Mojżesza, rozdział 17 i 18; Księga Przysłów, rozdział 13; List do Galacjan, rozdział 3 i 4
@@ -749,7 +749,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 93\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-94-20260404@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260404
 DTEND;VALUE=DATE:20260405
 SUMMARY:Biblia (Dzień 94): 4 Księga Mojżesza, rozdział 19; Księga Przysłów, rozdział 14; List do Galacjan, rozdział 5 i 6
@@ -757,7 +757,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 94\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-95-20260405@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260405
 DTEND;VALUE=DATE:20260406
 SUMMARY:Biblia (Dzień 95): 4 Księga Mojżesza, rozdział 20 i 21; Księga Przysłów, rozdział 15; List do Efezjan, rozdział 1 i 2
@@ -765,7 +765,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 95\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-96-20260406@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260406
 DTEND;VALUE=DATE:20260407
 SUMMARY:Biblia (Dzień 96): 4 Księga Mojżesza, rozdział 22 i 23; Księga Przysłów, rozdział 16; List do Efezjan, rozdział 3 i 4
@@ -773,7 +773,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 96\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-97-20260407@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260407
 DTEND;VALUE=DATE:20260408
 SUMMARY:Biblia (Dzień 97): 4 Księga Mojżesza, rozdział 24 i 25; Księga Przysłów, rozdział 17; List do Efezjan, rozdział 5 i 6
@@ -781,7 +781,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 97\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-98-20260408@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260408
 DTEND;VALUE=DATE:20260409
 SUMMARY:Biblia (Dzień 98): 4 Księga Mojżesza, rozdział 26; Księga Przysłów, rozdział 18; List do Filipian, rozdział 1 i 2
@@ -789,7 +789,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 98\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-99-20260409@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260409
 DTEND;VALUE=DATE:20260410
 SUMMARY:Biblia (Dzień 99): 4 Księga Mojżesza, rozdział 27; Księga Przysłów, rozdział 19; List do Filipian, rozdział 3 i 4
@@ -797,7 +797,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 99\n1. ST (Prawo/Historia)
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-100-20260410@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260410
 DTEND;VALUE=DATE:20260411
 SUMMARY:Biblia (Dzień 100): 4 Księga Mojżesza, rozdział 28; Księga Przysłów, rozdział 20; Ewangelia Jana, rozdział 1
@@ -805,7 +805,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 100\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-101-20260411@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260411
 DTEND;VALUE=DATE:20260412
 SUMMARY:Biblia (Dzień 101): 4 Księga Mojżesza, rozdział 29 i 30; Księga Przysłów, rozdział 21; Ewangelia Jana, rozdział 2 i 3
@@ -813,7 +813,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 101\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-102-20260412@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260412
 DTEND;VALUE=DATE:20260413
 SUMMARY:Biblia (Dzień 102): 4 Księga Mojżesza, rozdział 31; Księga Przysłów, rozdział 22; Ewangelia Jana, rozdział 4
@@ -821,7 +821,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 102\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-103-20260413@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260413
 DTEND;VALUE=DATE:20260414
 SUMMARY:Biblia (Dzień 103): 4 Księga Mojżesza, rozdział 32; Księga Przysłów, rozdział 23; Ewangelia Jana, rozdział 5
@@ -829,7 +829,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 103\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-104-20260414@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260414
 DTEND;VALUE=DATE:20260415
 SUMMARY:Biblia (Dzień 104): 4 Księga Mojżesza, rozdział 33; Księga Przysłów, rozdział 24; Ewangelia Jana, rozdział 6
@@ -837,7 +837,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 104\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-105-20260415@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260415
 DTEND;VALUE=DATE:20260416
 SUMMARY:Biblia (Dzień 105): 4 Księga Mojżesza, rozdział 34; Księga Przysłów, rozdział 25; Ewangelia Jana, rozdział 7
@@ -845,7 +845,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 105\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-106-20260416@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260416
 DTEND;VALUE=DATE:20260417
 SUMMARY:Biblia (Dzień 106): 4 Księga Mojżesza, rozdział 35; Księga Przysłów, rozdział 26; Ewangelia Jana, rozdział 8
@@ -853,7 +853,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 106\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-107-20260417@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260417
 DTEND;VALUE=DATE:20260418
 SUMMARY:Biblia (Dzień 107): 4 Księga Mojżesza, rozdział 36; Księga Przysłów, rozdział 27; Ewangelia Jana, rozdział 9 i 10
@@ -861,7 +861,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 107\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-108-20260418@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260418
 DTEND;VALUE=DATE:20260419
 SUMMARY:Biblia (Dzień 108): 5 Księga Mojżesza, rozdział 1; Księga Przysłów, rozdział 28; Ewangelia Jana, rozdział 11
@@ -869,7 +869,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 108\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-109-20260419@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260419
 DTEND;VALUE=DATE:20260420
 SUMMARY:Biblia (Dzień 109): 5 Księga Mojżesza, rozdział 2; Księga Przysłów, rozdział 29; Ewangelia Jana, rozdział 12
@@ -877,7 +877,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 109\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-110-20260420@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260420
 DTEND;VALUE=DATE:20260421
 SUMMARY:Biblia (Dzień 110): 5 Księga Mojżesza, rozdział 3; Księga Przysłów, rozdział 30; Ewangelia Jana, rozdział 13 i 14
@@ -885,7 +885,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 110\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-111-20260421@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260421
 DTEND;VALUE=DATE:20260422
 SUMMARY:Biblia (Dzień 111): 5 Księga Mojżesza, rozdział 4; Księga Przysłów, rozdział 31; Ewangelia Jana, rozdział 15 i 16
@@ -893,7 +893,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 111\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-112-20260422@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260422
 DTEND;VALUE=DATE:20260423
 SUMMARY:Biblia (Dzień 112): 5 Księga Mojżesza, rozdział 5; Księga Koheleta, rozdział 1; Ewangelia Jana, rozdział 17 i 18
@@ -901,7 +901,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 112\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-113-20260423@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260423
 DTEND;VALUE=DATE:20260424
 SUMMARY:Biblia (Dzień 113): 5 Księga Mojżesza, rozdział 6 i 7; Księga Koheleta, rozdział 2; Ewangelia Jana, rozdział 19
@@ -909,7 +909,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 113\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-114-20260424@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260424
 DTEND;VALUE=DATE:20260425
 SUMMARY:Biblia (Dzień 114): 5 Księga Mojżesza, rozdział 8 i 9; Księga Koheleta, rozdział 3; Ewangelia Jana, rozdział 20 i 21
@@ -917,7 +917,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 114\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-115-20260425@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260425
 DTEND;VALUE=DATE:20260426
 SUMMARY:Biblia (Dzień 115): 5 Księga Mojżesza, rozdział 10 i 11; Księga Koheleta, rozdział 4; Dzieje Apostolskie, rozdział 1
@@ -925,7 +925,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 115\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-116-20260426@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260426
 DTEND;VALUE=DATE:20260427
 SUMMARY:Biblia (Dzień 116): 5 Księga Mojżesza, rozdział 12; Księga Koheleta, rozdział 5; Dzieje Apostolskie, rozdział 2
@@ -933,7 +933,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 116\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-117-20260427@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260427
 DTEND;VALUE=DATE:20260428
 SUMMARY:Biblia (Dzień 117): 5 Księga Mojżesza, rozdział 13 i 14; Księga Koheleta, rozdział 6; Dzieje Apostolskie, rozdział 3 i 4
@@ -941,7 +941,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 117\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-118-20260428@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260428
 DTEND;VALUE=DATE:20260429
 SUMMARY:Biblia (Dzień 118): 5 Księga Mojżesza, rozdział 15; Księga Koheleta, rozdział 7; Dzieje Apostolskie, rozdział 5 i 6
@@ -949,7 +949,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 118\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-119-20260429@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260429
 DTEND;VALUE=DATE:20260430
 SUMMARY:Biblia (Dzień 119): 5 Księga Mojżesza, rozdział 16; Księga Koheleta, rozdział 8; Dzieje Apostolskie, rozdział 7
@@ -957,7 +957,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 119\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-120-20260430@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260430
 DTEND;VALUE=DATE:20260501
 SUMMARY:Biblia (Dzień 120): 5 Księga Mojżesza, rozdział 17; Księga Koheleta, rozdział 9; Dzieje Apostolskie, rozdział 8
@@ -965,7 +965,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 120\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-121-20260501@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260501
 DTEND;VALUE=DATE:20260502
 SUMMARY:Biblia (Dzień 121): 5 Księga Mojżesza, rozdział 18; Księga Koheleta, rozdział 10; Dzieje Apostolskie, rozdział 9
@@ -973,7 +973,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 121\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-122-20260502@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260502
 DTEND;VALUE=DATE:20260503
 SUMMARY:Biblia (Dzień 122): 5 Księga Mojżesza, rozdział 19; Księga Koheleta, rozdział 11; Dzieje Apostolskie, rozdział 10
@@ -981,7 +981,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 122\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-123-20260503@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260503
 DTEND;VALUE=DATE:20260504
 SUMMARY:Biblia (Dzień 123): 5 Księga Mojżesza, rozdział 20; Księga Koheleta, rozdział 12; Dzieje Apostolskie, rozdział 11 i 12
@@ -989,7 +989,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 123\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-124-20260504@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260504
 DTEND;VALUE=DATE:20260505
 SUMMARY:Biblia (Dzień 124): 5 Księga Mojżesza, rozdział 21; Pieśń nad Pieśniami, rozdział 1; Dzieje Apostolskie, rozdział 13
@@ -997,7 +997,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 124\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-125-20260505@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260505
 DTEND;VALUE=DATE:20260506
 SUMMARY:Biblia (Dzień 125): 5 Księga Mojżesza, rozdział 22; Pieśń nad Pieśniami, rozdział 2; Dzieje Apostolskie, rozdział 14 i 15
@@ -1005,7 +1005,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 125\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-126-20260506@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260506
 DTEND;VALUE=DATE:20260507
 SUMMARY:Biblia (Dzień 126): 5 Księga Mojżesza, rozdział 23; Pieśń nad Pieśniami, rozdział 3; Dzieje Apostolskie, rozdział 16 i 17
@@ -1013,7 +1013,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 126\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-127-20260507@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260507
 DTEND;VALUE=DATE:20260508
 SUMMARY:Biblia (Dzień 127): 5 Księga Mojżesza, rozdział 24; Pieśń nad Pieśniami, rozdział 4; Dzieje Apostolskie, rozdział 18 i 19
@@ -1021,7 +1021,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 127\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-128-20260508@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260508
 DTEND;VALUE=DATE:20260509
 SUMMARY:Biblia (Dzień 128): 5 Księga Mojżesza, rozdział 25; Pieśń nad Pieśniami, rozdział 5; Dzieje Apostolskie, rozdział 20
@@ -1029,7 +1029,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 128\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-129-20260509@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260509
 DTEND;VALUE=DATE:20260510
 SUMMARY:Biblia (Dzień 129): 5 Księga Mojżesza, rozdział 26; Pieśń nad Pieśniami, rozdział 6; Dzieje Apostolskie, rozdział 21 i 22
@@ -1037,7 +1037,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 129\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-130-20260510@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260510
 DTEND;VALUE=DATE:20260511
 SUMMARY:Biblia (Dzień 130): 5 Księga Mojżesza, rozdział 27; Pieśń nad Pieśniami, rozdział 7; Dzieje Apostolskie, rozdział 23 i 24
@@ -1045,7 +1045,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 130\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-131-20260511@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260511
 DTEND;VALUE=DATE:20260512
 SUMMARY:Biblia (Dzień 131): 5 Księga Mojżesza, rozdział 28; Pieśń nad Pieśniami, rozdział 8; Dzieje Apostolskie, rozdział 25 i 26
@@ -1053,7 +1053,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 131\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-132-20260512@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260512
 DTEND;VALUE=DATE:20260513
 SUMMARY:Biblia (Dzień 132): 5 Księga Mojżesza, rozdział 29; Księga Izajasza, rozdział 1; Dzieje Apostolskie, rozdział 27
@@ -1061,7 +1061,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 132\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-133-20260513@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260513
 DTEND;VALUE=DATE:20260514
 SUMMARY:Biblia (Dzień 133): 5 Księga Mojżesza, rozdział 30; Księga Izajasza, rozdział 2; Dzieje Apostolskie, rozdział 28
@@ -1069,7 +1069,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 133\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-134-20260514@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260514
 DTEND;VALUE=DATE:20260515
 SUMMARY:Biblia (Dzień 134): 5 Księga Mojżesza, rozdział 31; Księga Izajasza, rozdział 3 i 4; List do Kolosan, rozdział 1
@@ -1077,7 +1077,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 134\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-135-20260515@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260515
 DTEND;VALUE=DATE:20260516
 SUMMARY:Biblia (Dzień 135): 5 Księga Mojżesza, rozdział 32; Księga Izajasza, rozdział 5; List do Kolosan, rozdział 2
@@ -1085,7 +1085,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 135\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-136-20260516@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260516
 DTEND;VALUE=DATE:20260517
 SUMMARY:Biblia (Dzień 136): 5 Księga Mojżesza, rozdział 33;34; Księga Izajasza, rozdział 6; List do Kolosan, rozdział 3 i 4
@@ -1093,7 +1093,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 136\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-137-20260517@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260517
 DTEND;VALUE=DATE:20260518
 SUMMARY:Biblia (Dzień 137): Księga Jozuego, rozdział 1; Księga Izajasza, rozdział 7; 1 List do Tesaloniczan, rozdział 1 i 2
@@ -1101,7 +1101,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 137\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-138-20260518@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260518
 DTEND;VALUE=DATE:20260519
 SUMMARY:Biblia (Dzień 138): Księga Jozuego, rozdział 2; Księga Izajasza, rozdział 8; 1 List do Tesaloniczan, rozdział 3 i 4
@@ -1109,7 +1109,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 138\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-139-20260519@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260519
 DTEND;VALUE=DATE:20260520
 SUMMARY:Biblia (Dzień 139): Księga Jozuego, rozdział 3 i 4; Księga Izajasza, rozdział 9; 1 List do Tesaloniczan, rozdział 5
@@ -1117,7 +1117,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 139\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-140-20260520@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260520
 DTEND;VALUE=DATE:20260521
 SUMMARY:Biblia (Dzień 140): Księga Jozuego, rozdział 5 i 6; Księga Izajasza, rozdział 10; 2 List do Tesaloniczan, rozdział 1 i 2
@@ -1125,7 +1125,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 140\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-141-20260521@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260521
 DTEND;VALUE=DATE:20260522
 SUMMARY:Biblia (Dzień 141): Księga Jozuego, rozdział 7; Księga Izajasza, rozdział 11; 2 List do Tesaloniczan, rozdział 3
@@ -1133,7 +1133,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 141\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-142-20260522@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260522
 DTEND;VALUE=DATE:20260523
 SUMMARY:Biblia (Dzień 142): Księga Jozuego, rozdział 8; Księga Izajasza, rozdział 12; 1 List do Tymoteusza, rozdział 1, 2 i 3
@@ -1141,7 +1141,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 142\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-143-20260523@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260523
 DTEND;VALUE=DATE:20260524
 SUMMARY:Biblia (Dzień 143): Księga Jozuego, rozdział 9; Księga Izajasza, rozdział 13; 1 List do Tymoteusza, rozdział 4 i 5
@@ -1149,7 +1149,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 143\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-144-20260524@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260524
 DTEND;VALUE=DATE:20260525
 SUMMARY:Biblia (Dzień 144): Księga Jozuego, rozdział 10; Księga Izajasza, rozdział 14; 1 List do Tymoteusza, rozdział 6
@@ -1157,7 +1157,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 144\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-145-20260525@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260525
 DTEND;VALUE=DATE:20260526
 SUMMARY:Biblia (Dzień 145): Księga Jozuego, rozdział 11; Księga Izajasza, rozdział 15; 2 List do Tymoteusza, rozdział 1
@@ -1165,7 +1165,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 145\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-146-20260526@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260526
 DTEND;VALUE=DATE:20260527
 SUMMARY:Biblia (Dzień 146): Księga Jozuego, rozdział 12; Księga Izajasza, rozdział 16; 2 List do Tymoteusza, rozdział 2
@@ -1173,7 +1173,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 146\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-147-20260527@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260527
 DTEND;VALUE=DATE:20260528
 SUMMARY:Biblia (Dzień 147): Księga Jozuego, rozdział 13; Księga Izajasza, rozdział 17 i 18; 2 List do Tymoteusza, rozdział 3 i 4
@@ -1181,7 +1181,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 147\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-148-20260528@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260528
 DTEND;VALUE=DATE:20260529
 SUMMARY:Biblia (Dzień 148): Księga Jozuego, rozdział 14; Księga Izajasza, rozdział 19; List do Tytusa
@@ -1189,7 +1189,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 148\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-149-20260529@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260529
 DTEND;VALUE=DATE:20260530
 SUMMARY:Biblia (Dzień 149): Księga Jozuego, rozdział 15; Księga Izajasza, rozdział 20 i 21; List do Filemona
@@ -1197,7 +1197,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 149\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-150-20260530@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260530
 DTEND;VALUE=DATE:20260531
 SUMMARY:Biblia (Dzień 150): Księga Jozuego, rozdział 16; Księga Izajasza, rozdział 22; List do Hebrajczyków, rozdział 1 i 2
@@ -1205,7 +1205,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 150\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-151-20260531@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260531
 DTEND;VALUE=DATE:20260601
 SUMMARY:Biblia (Dzień 151): Księga Jozuego, rozdział 17; Księga Izajasza, rozdział 23; List do Hebrajczyków, rozdział 3, 4 i 5
@@ -1213,7 +1213,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 151\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-152-20260601@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260601
 DTEND;VALUE=DATE:20260602
 SUMMARY:Biblia (Dzień 152): Księga Jozuego, rozdział 18; Księga Izajasza, rozdział 24; List do Hebrajczyków, rozdział 6 i 7
@@ -1221,7 +1221,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 152\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-153-20260602@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260602
 DTEND;VALUE=DATE:20260603
 SUMMARY:Biblia (Dzień 153): Księga Jozuego, rozdział 19; Księga Izajasza, rozdział 25; List do Hebrajczyków, rozdział 8 i 9
@@ -1229,7 +1229,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 153\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-154-20260603@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260603
 DTEND;VALUE=DATE:20260604
 SUMMARY:Biblia (Dzień 154): Księga Jozuego, rozdział 20 i 21; Księga Izajasza, rozdział 26 i 27; List do Hebrajczyków, rozdział 10
@@ -1237,7 +1237,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 154\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-155-20260604@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260604
 DTEND;VALUE=DATE:20260605
 SUMMARY:Biblia (Dzień 155): Księga Jozuego, rozdział 22; Księga Izajasza, rozdział 28; List do Hebrajczyków, rozdział 11
@@ -1245,7 +1245,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 155\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-156-20260605@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260605
 DTEND;VALUE=DATE:20260606
 SUMMARY:Biblia (Dzień 156): Księga Jozuego, rozdział 23 i 24; Księga Izajasza, rozdział 29; List do Hebrajczyków, rozdział 12
@@ -1253,7 +1253,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 156\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-157-20260606@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260606
 DTEND;VALUE=DATE:20260607
 SUMMARY:Biblia (Dzień 157): Księga Sędziów, rozdział 1; Księga Izajasza, rozdział 30; List do Hebrajczyków, rozdział 13
@@ -1261,7 +1261,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 157\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-158-20260607@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260607
 DTEND;VALUE=DATE:20260608
 SUMMARY:Biblia (Dzień 158): Księga Sędziów, rozdział 2 i 3; Księga Izajasza, rozdział 31; List Jakuba,  rozdział 1
@@ -1269,7 +1269,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 158\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-159-20260608@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260608
 DTEND;VALUE=DATE:20260609
 SUMMARY:Biblia (Dzień 159): Księga Sędziów, rozdział 4 i 5; Księga Izajasza, rozdział 32; List Jakuba,  rozdział 2
@@ -1277,7 +1277,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 159\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-160-20260609@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260609
 DTEND;VALUE=DATE:20260610
 SUMMARY:Biblia (Dzień 160): Księga Sędziów, rozdział 6; Księga Izajasza, rozdział 33; List Jakuba,  rozdział 3 i 4
@@ -1285,7 +1285,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 160\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-161-20260610@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260610
 DTEND;VALUE=DATE:20260611
 SUMMARY:Biblia (Dzień 161): Księga Sędziów, rozdział 7 i 8; Księga Izajasza, rozdział 34; List Jakuba,  rozdział 5
@@ -1293,7 +1293,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 161\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-162-20260611@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260611
 DTEND;VALUE=DATE:20260612
 SUMMARY:Biblia (Dzień 162): Księga Sędziów, rozdział 9; Księga Izajasza, rozdział 35; 1 List Piotra,  rozdział 1
@@ -1301,7 +1301,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 162\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-163-20260612@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260612
 DTEND;VALUE=DATE:20260613
 SUMMARY:Biblia (Dzień 163): Księga Sędziów, rozdział 10 i 11; Księga Izajasza, rozdział 36; 1 List Piotra,  rozdział 2
@@ -1309,7 +1309,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 163\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-164-20260613@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260613
 DTEND;VALUE=DATE:20260614
 SUMMARY:Biblia (Dzień 164): Księga Sędziów, rozdział 12 i 13; Księga Izajasza, rozdział 37; 1 List Piotra,  rozdział 3, 4 i 5
@@ -1317,7 +1317,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 164\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-165-20260614@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260614
 DTEND;VALUE=DATE:20260615
 SUMMARY:Biblia (Dzień 165): Księga Sędziów, rozdział 14 i 15; Księga Izajasza, rozdział 38; 2 List Piotra, rozdział 1 i 2
@@ -1325,7 +1325,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 165\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-166-20260615@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260615
 DTEND;VALUE=DATE:20260616
 SUMMARY:Biblia (Dzień 166): Księga Sędziów, rozdział 16; Księga Izajasza, rozdział 39; 2 List Piotra, rozdział 3
@@ -1333,7 +1333,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 166\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-167-20260616@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260616
 DTEND;VALUE=DATE:20260617
 SUMMARY:Biblia (Dzień 167): Księga Sędziów, rozdział 17 i 18; Księga Izajasza, rozdział 40; 1 List Jana, rozdział 1 i 2
@@ -1341,7 +1341,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 167\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-168-20260617@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260617
 DTEND;VALUE=DATE:20260618
 SUMMARY:Biblia (Dzień 168): Księga Sędziów, rozdział 19; Księga Izajasza, rozdział 41; 1 List Jana, rozdział 3 i 4
@@ -1349,7 +1349,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 168\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-169-20260618@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260618
 DTEND;VALUE=DATE:20260619
 SUMMARY:Biblia (Dzień 169): Księga Sędziów, rozdział 20; Księga Izajasza, rozdział 42; 1 List Jana, rozdział 5
@@ -1357,7 +1357,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 169\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-170-20260619@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260619
 DTEND;VALUE=DATE:20260620
 SUMMARY:Biblia (Dzień 170): Księga Sędziów, rozdział 21; Księga Izajasza, rozdział 43; 2 i 3 List Jana
@@ -1365,7 +1365,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 170\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-171-20260620@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260620
 DTEND;VALUE=DATE:20260621
 SUMMARY:Biblia (Dzień 171): Księga Rut, rozdział 1 i 2; Księga Izajasza, rozdział 44; List Judy
@@ -1373,7 +1373,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 171\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-172-20260621@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260621
 DTEND;VALUE=DATE:20260622
 SUMMARY:Biblia (Dzień 172): Księga Rut, rozdział 3 i 4; Księga Izajasza, rozdział 45; Apokalipsa Jana, rozdział 1 i 2
@@ -1381,7 +1381,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 172\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-173-20260622@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260622
 DTEND;VALUE=DATE:20260623
 SUMMARY:Biblia (Dzień 173): 1 Księga Samuela, rozdział 1; Księga Izajasza, rozdział 46 i 47; Apokalipsa Jana, rozdział 3 i 4
@@ -1389,7 +1389,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 173\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-174-20260623@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260623
 DTEND;VALUE=DATE:20260624
 SUMMARY:Biblia (Dzień 174): 1 Księga Samuela, rozdział 2; Księga Izajasza, rozdział 48; Apokalipsa Jana, rozdział 5 i 6
@@ -1397,7 +1397,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 174\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-175-20260624@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260624
 DTEND;VALUE=DATE:20260625
 SUMMARY:Biblia (Dzień 175): 1 Księga Samuela, rozdział 3; Księga Izajasza, rozdział 49; Apokalipsa Jana, rozdział 7, 8 i 9
@@ -1405,7 +1405,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 175\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-176-20260625@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260625
 DTEND;VALUE=DATE:20260626
 SUMMARY:Biblia (Dzień 176): 1 Księga Samuela, rozdział 4; Księga Izajasza, rozdział 50; Apokalipsa Jana, rozdział 10 i 11
@@ -1413,7 +1413,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 176\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-177-20260626@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260626
 DTEND;VALUE=DATE:20260627
 SUMMARY:Biblia (Dzień 177): 1 Księga Samuela, rozdział 5 i 6; Księga Izajasza, rozdział 51; Apokalipsa Jana, rozdział 12 i 13
@@ -1421,7 +1421,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 177\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-178-20260627@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260627
 DTEND;VALUE=DATE:20260628
 SUMMARY:Biblia (Dzień 178): 1 Księga Samuela, rozdział 7 i 8; Księga Izajasza, rozdział 52; Apokalipsa Jana, rozdział 14
@@ -1429,7 +1429,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 178\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-179-20260628@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260628
 DTEND;VALUE=DATE:20260629
 SUMMARY:Biblia (Dzień 179): 1 Księga Samuela, rozdział 9; Księga Izajasza, rozdział 53; Apokalipsa Jana, rozdział 15 i 16
@@ -1437,7 +1437,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 179\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-180-20260629@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260629
 DTEND;VALUE=DATE:20260630
 SUMMARY:Biblia (Dzień 180): 1 Księga Samuela, rozdział 10; Księga Izajasza, rozdział 54; Apokalipsa Jana, rozdział 17 i 18
@@ -1445,7 +1445,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 180\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-181-20260630@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260630
 DTEND;VALUE=DATE:20260701
 SUMMARY:Biblia (Dzień 181): 1 Księga Samuela, rozdział 11 i 12; Księga Izajasza, rozdział 55; Apokalipsa Jana, rozdział 19 i 20
@@ -1453,7 +1453,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 181\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-182-20260701@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260701
 DTEND;VALUE=DATE:20260702
 SUMMARY:Biblia (Dzień 182): 1 Księga Samuela, rozdział 13; Księga Izajasza, rozdział 56 i 57; Apokalipsa Jana, rozdział 21 i 22
@@ -1461,7 +1461,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 182\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-183-20260702@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260702
 DTEND;VALUE=DATE:20260703
 SUMMARY:Biblia (Dzień 183): 1 Księga Samuela, rozdział 14; Księga Izajasza, rozdział 58; Ewangelia Mateusza, rozdział 1 i 2
@@ -1469,7 +1469,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 183\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-184-20260703@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260703
 DTEND;VALUE=DATE:20260704
 SUMMARY:Biblia (Dzień 184): 1 Księga Samuela, rozdział 15; Księga Izajasza, rozdział 59; Ewangelia Mateusza, rozdział 3 i 4
@@ -1477,7 +1477,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 184\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-185-20260704@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260704
 DTEND;VALUE=DATE:20260705
 SUMMARY:Biblia (Dzień 185): 1 Księga Samuela, rozdział 16; Księga Izajasza, rozdział 60; Ewangelia Mateusza, rozdział 5
@@ -1485,7 +1485,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 185\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-186-20260705@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260705
 DTEND;VALUE=DATE:20260706
 SUMMARY:Biblia (Dzień 186): 1 Księga Samuela, rozdział 17; Księga Izajasza, rozdział 61; Ewangelia Mateusza, rozdział 6
@@ -1493,7 +1493,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 186\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-187-20260706@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260706
 DTEND;VALUE=DATE:20260707
 SUMMARY:Biblia (Dzień 187): 1 Księga Samuela, rozdział 18; Księga Izajasza, rozdział 62; Ewangelia Mateusza, rozdział 7
@@ -1501,7 +1501,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 187\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-188-20260707@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260707
 DTEND;VALUE=DATE:20260708
 SUMMARY:Biblia (Dzień 188): 1 Księga Samuela, rozdział 19; Księga Izajasza, rozdział 63; Ewangelia Mateusza, rozdział 8
@@ -1509,7 +1509,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 188\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-189-20260708@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260708
 DTEND;VALUE=DATE:20260709
 SUMMARY:Biblia (Dzień 189): 1 Księga Samuela, rozdział 20; Księga Izajasza, rozdział 64; Ewangelia Mateusza, rozdział 9
@@ -1517,7 +1517,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 189\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-190-20260709@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260709
 DTEND;VALUE=DATE:20260710
 SUMMARY:Biblia (Dzień 190): 1 Księga Samuela, rozdział 21 i 22; Księga Izajasza, rozdział 65; Ewangelia Mateusza, rozdział 10
@@ -1525,7 +1525,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 190\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-191-20260710@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260710
 DTEND;VALUE=DATE:20260711
 SUMMARY:Biblia (Dzień 191): 1 Księga Samuela, rozdział 23; Księga Izajasza, rozdział 66; Ewangelia Mateusza, rozdział 11
@@ -1533,7 +1533,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 191\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-192-20260711@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260711
 DTEND;VALUE=DATE:20260712
 SUMMARY:Biblia (Dzień 192): 1 Księga Samuela, rozdział 24; Księga Jeremiasza, rozdział 1; Ewangelia Mateusza, rozdział 12
@@ -1541,7 +1541,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 192\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-193-20260712@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260712
 DTEND;VALUE=DATE:20260713
 SUMMARY:Biblia (Dzień 193): 1 Księga Samuela, rozdział 25; Księga Jeremiasza, rozdział 2; Ewangelia Mateusza, rozdział 13
@@ -1549,7 +1549,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 193\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-194-20260713@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260713
 DTEND;VALUE=DATE:20260714
 SUMMARY:Biblia (Dzień 194): 1 Księga Samuela, rozdział 26 i 27; Księga Jeremiasza, rozdział 3; Ewangelia Mateusza, rozdział 14
@@ -1557,7 +1557,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 194\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-195-20260714@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260714
 DTEND;VALUE=DATE:20260715
 SUMMARY:Biblia (Dzień 195): 1 Księga Samuela, rozdział 28; Księga Jeremiasza, rozdział 4; Ewangelia Mateusza, rozdział 15
@@ -1565,7 +1565,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 195\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-196-20260715@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260715
 DTEND;VALUE=DATE:20260716
 SUMMARY:Biblia (Dzień 196): 1 Księga Samuela, rozdział 29 i 30; Księga Jeremiasza, rozdział 5; Ewangelia Mateusza, rozdział 16
@@ -1573,7 +1573,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 196\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-197-20260716@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260716
 DTEND;VALUE=DATE:20260717
 SUMMARY:Biblia (Dzień 197): 1 Księga Samuela, rozdział 31; Księga Jeremiasza, rozdział 6; Ewangelia Mateusza, rozdział 17
@@ -1581,7 +1581,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 197\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-198-20260717@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260717
 DTEND;VALUE=DATE:20260718
 SUMMARY:Biblia (Dzień 198): 2 Księga Samuela, rozdział 1; Księga Jeremiasza, rozdział 7; Ewangelia Mateusza, rozdział 18
@@ -1589,7 +1589,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 198\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-199-20260718@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260718
 DTEND;VALUE=DATE:20260719
 SUMMARY:Biblia (Dzień 199): 2 Księga Samuela, rozdział 2; Księga Jeremiasza, rozdział 8; Ewangelia Mateusza, rozdział 19
@@ -1597,7 +1597,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 199\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-200-20260719@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260719
 DTEND;VALUE=DATE:20260720
 SUMMARY:Biblia (Dzień 200): 2 Księga Samuela, rozdział 3; Księga Jeremiasza, rozdział 9; Ewangelia Mateusza, rozdział 20
@@ -1605,7 +1605,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 200\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-201-20260720@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260720
 DTEND;VALUE=DATE:20260721
 SUMMARY:Biblia (Dzień 201): 2 Księga Samuela, rozdział 4 i 5; Księga Jeremiasza, rozdział 10; Ewangelia Mateusza, rozdział 21
@@ -1613,7 +1613,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 201\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-202-20260721@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260721
 DTEND;VALUE=DATE:20260722
 SUMMARY:Biblia (Dzień 202): 2 Księga Samuela, rozdział 6; Księga Jeremiasza, rozdział 11; Ewangelia Mateusza, rozdział 22
@@ -1621,7 +1621,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 202\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-203-20260722@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260722
 DTEND;VALUE=DATE:20260723
 SUMMARY:Biblia (Dzień 203): 2 Księga Samuela, rozdział 7; Księga Jeremiasza, rozdział 12; Ewangelia Mateusza, rozdział 23
@@ -1629,7 +1629,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 203\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-204-20260723@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260723
 DTEND;VALUE=DATE:20260724
 SUMMARY:Biblia (Dzień 204): 2 Księga Samuela, rozdział 8 i 9; Księga Jeremiasza, rozdział 13; Ewangelia Mateusza, rozdział 24
@@ -1637,7 +1637,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 204\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-205-20260724@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260724
 DTEND;VALUE=DATE:20260725
 SUMMARY:Biblia (Dzień 205): 2 Księga Samuela, rozdział 10; Księga Jeremiasza, rozdział 14; Ewangelia Mateusza, rozdział 25
@@ -1645,7 +1645,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 205\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-206-20260725@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260725
 DTEND;VALUE=DATE:20260726
 SUMMARY:Biblia (Dzień 206): 2 Księga Samuela, rozdział 11; Księga Jeremiasza, rozdział 15; Ewangelia Mateusza, rozdział 26
@@ -1653,7 +1653,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 206\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-207-20260726@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260726
 DTEND;VALUE=DATE:20260727
 SUMMARY:Biblia (Dzień 207): 2 Księga Samuela, rozdział 12; Księga Jeremiasza, rozdział 16; Ewangelia Mateusza, rozdział 27
@@ -1661,7 +1661,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 207\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-208-20260727@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260727
 DTEND;VALUE=DATE:20260728
 SUMMARY:Biblia (Dzień 208): 2 Księga Samuela, rozdział 13; Księga Jeremiasza, rozdział 17; Ewangelia Mateusza, rozdział 28
@@ -1669,7 +1669,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 208\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-209-20260728@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260728
 DTEND;VALUE=DATE:20260729
 SUMMARY:Biblia (Dzień 209): 2 Księga Samuela, rozdział 14; Księga Jeremiasza, rozdział 18; List do Rzymian, rozdział 1 i 2
@@ -1677,7 +1677,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 209\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-210-20260729@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260729
 DTEND;VALUE=DATE:20260730
 SUMMARY:Biblia (Dzień 210): 2 Księga Samuela, rozdział 15; Księga Jeremiasza, rozdział 19; List do Rzymian, rozdział 3 i 4
@@ -1685,7 +1685,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 210\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-211-20260730@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260730
 DTEND;VALUE=DATE:20260731
 SUMMARY:Biblia (Dzień 211): 2 Księga Samuela, rozdział 16; Księga Jeremiasza, rozdział 20; List do Rzymian, rozdział 5 i 6
@@ -1693,7 +1693,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 211\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-212-20260731@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260731
 DTEND;VALUE=DATE:20260801
 SUMMARY:Biblia (Dzień 212): 2 Księga Samuela, rozdział 17; Księga Jeremiasza, rozdział 21; List do Rzymian, rozdział 7 i 8
@@ -1701,7 +1701,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 212\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-213-20260801@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260801
 DTEND;VALUE=DATE:20260802
 SUMMARY:Biblia (Dzień 213): 2 Księga Samuela, rozdział 18; Księga Jeremiasza, rozdział 22; List do Rzymian, rozdział 9
@@ -1709,7 +1709,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 213\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-214-20260802@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260802
 DTEND;VALUE=DATE:20260803
 SUMMARY:Biblia (Dzień 214): 2 Księga Samuela, rozdział 19; Księga Jeremiasza, rozdział 23; List do Rzymian, rozdział 10 i 11
@@ -1717,7 +1717,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 214\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-215-20260803@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260803
 DTEND;VALUE=DATE:20260804
 SUMMARY:Biblia (Dzień 215): 2 Księga Samuela, rozdział 20 i 21; Księga Jeremiasza, rozdział 24; List do Rzymian, rozdział 12
@@ -1725,7 +1725,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 215\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-216-20260804@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260804
 DTEND;VALUE=DATE:20260805
 SUMMARY:Biblia (Dzień 216): 2 Księga Samuela, rozdział 22; Księga Jeremiasza, rozdział 25; List do Rzymian, rozdział 13 i 14
@@ -1733,7 +1733,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 216\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-217-20260805@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260805
 DTEND;VALUE=DATE:20260806
 SUMMARY:Biblia (Dzień 217): 2 Księga Samuela, rozdział 23; Księga Jeremiasza, rozdział 26; List do Rzymian, rozdział 15 i 16
@@ -1741,7 +1741,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 217\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-218-20260806@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260806
 DTEND;VALUE=DATE:20260807
 SUMMARY:Biblia (Dzień 218): 2 Księga Samuela, rozdział 24; Księga Jeremiasza, rozdział 27; Ewangelia Marka, rozdział 1
@@ -1749,7 +1749,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 218\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-219-20260807@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260807
 DTEND;VALUE=DATE:20260808
 SUMMARY:Biblia (Dzień 219): 1 Księga Królewska, rozdział 1; Księga Jeremiasza, rozdział 28; Ewangelia Marka, rozdział 2
@@ -1757,7 +1757,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 219\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-220-20260808@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260808
 DTEND;VALUE=DATE:20260809
 SUMMARY:Biblia (Dzień 220): 1 Księga Królewska, rozdział 2; Księga Jeremiasza, rozdział 29; Ewangelia Marka, rozdział 3
@@ -1765,7 +1765,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 220\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-221-20260809@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260809
 DTEND;VALUE=DATE:20260810
 SUMMARY:Biblia (Dzień 221): 1 Księga Królewska, rozdział 3; Księga Jeremiasza, rozdział 30; Ewangelia Marka, rozdział 4
@@ -1773,7 +1773,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 221\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-222-20260810@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260810
 DTEND;VALUE=DATE:20260811
 SUMMARY:Biblia (Dzień 222): 1 Księga Królewska, rozdział 4 i 5; Księga Jeremiasza, rozdział 31; Ewangelia Marka, rozdział 5
@@ -1781,7 +1781,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 222\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-223-20260811@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260811
 DTEND;VALUE=DATE:20260812
 SUMMARY:Biblia (Dzień 223): 1 Księga Królewska, rozdział 6; Księga Jeremiasza, rozdział 32; Ewangelia Marka, rozdział 6
@@ -1789,7 +1789,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 223\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-224-20260812@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260812
 DTEND;VALUE=DATE:20260813
 SUMMARY:Biblia (Dzień 224): 1 Księga Królewska, rozdział 7; Księga Jeremiasza, rozdział 33; Ewangelia Marka, rozdział 7
@@ -1797,7 +1797,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 224\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-225-20260813@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260813
 DTEND;VALUE=DATE:20260814
 SUMMARY:Biblia (Dzień 225): 1 Księga Królewska, rozdział 8; Księga Jeremiasza, rozdział 34; Ewangelia Marka, rozdział 8
@@ -1805,7 +1805,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 225\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-226-20260814@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260814
 DTEND;VALUE=DATE:20260815
 SUMMARY:Biblia (Dzień 226): 1 Księga Królewska, rozdział 9; Księga Jeremiasza, rozdział 35; Ewangelia Marka, rozdział 9
@@ -1813,7 +1813,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 226\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-227-20260815@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260815
 DTEND;VALUE=DATE:20260816
 SUMMARY:Biblia (Dzień 227): 1 Księga Królewska, rozdział 10; Księga Jeremiasza, rozdział 36; Ewangelia Marka, rozdział 10
@@ -1821,7 +1821,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 227\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-228-20260816@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260816
 DTEND;VALUE=DATE:20260817
 SUMMARY:Biblia (Dzień 228): 1 Księga Królewska, rozdział 11; Księga Jeremiasza, rozdział 37; Ewangelia Marka, rozdział 11
@@ -1829,7 +1829,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 228\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-229-20260817@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260817
 DTEND;VALUE=DATE:20260818
 SUMMARY:Biblia (Dzień 229): 1 Księga Królewska, rozdział 12; Księga Jeremiasza, rozdział 38; Ewangelia Marka, rozdział 12
@@ -1837,7 +1837,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 229\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-230-20260818@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260818
 DTEND;VALUE=DATE:20260819
 SUMMARY:Biblia (Dzień 230): 1 Księga Królewska, rozdział 13; Księga Jeremiasza, rozdział 39; Ewangelia Marka, rozdział 13
@@ -1845,7 +1845,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 230\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-231-20260819@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260819
 DTEND;VALUE=DATE:20260820
 SUMMARY:Biblia (Dzień 231): 1 Księga Królewska, rozdział 14; Księga Jeremiasza, rozdział 40; Ewangelia Marka, rozdział 14
@@ -1853,7 +1853,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 231\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-232-20260820@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260820
 DTEND;VALUE=DATE:20260821
 SUMMARY:Biblia (Dzień 232): 1 Księga Królewska, rozdział 15; Księga Jeremiasza, rozdział 41; Ewangelia Marka, rozdział 15
@@ -1861,7 +1861,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 232\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-233-20260821@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260821
 DTEND;VALUE=DATE:20260822
 SUMMARY:Biblia (Dzień 233): 1 Księga Królewska, rozdział 16; Księga Jeremiasza, rozdział 42; Ewangelia Marka, rozdział 16
@@ -1869,7 +1869,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 233\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-234-20260822@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260822
 DTEND;VALUE=DATE:20260823
 SUMMARY:Biblia (Dzień 234): 1 Księga Królewska, rozdział 17; Księga Jeremiasza, rozdział 43; 1 List do Koryntian, rozdział 1 i 2
@@ -1877,7 +1877,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 234\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-235-20260823@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260823
 DTEND;VALUE=DATE:20260824
 SUMMARY:Biblia (Dzień 235): 1 Księga Królewska, rozdział 18; Księga Jeremiasza, rozdział 44; 1 List do Koryntian, rozdział 3
@@ -1885,7 +1885,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 235\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-236-20260824@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260824
 DTEND;VALUE=DATE:20260825
 SUMMARY:Biblia (Dzień 236): 1 Księga Królewska, rozdział 19; Księga Jeremiasza, rozdział 45 i 46; 1 List do Koryntian, rozdział 4 i 5
@@ -1893,7 +1893,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 236\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-237-20260825@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260825
 DTEND;VALUE=DATE:20260826
 SUMMARY:Biblia (Dzień 237): 1 Księga Królewska, rozdział 20; Księga Jeremiasza, rozdział 47; 1 List do Koryntian, rozdział 6
@@ -1901,7 +1901,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 237\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-238-20260826@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260826
 DTEND;VALUE=DATE:20260827
 SUMMARY:Biblia (Dzień 238): 1 Księga Królewska, rozdział 21; Księga Jeremiasza, rozdział 48; 1 List do Koryntian, rozdział 7
@@ -1909,7 +1909,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 238\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-239-20260827@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260827
 DTEND;VALUE=DATE:20260828
 SUMMARY:Biblia (Dzień 239): 1 Księga Królewska, rozdział 22; Księga Jeremiasza, rozdział 49; 1 List do Koryntian, rozdział 8 i 9
@@ -1917,7 +1917,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 239\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-240-20260828@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260828
 DTEND;VALUE=DATE:20260829
 SUMMARY:Biblia (Dzień 240): 2 Księga Królewska, rozdział 1 i 2; Księga Jeremiasza, rozdział 50; 1 List do Koryntian, rozdział 10
@@ -1925,7 +1925,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 240\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-241-20260829@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260829
 DTEND;VALUE=DATE:20260830
 SUMMARY:Biblia (Dzień 241): 2 Księga Królewska, rozdział 3; Księga Jeremiasza, rozdział 51; 1 List do Koryntian, rozdział 11
@@ -1933,7 +1933,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 241\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-242-20260830@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260830
 DTEND;VALUE=DATE:20260831
 SUMMARY:Biblia (Dzień 242): 2 Księga Królewska, rozdział 4; Księga Jeremiasza, rozdział 52; 1 List do Koryntian, rozdział 12 i 13
@@ -1941,7 +1941,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 242\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-243-20260831@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260831
 DTEND;VALUE=DATE:20260901
 SUMMARY:Biblia (Dzień 243): 2 Księga Królewska, rozdział 5; Księga Lamentacji, rozdział 1; 1 List do Koryntian, rozdział 14
@@ -1949,7 +1949,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 243\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-244-20260901@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260901
 DTEND;VALUE=DATE:20260902
 SUMMARY:Biblia (Dzień 244): 2 Księga Królewska, rozdział 6; Księga Lamentacji, rozdział 2; 1 List do Koryntian, rozdział 15
@@ -1957,7 +1957,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 244\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-245-20260902@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260902
 DTEND;VALUE=DATE:20260903
 SUMMARY:Biblia (Dzień 245): 2 Księga Królewska, rozdział 7; Księga Lamentacji, rozdział 3; 1 List do Koryntian, rozdział 16
@@ -1965,7 +1965,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 245\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-246-20260903@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260903
 DTEND;VALUE=DATE:20260904
 SUMMARY:Biblia (Dzień 246): 2 Księga Królewska, rozdział 8; Księga Lamentacji, rozdział 4; 2 List do Koryntian, rozdział 1 i 2
@@ -1973,7 +1973,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 246\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-247-20260904@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260904
 DTEND;VALUE=DATE:20260905
 SUMMARY:Biblia (Dzień 247): 2 Księga Królewska, rozdział 9; Księga Lamentacji, rozdział 5; 2 List do Koryntian, rozdział 3 i 4
@@ -1981,7 +1981,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 247\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-248-20260905@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260905
 DTEND;VALUE=DATE:20260906
 SUMMARY:Biblia (Dzień 248): 2 Księga Królewska, rozdział 10; Księga Ezechiela, rozdział 1; 2 List do Koryntian, rozdział 5, 6 i 7
@@ -1989,7 +1989,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 248\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-249-20260906@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260906
 DTEND;VALUE=DATE:20260907
 SUMMARY:Biblia (Dzień 249): 2 Księga Królewska, rozdział 11 i 12; Księga Ezechiela, rozdział 2; 2 List do Koryntian, rozdział 8 i 9
@@ -1997,7 +1997,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 249\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-250-20260907@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260907
 DTEND;VALUE=DATE:20260908
 SUMMARY:Biblia (Dzień 250): 2 Księga Królewska, rozdział 13; Księga Ezechiela, rozdział 3; 2 List do Koryntian, rozdział 10 i 11
@@ -2005,7 +2005,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 250\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-251-20260908@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260908
 DTEND;VALUE=DATE:20260909
 SUMMARY:Biblia (Dzień 251): 2 Księga Królewska, rozdział 14; Księga Ezechiela, rozdział 4; 2 List do Koryntian, rozdział 12 i 13
@@ -2013,7 +2013,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 251\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-252-20260909@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260909
 DTEND;VALUE=DATE:20260910
 SUMMARY:Biblia (Dzień 252): 2 Księga Królewska, rozdział 15; Księga Ezechiela, rozdział 5; Ewangelia Łukasza, rozdział 1
@@ -2021,7 +2021,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 252\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-253-20260910@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260910
 DTEND;VALUE=DATE:20260911
 SUMMARY:Biblia (Dzień 253): 2 Księga Królewska, rozdział 16; Księga Ezechiela, rozdział 6; Ewangelia Łukasza, rozdział 2
@@ -2029,7 +2029,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 253\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-254-20260911@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260911
 DTEND;VALUE=DATE:20260912
 SUMMARY:Biblia (Dzień 254): 2 Księga Królewska, rozdział 17; Księga Ezechiela, rozdział 7; Ewangelia Łukasza, rozdział 3
@@ -2037,7 +2037,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 254\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-255-20260912@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260912
 DTEND;VALUE=DATE:20260913
 SUMMARY:Biblia (Dzień 255): 2 Księga Królewska, rozdział 18; Księga Ezechiela, rozdział 8; Ewangelia Łukasza, rozdział 4
@@ -2045,7 +2045,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 255\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-256-20260913@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260913
 DTEND;VALUE=DATE:20260914
 SUMMARY:Biblia (Dzień 256): 2 Księga Królewska, rozdział 19; Księga Ezechiela, rozdział 9; Ewangelia Łukasza, rozdział 5
@@ -2053,7 +2053,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 256\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-257-20260914@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260914
 DTEND;VALUE=DATE:20260915
 SUMMARY:Biblia (Dzień 257): 2 Księga Królewska, rozdział 20; Księga Ezechiela, rozdział 10; Ewangelia Łukasza, rozdział 6
@@ -2061,7 +2061,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 257\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-258-20260915@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260915
 DTEND;VALUE=DATE:20260916
 SUMMARY:Biblia (Dzień 258): 2 Księga Królewska, rozdział 21; Księga Ezechiela, rozdział 11; Ewangelia Łukasza, rozdział 7
@@ -2069,7 +2069,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 258\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-259-20260916@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260916
 DTEND;VALUE=DATE:20260917
 SUMMARY:Biblia (Dzień 259): 2 Księga Królewska, rozdział 22 i 23; Księga Ezechiela, rozdział 12; Ewangelia Łukasza, rozdział 8
@@ -2077,7 +2077,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 259\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-260-20260917@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260917
 DTEND;VALUE=DATE:20260918
 SUMMARY:Biblia (Dzień 260): 2 Księga Królewska, rozdział 24 i 25; Księga Ezechiela, rozdział 13; Ewangelia Łukasza, rozdział 9
@@ -2085,7 +2085,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 260\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-261-20260918@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260918
 DTEND;VALUE=DATE:20260919
 SUMMARY:Biblia (Dzień 261): 1 Księga Kronik, rozdział 1; Księga Ezechiela, rozdział 14; Ewangelia Łukasza, rozdział 10
@@ -2093,7 +2093,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 261\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-262-20260919@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260919
 DTEND;VALUE=DATE:20260920
 SUMMARY:Biblia (Dzień 262): 1 Księga Kronik, rozdział 2; Księga Ezechiela, rozdział 15; Ewangelia Łukasza, rozdział 11
@@ -2101,7 +2101,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 262\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-263-20260920@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260920
 DTEND;VALUE=DATE:20260921
 SUMMARY:Biblia (Dzień 263): 1 Księga Kronik, rozdział 3; Księga Ezechiela, rozdział 16; Ewangelia Łukasza, rozdział 12
@@ -2109,7 +2109,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 263\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-264-20260921@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260921
 DTEND;VALUE=DATE:20260922
 SUMMARY:Biblia (Dzień 264): 1 Księga Kronik, rozdział 4; Księga Ezechiela, rozdział 17; Ewangelia Łukasza, rozdział 13 i 14
@@ -2117,7 +2117,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 264\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-265-20260922@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260922
 DTEND;VALUE=DATE:20260923
 SUMMARY:Biblia (Dzień 265): 1 Księga Kronik, rozdział 5; Księga Ezechiela, rozdział 18; Ewangelia Łukasza, rozdział 15
@@ -2125,7 +2125,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 265\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-266-20260923@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260923
 DTEND;VALUE=DATE:20260924
 SUMMARY:Biblia (Dzień 266): 1 Księga Kronik, rozdział 6; Księga Ezechiela, rozdział 19; Ewangelia Łukasza, rozdział 16
@@ -2133,7 +2133,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 266\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-267-20260924@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260924
 DTEND;VALUE=DATE:20260925
 SUMMARY:Biblia (Dzień 267): 1 Księga Kronik, rozdział 7; Księga Ezechiela, rozdział 20; Ewangelia Łukasza, rozdział 17
@@ -2141,7 +2141,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 267\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-268-20260925@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260925
 DTEND;VALUE=DATE:20260926
 SUMMARY:Biblia (Dzień 268): 1 Księga Kronik, rozdział 8; Księga Ezechiela, rozdział 21; Ewangelia Łukasza, rozdział 18
@@ -2149,7 +2149,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 268\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-269-20260926@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260926
 DTEND;VALUE=DATE:20260927
 SUMMARY:Biblia (Dzień 269): 1 Księga Kronik, rozdział 9; Księga Ezechiela, rozdział 22; Ewangelia Łukasza, rozdział 19
@@ -2157,7 +2157,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 269\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-270-20260927@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260927
 DTEND;VALUE=DATE:20260928
 SUMMARY:Biblia (Dzień 270): 1 Księga Kronik, rozdział 10; Księga Ezechiela, rozdział 23; Ewangelia Łukasza, rozdział 20
@@ -2165,7 +2165,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 270\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-271-20260928@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260928
 DTEND;VALUE=DATE:20260929
 SUMMARY:Biblia (Dzień 271): 1 Księga Kronik, rozdział 11; Księga Ezechiela, rozdział 24; Ewangelia Łukasza, rozdział 21
@@ -2173,7 +2173,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 271\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-272-20260929@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260929
 DTEND;VALUE=DATE:20260930
 SUMMARY:Biblia (Dzień 272): 1 Księga Kronik, rozdział 12; Księga Ezechiela, rozdział 25; Ewangelia Łukasza, rozdział 22
@@ -2181,7 +2181,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 272\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-273-20260930@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20260930
 DTEND;VALUE=DATE:20261001
 SUMMARY:Biblia (Dzień 273): 1 Księga Kronik, rozdział 13 i 14; Księga Ezechiela, rozdział 26; Ewangelia Łukasza, rozdział 23
@@ -2189,7 +2189,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 273\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-274-20261001@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261001
 DTEND;VALUE=DATE:20261002
 SUMMARY:Biblia (Dzień 274): 1 Księga Kronik, rozdział 15; Księga Ezechiela, rozdział 27; Ewangelia Łukasza, rozdział 24
@@ -2197,7 +2197,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 274\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-275-20261002@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261002
 DTEND;VALUE=DATE:20261003
 SUMMARY:Biblia (Dzień 275): 1 Księga Kronik, rozdział 16; Księga Ezechiela, rozdział 28; List do Galatów, rozdział 1 i 2
@@ -2205,7 +2205,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 275\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-276-20261003@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261003
 DTEND;VALUE=DATE:20261004
 SUMMARY:Biblia (Dzień 276): 1 Księga Kronik, rozdział 17; Księga Ezechiela, rozdział 29; List do Galatów, rozdział 3 i 4
@@ -2213,7 +2213,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 276\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-277-20261004@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261004
 DTEND;VALUE=DATE:20261005
 SUMMARY:Biblia (Dzień 277): 1 Księga Kronik, rozdział 18 i 19; Księga Ezechiela, rozdział 30; List do Galatów, rozdział 5 i 6
@@ -2221,7 +2221,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 277\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-278-20261005@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261005
 DTEND;VALUE=DATE:20261006
 SUMMARY:Biblia (Dzień 278): 1 Księga Kronik, rozdział 20 i 21; Księga Ezechiela, rozdział 31; List do Efezjan, rozdział 1 i 2
@@ -2229,7 +2229,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 278\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-279-20261006@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261006
 DTEND;VALUE=DATE:20261007
 SUMMARY:Biblia (Dzień 279): 1 Księga Kronik, rozdział 22; Księga Ezechiela, rozdział 32; List do Efezjan, rozdział 3 i 4
@@ -2237,7 +2237,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 279\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-280-20261007@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261007
 DTEND;VALUE=DATE:20261008
 SUMMARY:Biblia (Dzień 280): 1 Księga Kronik, rozdział 23; Księga Ezechiela, rozdział 33; List do Efezjan, rozdział 5 i 6
@@ -2245,7 +2245,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 280\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-281-20261008@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261008
 DTEND;VALUE=DATE:20261009
 SUMMARY:Biblia (Dzień 281): 1 Księga Kronik, rozdział 24 i 25; Księga Ezechiela, rozdział 34; List do Filipian, rozdział 1 i 2
@@ -2253,7 +2253,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 281\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-282-20261009@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261009
 DTEND;VALUE=DATE:20261010
 SUMMARY:Biblia (Dzień 282): 1 Księga Kronik, rozdział 26; Księga Ezechiela, rozdział 35; List do Filipian, rozdział 3 i 4
@@ -2261,7 +2261,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 282\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-283-20261010@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261010
 DTEND;VALUE=DATE:20261011
 SUMMARY:Biblia (Dzień 283): 1 Księga Kronik, rozdział 27; Księga Ezechiela, rozdział 36; Ewangelia Jana, rozdział 1
@@ -2269,7 +2269,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 283\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-284-20261011@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261011
 DTEND;VALUE=DATE:20261012
 SUMMARY:Biblia (Dzień 284): 1 Księga Kronik, rozdział 28; Księga Ezechiela, rozdział 37; Ewangelia Jana, rozdział 2 i 3
@@ -2277,7 +2277,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 284\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-285-20261012@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261012
 DTEND;VALUE=DATE:20261013
 SUMMARY:Biblia (Dzień 285): 1 Księga Kronik, rozdział 29; Księga Ezechiela, rozdział 38; Ewangelia Jana, rozdział 4
@@ -2285,7 +2285,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 285\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-286-20261013@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261013
 DTEND;VALUE=DATE:20261014
 SUMMARY:Biblia (Dzień 286): 2 Księga Kronik, rozdział 1 i 2; Księga Ezechiela, rozdział 39; Ewangelia Jana, rozdział 5
@@ -2293,7 +2293,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 286\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-287-20261014@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261014
 DTEND;VALUE=DATE:20261015
 SUMMARY:Biblia (Dzień 287): 2 Księga Kronik, rozdział 3 i 4; Księga Ezechiela, rozdział 40; Ewangelia Jana, rozdział 6
@@ -2301,7 +2301,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 287\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-288-20261015@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261015
 DTEND;VALUE=DATE:20261016
 SUMMARY:Biblia (Dzień 288): 2 Księga Kronik, rozdział 5 i 6; Księga Ezechiela, rozdział 41; Ewangelia Jana, rozdział 7
@@ -2309,7 +2309,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 288\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-289-20261016@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261016
 DTEND;VALUE=DATE:20261017
 SUMMARY:Biblia (Dzień 289): 2 Księga Kronik, rozdział 7; Księga Ezechiela, rozdział 42; Ewangelia Jana, rozdział 8
@@ -2317,7 +2317,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 289\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-290-20261017@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261017
 DTEND;VALUE=DATE:20261018
 SUMMARY:Biblia (Dzień 290): 2 Księga Kronik, rozdział 8 i 9; Księga Ezechiela, rozdział 43; Ewangelia Jana, rozdział 9 i 10
@@ -2325,7 +2325,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 290\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-291-20261018@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261018
 DTEND;VALUE=DATE:20261019
 SUMMARY:Biblia (Dzień 291): 2 Księga Kronik, rozdział 10 i 11; Księga Ezechiela, rozdział 44; Ewangelia Jana, rozdział 11
@@ -2333,7 +2333,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 291\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-292-20261019@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261019
 DTEND;VALUE=DATE:20261020
 SUMMARY:Biblia (Dzień 292): 2 Księga Kronik, rozdział 12 i 13; Księga Ezechiela, rozdział 45; Ewangelia Jana, rozdział 12
@@ -2341,7 +2341,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 292\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-293-20261020@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261020
 DTEND;VALUE=DATE:20261021
 SUMMARY:Biblia (Dzień 293): 2 Księga Kronik, rozdział 14 i 15; Księga Ezechiela, rozdział 46; Ewangelia Jana, rozdział 13 i 14
@@ -2349,7 +2349,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 293\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-294-20261021@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261021
 DTEND;VALUE=DATE:20261022
 SUMMARY:Biblia (Dzień 294): 2 Księga Kronik, rozdział 16 i 17; Księga Ezechiela, rozdział 47; Ewangelia Jana, rozdział 15 i 16
@@ -2357,7 +2357,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 294\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-295-20261022@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261022
 DTEND;VALUE=DATE:20261023
 SUMMARY:Biblia (Dzień 295): 2 Księga Kronik, rozdział 18 i 19; Księga Ezechiela, rozdział 48; Ewangelia Jana, rozdział 17 i 18
@@ -2365,7 +2365,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 295\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-296-20261023@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261023
 DTEND;VALUE=DATE:20261024
 SUMMARY:Biblia (Dzień 296): 2 Księga Kronik, rozdział 20; Księga Daniela, rozdział 1; Ewangelia Jana, rozdział 19
@@ -2373,7 +2373,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 296\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-297-20261024@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261024
 DTEND;VALUE=DATE:20261025
 SUMMARY:Biblia (Dzień 297): 2 Księga Kronik, rozdział 21 i 22; Księga Daniela, rozdział 2; Ewangelia Jana, rozdział 20 i 21
@@ -2381,7 +2381,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 297\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-298-20261025@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261025
 DTEND;VALUE=DATE:20261026
 SUMMARY:Biblia (Dzień 298): 2 Księga Kronik, rozdział 23; Księga Daniela, rozdział 3; Dzieje Apostolskie, rozdział 1
@@ -2389,7 +2389,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 298\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-299-20261026@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261026
 DTEND;VALUE=DATE:20261027
 SUMMARY:Biblia (Dzień 299): 2 Księga Kronik, rozdział 24; Księga Daniela, rozdział 4; Dzieje Apostolskie, rozdział 2
@@ -2397,7 +2397,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 299\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-300-20261027@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261027
 DTEND;VALUE=DATE:20261028
 SUMMARY:Biblia (Dzień 300): 2 Księga Kronik, rozdział 25; Księga Daniela, rozdział 5; Dzieje Apostolskie, rozdział 3; 4
@@ -2405,7 +2405,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 300\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-301-20261028@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261028
 DTEND;VALUE=DATE:20261029
 SUMMARY:Biblia (Dzień 301): 2 Księga Kronik, rozdział 26; Księga Daniela, rozdział 6; Dzieje Apostolskie, rozdział 5 i 6
@@ -2413,7 +2413,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 301\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-302-20261029@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261029
 DTEND;VALUE=DATE:20261030
 SUMMARY:Biblia (Dzień 302): 2 Księga Kronik, rozdział 27; Księga Daniela, rozdział 7; Dzieje Apostolskie, rozdział 7
@@ -2421,7 +2421,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 302\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-303-20261030@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261030
 DTEND;VALUE=DATE:20261031
 SUMMARY:Biblia (Dzień 303): 2 Księga Kronik, rozdział 28; Księga Daniela, rozdział 8; Dzieje Apostolskie, rozdział 8
@@ -2429,7 +2429,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 303\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-304-20261031@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261031
 DTEND;VALUE=DATE:20261101
 SUMMARY:Biblia (Dzień 304): 2 Księga Kronik, rozdział 29; Księga Daniela, rozdział 9; Dzieje Apostolskie, rozdział 9
@@ -2437,7 +2437,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 304\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-305-20261101@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261101
 DTEND;VALUE=DATE:20261102
 SUMMARY:Biblia (Dzień 305): 2 Księga Kronik, rozdział 30; Księga Daniela, rozdział 10; Dzieje Apostolskie, rozdział 10
@@ -2445,7 +2445,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 305\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-306-20261102@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261102
 DTEND;VALUE=DATE:20261103
 SUMMARY:Biblia (Dzień 306): 2 Księga Kronik, rozdział 31; Księga Daniela, rozdział 11; Dzieje Apostolskie, rozdział 11 i 12
@@ -2453,7 +2453,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 306\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-307-20261103@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261103
 DTEND;VALUE=DATE:20261104
 SUMMARY:Biblia (Dzień 307): 2 Księga Kronik, rozdział 32; Księga Daniela, rozdział 12; Dzieje Apostolskie, rozdział 13
@@ -2461,7 +2461,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 307\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-308-20261104@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261104
 DTEND;VALUE=DATE:20261105
 SUMMARY:Biblia (Dzień 308): 2 Księga Kronik, rozdział 33; Księga Ozeasza, rozdział 1; Dzieje Apostolskie, rozdział 14 i 15
@@ -2469,7 +2469,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 308\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-309-20261105@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261105
 DTEND;VALUE=DATE:20261106
 SUMMARY:Biblia (Dzień 309): 2 Księga Kronik, rozdział 34; Księga Ozeasza, rozdział 2; Dzieje Apostolskie, rozdział 16 i 17
@@ -2477,7 +2477,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 309\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-310-20261106@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261106
 DTEND;VALUE=DATE:20261107
 SUMMARY:Biblia (Dzień 310): 2 Księga Kronik, rozdział 35; Księga Ozeasza, rozdział 3; Dzieje Apostolskie, rozdział 18 i 19
@@ -2485,7 +2485,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 310\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-311-20261107@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261107
 DTEND;VALUE=DATE:20261108
 SUMMARY:Biblia (Dzień 311): 2 Księga Kronik, rozdział 36; Księga Ozeasza, rozdział 4; Dzieje Apostolskie, rozdział 20
@@ -2493,7 +2493,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 311\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-312-20261108@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261108
 DTEND;VALUE=DATE:20261109
 SUMMARY:Biblia (Dzień 312): Księga Ezdrasza, rozdział 1 i 2; Księga Ozeasza, rozdział 5; Dzieje Apostolskie, rozdział 21 i 22
@@ -2501,7 +2501,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 312\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-313-20261109@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261109
 DTEND;VALUE=DATE:20261110
 SUMMARY:Biblia (Dzień 313): Księga Ezdrasza, rozdział 3 i 4; Księga Ozeasza, rozdział 6; Dzieje Apostolskie, rozdział 23 i 24
@@ -2509,7 +2509,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 313\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-314-20261110@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261110
 DTEND;VALUE=DATE:20261111
 SUMMARY:Biblia (Dzień 314): Księga Ezdrasza, rozdział 5 i 6; Księga Ozeasza, rozdział 7; Dzieje Apostolskie, rozdział 25 i 26
@@ -2517,7 +2517,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 314\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-315-20261111@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261111
 DTEND;VALUE=DATE:20261112
 SUMMARY:Biblia (Dzień 315): Księga Ezdrasza, rozdział 7; Księga Ozeasza, rozdział 8; Dzieje Apostolskie, rozdział 27
@@ -2525,7 +2525,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 315\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-316-20261112@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261112
 DTEND;VALUE=DATE:20261113
 SUMMARY:Biblia (Dzień 316): Księga Ezdrasza, rozdział 8; Księga Ozeasza, rozdział 9; Dzieje Apostolskie, rozdział 28
@@ -2533,7 +2533,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 316\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-317-20261113@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261113
 DTEND;VALUE=DATE:20261114
 SUMMARY:Biblia (Dzień 317): Księga Ezdrasza, rozdział 9; Księga Ozeasza, rozdział 10; List do Kolosan, rozdział 1
@@ -2541,7 +2541,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 317\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-318-20261114@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261114
 DTEND;VALUE=DATE:20261115
 SUMMARY:Biblia (Dzień 318): Księga Ezdrasza, rozdział 10; Księga Ozeasza, rozdział 11; List do Kolosan, rozdział 2
@@ -2549,7 +2549,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 318\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-319-20261115@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261115
 DTEND;VALUE=DATE:20261116
 SUMMARY:Biblia (Dzień 319): Księga Nehemiasza, rozdział 1 i 2; Księga Ozeasza, rozdział 12; List do Kolosan, rozdział 3 i 4
@@ -2557,7 +2557,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 319\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-320-20261116@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261116
 DTEND;VALUE=DATE:20261117
 SUMMARY:Biblia (Dzień 320): Księga Nehemiasza, rozdział 3; Księga Ozeasza, rozdział 13; 1 List do Tesaloniczan, rozdział 1 i 2
@@ -2565,7 +2565,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 320\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-321-20261117@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261117
 DTEND;VALUE=DATE:20261118
 SUMMARY:Biblia (Dzień 321): Księga Nehemiasza, rozdział 4; Księga Ozeasza, rozdział 14; 1 List do Tesaloniczan, rozdział 3 i 4
@@ -2573,7 +2573,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 321\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-322-20261118@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261118
 DTEND;VALUE=DATE:20261119
 SUMMARY:Biblia (Dzień 322): Księga Nehemiasza, rozdział 5 i 6; Księga Joela, rozdział 1; 1 List do Tesaloniczan, rozdział 5
@@ -2581,7 +2581,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 322\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-323-20261119@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261119
 DTEND;VALUE=DATE:20261120
 SUMMARY:Biblia (Dzień 323): Księga Nehemiasza, rozdział 7; Księga Joela, rozdział 2; 2 List do Tesaloniczan, rozdział 1 i 2
@@ -2589,7 +2589,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 323\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-324-20261120@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261120
 DTEND;VALUE=DATE:20261121
 SUMMARY:Biblia (Dzień 324): Księga Nehemiasza, rozdział 8; Księga Joela, rozdział 3 i 4; 2 List do Tesaloniczan, rozdział 3
@@ -2597,7 +2597,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 324\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-325-20261121@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261121
 DTEND;VALUE=DATE:20261122
 SUMMARY:Biblia (Dzień 325): Księga Nehemiasza, rozdział 9; Księga Amosa, rozdział 1; 1 List do Tymoteusza, rozdział 1, 2 i 3
@@ -2605,7 +2605,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 325\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-326-20261122@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261122
 DTEND;VALUE=DATE:20261123
 SUMMARY:Biblia (Dzień 326): Księga Nehemiasza, rozdział 10; Księga Amosa, rozdział 2; 1 List do Tymoteusza, rozdział 4 i 5
@@ -2613,7 +2613,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 326\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-327-20261123@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261123
 DTEND;VALUE=DATE:20261124
 SUMMARY:Biblia (Dzień 327): Księga Nehemiasza, rozdział 11; Księga Amosa, rozdział 3; 1 List do Tymoteusza, rozdział 6
@@ -2621,7 +2621,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 327\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-328-20261124@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261124
 DTEND;VALUE=DATE:20261125
 SUMMARY:Biblia (Dzień 328): Księga Nehemiasza, rozdział 12; Księga Amosa, rozdział 4; 2 List do Tymoteusza, rozdział 1
@@ -2629,7 +2629,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 328\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-329-20261125@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261125
 DTEND;VALUE=DATE:20261126
 SUMMARY:Biblia (Dzień 329): Księga Nehemiasza, rozdział 13; Księga Amosa, rozdział 5; 2 List do Tymoteusza, rozdział 2
@@ -2637,7 +2637,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 329\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-330-20261126@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261126
 DTEND;VALUE=DATE:20261127
 SUMMARY:Biblia (Dzień 330): Księga Estery, rozdział 1; Księga Amosa, rozdział 6; 2 List do Tymoteusza, rozdział 3 i 4
@@ -2645,7 +2645,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 330\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-331-20261127@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261127
 DTEND;VALUE=DATE:20261128
 SUMMARY:Biblia (Dzień 331): Księga Estery, rozdział 2; Księga Amosa, rozdział 7; List do Tytusa
@@ -2653,7 +2653,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 331\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-332-20261128@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261128
 DTEND;VALUE=DATE:20261129
 SUMMARY:Biblia (Dzień 332): Księga Estery, rozdział 3 i 4; Księga Amosa, rozdział 8; List do Filemona
@@ -2661,7 +2661,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 332\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-333-20261129@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261129
 DTEND;VALUE=DATE:20261130
 SUMMARY:Biblia (Dzień 333): Księga Estery, rozdział 5 i 6; Księga Amosa, rozdział 9; List do Hebrajczyków, rozdział 1 i 2
@@ -2669,7 +2669,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 333\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-334-20261130@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261130
 DTEND;VALUE=DATE:20261201
 SUMMARY:Biblia (Dzień 334): Księga Estery, rozdział 7 i 8; Księga Abdiasza; List do Hebrajczyków, rozdział 3,4 i 5
@@ -2677,7 +2677,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 334\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-335-20261201@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261201
 DTEND;VALUE=DATE:20261202
 SUMMARY:Biblia (Dzień 335): Księga Estery, rozdział 9 i 10; Księga Jonasza, rozdział 1; List do Hebrajczyków, rozdział 6 i 7
@@ -2685,7 +2685,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 335\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-336-20261202@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261202
 DTEND;VALUE=DATE:20261203
 SUMMARY:Biblia (Dzień 336): Księga Hioba, rozdział 1 i 2; Księga Jonasza, rozdział 2 i 3; List do Hebrajczyków, rozdział 8 i 9
@@ -2693,7 +2693,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 336\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-337-20261203@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261203
 DTEND;VALUE=DATE:20261204
 SUMMARY:Biblia (Dzień 337): Księga Hioba, rozdział 3 i 4; Księga Jonasza, rozdział 4; List do Hebrajczyków, rozdział 10
@@ -2701,7 +2701,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 337\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-338-20261204@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261204
 DTEND;VALUE=DATE:20261205
 SUMMARY:Biblia (Dzień 338): Księga Hioba, rozdział 5; Księga Micheasza, rozdział 1; List do Hebrajczyków, rozdział 11
@@ -2709,7 +2709,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 338\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-339-20261205@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261205
 DTEND;VALUE=DATE:20261206
 SUMMARY:Biblia (Dzień 339): Księga Hioba, rozdział 6 i 7; Księga Micheasza, rozdział 2; List do Hebrajczyków, rozdział 12
@@ -2717,7 +2717,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 339\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-340-20261206@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261206
 DTEND;VALUE=DATE:20261207
 SUMMARY:Biblia (Dzień 340): Księga Hioba, rozdział 8; Księga Micheasza, rozdział 3 i 4; List do Hebrajczyków, rozdział 13
@@ -2725,7 +2725,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 340\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-341-20261207@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261207
 DTEND;VALUE=DATE:20261208
 SUMMARY:Biblia (Dzień 341): Księga Hioba, rozdział 9; Księga Micheasza, rozdział 5; List Jakuba, rozdział 1
@@ -2733,7 +2733,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 341\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-342-20261208@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261208
 DTEND;VALUE=DATE:20261209
 SUMMARY:Biblia (Dzień 342): Księga Hioba, rozdział 10; Księga Micheasza, rozdział 6; List Jakuba, rozdział 2
@@ -2741,7 +2741,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 342\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-343-20261209@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261209
 DTEND;VALUE=DATE:20261210
 SUMMARY:Biblia (Dzień 343): Księga Hioba, rozdział 11; Księga Micheasza, rozdział 7; List Jakuba, rozdział 3 i 4
@@ -2749,7 +2749,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 343\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-344-20261210@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261210
 DTEND;VALUE=DATE:20261211
 SUMMARY:Biblia (Dzień 344): Księga Hioba, rozdział 12; Księga Nahuma, rozdział 1 i 2; List Jakuba, rozdział 5
@@ -2757,7 +2757,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 344\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-345-20261211@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261211
 DTEND;VALUE=DATE:20261212
 SUMMARY:Biblia (Dzień 345): Księga Hioba, rozdział 13; Księga Nahuma, rozdział 3; 1 List Piotra, rozdział 1
@@ -2765,7 +2765,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 345\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-346-20261212@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261212
 DTEND;VALUE=DATE:20261213
 SUMMARY:Biblia (Dzień 346): Księga Hioba, rozdział 14; Księga Habakuka, rozdział 1; 1 List Piotra, rozdział 2
@@ -2773,7 +2773,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 346\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-347-20261213@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261213
 DTEND;VALUE=DATE:20261214
 SUMMARY:Biblia (Dzień 347): Księga Hioba, rozdział 15; Księga Habakuka, rozdział 2; 1 List Piotra, rozdział 3, 4 i 5
@@ -2781,7 +2781,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 347\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-348-20261214@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261214
 DTEND;VALUE=DATE:20261215
 SUMMARY:Biblia (Dzień 348): Księga Hioba, rozdział 16 i 17; Księga Habakuka, rozdział 3; 2 List Piotra, rozdział 1 i 2
@@ -2789,7 +2789,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 348\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-349-20261215@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261215
 DTEND;VALUE=DATE:20261216
 SUMMARY:Biblia (Dzień 349): Księga Hioba, rozdział 18 i 19; Księga Sofoniasza, rozdział 1; 2 List Piotra, rozdział 3
@@ -2797,7 +2797,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 349\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-350-20261216@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261216
 DTEND;VALUE=DATE:20261217
 SUMMARY:Biblia (Dzień 350): Księga Hioba, rozdział 20; Księga Sofoniasza, rozdział 2; 1 List Jana, rozdział 1 i 2
@@ -2805,7 +2805,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 350\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-351-20261217@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261217
 DTEND;VALUE=DATE:20261218
 SUMMARY:Biblia (Dzień 351): Księga Hioba, rozdział 21; Księga Sofoniasza, rozdział 3; 1 List Jana, rozdział 3 i 4
@@ -2813,7 +2813,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 351\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-352-20261218@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261218
 DTEND;VALUE=DATE:20261219
 SUMMARY:Biblia (Dzień 352): Księga Hioba, rozdział 22; Księga Aggeusza; 1 List Jana, rozdział 5
@@ -2821,7 +2821,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 352\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-353-20261219@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261219
 DTEND;VALUE=DATE:20261220
 SUMMARY:Biblia (Dzień 353): Księga Hioba, rozdział 23 i 24; Księga Zachariasza, rozdział 1; 2 i 3 List Jana
@@ -2829,7 +2829,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 353\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-354-20261220@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261220
 DTEND;VALUE=DATE:20261221
 SUMMARY:Biblia (Dzień 354): Księga Hioba, rozdział 25, 26 i 27; Księga Zachariasza, rozdział 2 i 3; 1 List Judy
@@ -2837,7 +2837,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 354\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-355-20261221@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261221
 DTEND;VALUE=DATE:20261222
 SUMMARY:Biblia (Dzień 355): Księga Hioba, rozdział 28; Księga Zachariasza, rozdział 4 i 5; Apokalipsa Jana, rozdział 1 i  2
@@ -2845,7 +2845,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 355\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-356-20261222@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261222
 DTEND;VALUE=DATE:20261223
 SUMMARY:Biblia (Dzień 356): Księga Hioba, rozdział 29 i 30; Księga Zachariasza, rozdział 6 i 7; Apokalipsa Jana, rozdział 3 i 4
@@ -2853,7 +2853,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 356\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-357-20261223@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261223
 DTEND;VALUE=DATE:20261224
 SUMMARY:Biblia (Dzień 357): Księga Hioba, rozdział 31 i 32; Księga Zachariasza, rozdział 8; Apokalipsa Jana, rozdział 5 i 6
@@ -2861,7 +2861,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 357\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-358-20261224@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261224
 DTEND;VALUE=DATE:20261225
 SUMMARY:Biblia (Dzień 358): Księga Hioba, rozdział 33; Księga Zachariasza, rozdział 9; Apokalipsa Jana, rozdział 7, 8 i 9
@@ -2869,7 +2869,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 358\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-359-20261225@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261225
 DTEND;VALUE=DATE:20261226
 SUMMARY:Biblia (Dzień 359): Księga Hioba, rozdział 34; Księga Zachariasza, rozdział 10; Apokalipsa Jana, rozdział 10 i 11
@@ -2877,7 +2877,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 359\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-360-20261226@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261226
 DTEND;VALUE=DATE:20261227
 SUMMARY:Biblia (Dzień 360): Księga Hioba, rozdział 35 i 36; Księga Zachariasza, rozdział 11; Apokalipsa Jana, rozdział 12 i 13
@@ -2885,7 +2885,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 360\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-361-20261227@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261227
 DTEND;VALUE=DATE:20261228
 SUMMARY:Biblia (Dzień 361): Księga Hioba, rozdział 37; Księga Zachariasza, rozdział 12; Apokalipsa Jana, rozdział 14
@@ -2893,7 +2893,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 361\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-362-20261228@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261228
 DTEND;VALUE=DATE:20261229
 SUMMARY:Biblia (Dzień 362): Księga Hioba, rozdział 38; Księga Zachariasza, rozdział 13 i 14; Apokalipsa Jana, rozdział 15 i 16
@@ -2901,7 +2901,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 362\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-363-20261229@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261229
 DTEND;VALUE=DATE:20261230
 SUMMARY:Biblia (Dzień 363): Księga Hioba, rozdział 39; Księga Malachiasza, rozdział 1; Apokalipsa Jana, rozdział 17 i 18
@@ -2909,7 +2909,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 363\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-364-20261230@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261230
 DTEND;VALUE=DATE:20261231
 SUMMARY:Biblia (Dzień 364): Księga Hioba, rozdział 40; Księga Malachiasza, rozdział 2; Apokalipsa Jana, rozdział 19 i 20
@@ -2917,7 +2917,7 @@ DESCRIPTION:Oficjalny Plan Czytania Biblii — Dzień 364\n1. ST (Prawo/Historia
 STATUS:CONFIRMED
 END:VEVENTBEGIN:VEVENT
 UID:roberts-plan-day-365-20261231@biblia-czytanie
-DTSTAMP:20260813T123406Z
+DTSTAMP:20260813T125034Z
 DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:Biblia (Dzień 365): Księga Hioba, rozdział 41 i 42; Księga Malachiasza, rozdział 3 i 4; Apokalipsa Jana, rozdział 21 i 22

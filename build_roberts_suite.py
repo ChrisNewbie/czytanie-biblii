@@ -3,7 +3,7 @@
 
 Single Source of Truth: Uses official daily readings from prawdy-biblijne-index.html.
 Builds all products (PWA Web App, Kindle EPUB, iCal Calendar, CSV & HTML)
-for the fixed calendar year (Jan 1 to Dec 31).
+with complete custom Favicon suite for the fixed calendar year (Jan 1 to Dec 31).
 """
 from __future__ import annotations
 
@@ -17,6 +17,7 @@ from export_csv import export_csv
 from export_epub import export_epub
 from export_ics import export_ics
 from export_pwa import export_pwa
+from generate_favicons import generate_icons
 from roberts_engine import build_synchronous_roberts_plan
 
 
@@ -34,6 +35,10 @@ def main():
     print(f"• HiperBiblia parametry: left='{args.left}', right='{args.right}'")
     print(f"• Katalog wyjściowy: {args.out_dir.resolve()}\n")
 
+    # 0. Generate complete Favicon suite in root directory
+    root_dir = Path(".")
+    generate_icons(root_dir)
+
     # 1. Generate plan directly from official Oracle
     plan = build_synchronous_roberts_plan(year=args.year, left=args.left, right=args.right)
 
@@ -47,8 +52,17 @@ def main():
     root_index = Path("index.html")
     shutil.copyfile(html_file, root_index)
 
-    # 4. Export PWA
+    # Copy icons to output directory and PWA directory
     pwa_dir = args.out_dir / "pwa"
+    pwa_dir.mkdir(parents=True, exist_ok=True)
+    icon_files = ["favicon.svg", "favicon.ico", "favicon.png", "apple-touch-icon.png", "icon-512.png"]
+    for icon_name in icon_files:
+        src = root_dir / icon_name
+        if src.exists():
+            shutil.copyfile(src, args.out_dir / icon_name)
+            shutil.copyfile(src, pwa_dir / icon_name)
+
+    # 4. Export PWA
     export_pwa(plan, pwa_dir)
 
     # 5. Export Kindle EPUB
@@ -61,7 +75,7 @@ def main():
     export_ics(plan, ics_file, start_date)
 
     print("\n=======================================================")
-    print(f" SUKCES! Zbudowano oficjalny pakiet Wyroczni na rok {args.year}:")
+    print(f" SUKCES! Zbudowano oficjalny pakiet Wyroczni z Favikonami na rok {args.year}:")
     print(f" 1. GitHub Pages (root):   {root_index.resolve()}")
     print(f" 2. Aplikacja PWA:         {pwa_dir.resolve() / 'index.html'}")
     print(f" 3. Strona Vanilla JS:      {html_file.resolve()}")
