@@ -181,17 +181,6 @@ def export_csv(
       color: var(--text-muted);
       margin-bottom: 1.25rem;
     }
-    .badge-info {
-      display: inline-block;
-      background: var(--accent-bg);
-      color: var(--accent);
-      font-weight: 700;
-      padding: 0.3rem 0.85rem;
-      border-radius: 8px;
-      font-size: 0.88rem;
-      margin-bottom: 1.25rem;
-      border: 1px solid var(--border-color);
-    }
     .controls {
       display: flex;
       gap: 1rem;
@@ -475,7 +464,7 @@ def export_csv(
     /* Dedykowane Style Drukarki (Print CSS 2026) */
     @media print {
       body { background: #ffffff !important; color: #000000 !important; margin: 0; font-size: 12pt; }
-      .controls, .badge-info, p.sub, .btn-share, .btn-back-to-top, .lang-switcher { display: none !important; }
+      .controls, p.sub, .btn-share, .btn-back-to-top, .lang-switcher { display: none !important; }
       table { border: 1px solid #000 !important; box-shadow: none !important; }
       th, td { border: 1px solid #666 !important; color: #000 !important; background: #fff !important; }
       th { background: #eee !important; color: #000 !important; }
@@ -580,7 +569,6 @@ def export_csv(
   </div>
 
   <p class="sub" id="main-sub">Kliknięcie w przycisk otwiera czytnik w serwisie <strong>HiperBiblia.com</strong> z Twoimi wybranymi przekładami.</p>
-  <div class="badge-info" id="badge-info">⚡ WERSJA NATYWNA 2026 (Vanilla JS • Dark Mode • PL / EN • Udostępnianie)</div>
 
   {controls_markup}
 
@@ -660,7 +648,6 @@ def export_csv(
       // Text UI translations
       document.getElementById('main-h1').innerText = isEn ? 'Official Bible Reading Companion (Robert Roberts)' : 'Oficjalny Harmonogram Czytania Biblii (prawdybiblijne.com)';
       document.getElementById('main-sub').innerHTML = isEn ? 'Clicking any button opens <strong>HiperBiblia.com</strong> dual-panel reader with your chosen translations.' : 'Kliknięcie w przycisk otwiera czytnik w serwisie <strong>HiperBiblia.com</strong> z Twoimi wybranymi przekładami.';
-      document.getElementById('badge-info').innerText = isEn ? '⚡ NATIVE 2026 SUITE (Vanilla JS • Dark Mode • Dual Language • Share)' : '⚡ WERSJA NATYWNA 2026 (Vanilla JS • Dark Mode • PL / EN • Udostępnianie)';
       document.getElementById('lbl-left').innerText = isEn ? 'Left Panel (Translation 1):' : 'Lewy panel (Przekład 1):';
       document.getElementById('lbl-right').innerText = isEn ? 'Right Panel (Translation 2):' : 'Prawy panel (Przekład 2):';
       document.getElementById('lbl-date-jump').innerText = isEn ? '📅 Jump to date:' : '📅 Przejdź do daty:';
@@ -789,7 +776,7 @@ def export_csv(
 </html>
 """
         output_html.write_text(vanilla_doc, encoding="utf-8")
-        print(f"Zapisano statyczny HTML Vanilla JS z 'Przejdź do daty': {output_html}")
+        print(f"Zapisano statyczny HTML Vanilla JS (Czysty Nagłówek): {output_html}")
 
         if output_en_html:
             # Pre-configured English HTML version
@@ -822,7 +809,6 @@ def export_csv(
   </div>
 
   <p class="sub" id="main-sub">Kliknięcie w przycisk otwiera czytnik w serwisie <strong>HiperBiblia.com</strong> z Twoimi wybranymi przekładami.</p>
-  <div class="badge-info" id="badge-info" style="background:var(--accent-bg); color:var(--accent);">⚙️ WERSJA JQUERY 3.7.1 (Standard 2026 • Dark Mode • PL / EN • Udostępnianie)</div>
 
   {controls_markup}
 
@@ -905,7 +891,6 @@ def export_csv(
 
       $('#main-h1').text(isEn ? 'Official Bible Reading Companion (Robert Roberts)' : 'Oficjalny Harmonogram Czytania Biblii (prawdybiblijne.com)');
       $('#main-sub').html(isEn ? 'Clicking any button opens <strong>HiperBiblia.com</strong> dual-panel reader with your chosen translations.' : 'Kliknięcie w przycisk otwiera czytnik w serwisie <strong>HiperBiblia.com</strong> z Twoimi wybranymi przekładami.');
-      $('#badge-info').text(isEn ? '⚙️ JQUERY 3.7.1 SUITE (Standard 2026 • Dark Mode • PL / EN • Share)' : '⚙️ WERSJA JQUERY 3.7.1 (Standard 2026 • Dark Mode • PL / EN • Udostępnianie)');
       $('#lbl-left').text(isEn ? 'Left Panel (Translation 1):' : 'Lewy panel (Przekład 1):');
       $('#lbl-right').text(isEn ? 'Right Panel (Translation 2):' : 'Prawy panel (Przekład 2):');
       $('#lbl-date-jump').text(isEn ? '📅 Jump to date:' : '📅 Przejdź do daty:');
@@ -1028,7 +1013,7 @@ def export_csv(
 </html>
 """
         output_jquery_html.write_text(jquery_doc, encoding="utf-8")
-        print(f"Zapisano statyczny HTML z jQuery 3.7.1 z 'Przejdź do daty': {output_jquery_html}")
+        print(f"Zapisano statyczny HTML z jQuery 3.7.1 (Czysty Nagłówek): {output_jquery_html}")
 
 
 if __name__ == "__main__":
