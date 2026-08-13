@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Export Official Christadelphian Bible Reading Plan to CSV and static HTML tables (Vanilla JS & jQuery versions).
-Fully compliant with 2026 Web Standards: Share Button (Web Share API + Clipboard Fallback), Dark Mode, OpenGraph, WCAG 2.2 AAA, Print CSS & Security rel=noopener.
+Fully compliant with 2026 Web Standards: Floating Back to Top Button, Share Button, Dark Mode, OpenGraph, WCAG 2.2 AAA, Print CSS & Security rel=noopener.
 """
 from __future__ import annotations
 
@@ -280,6 +280,41 @@ def export_csv(
     }
     td.num .btn-share { display: none; }
 
+    /* Floating Back to Top Button */
+    .btn-back-to-top {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      z-index: 999;
+      background: var(--accent);
+      color: #ffffff;
+      border: none;
+      border-radius: 999px;
+      padding: 0.75rem 1.25rem;
+      font-weight: 800;
+      font-size: 0.95rem;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(20px);
+      transition: all 0.25s ease;
+      font-family: inherit;
+      min-height: 48px;
+    }
+    .btn-back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    .btn-back-to-top:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+    }
+
     .toast-msg {
       position: fixed;
       bottom: 2rem;
@@ -374,7 +409,7 @@ def export_csv(
     /* Dedykowane Style Drukarki (Print CSS 2026) */
     @media print {
       body { background: #ffffff !important; color: #000000 !important; margin: 0; font-size: 12pt; }
-      .controls, .badge-info, p.sub, .btn-share { display: none !important; }
+      .controls, .badge-info, p.sub, .btn-share, .btn-back-to-top { display: none !important; }
       table { border: 1px solid #000 !important; box-shadow: none !important; }
       th, td { border: 1px solid #666 !important; color: #000 !important; background: #fff !important; }
       th { background: #eee !important; color: #000 !important; }
@@ -491,6 +526,8 @@ def export_csv(
     </tbody>
   </table>
 
+  <button id="btn-back-to-top" class="btn-back-to-top" onclick="scrollToTop()" aria-label="Wróć na górę strony">⬆️ Górę</button>
+
   <script>
     const KEY_LEFT = 'hiper_left_translation';
     const KEY_RIGHT = 'hiper_right_translation';
@@ -506,7 +543,19 @@ def export_csv(
       document.getElementById('input-date-jump').addEventListener('change', (e) => jumpToDate(e.target.value));
       document.getElementById('btn-today').addEventListener('click', jumpToToday);
 
+      window.addEventListener('scroll', () => {{
+        const btn = document.getElementById('btn-back-to-top');
+        if (btn) {{
+          if (window.scrollY > 300) btn.classList.add('visible');
+          else btn.classList.remove('visible');
+        }}
+      }});
+
       updateTableLinks();
+    }}
+
+    function scrollToTop() {{
+      window.scrollTo({{ top: 0, behavior: 'smooth' }});
     }}
 
     function updateTableLinks() {{
@@ -590,7 +639,7 @@ def export_csv(
 </html>
 """
         output_html.write_text(vanilla_doc, encoding="utf-8")
-        print(f"Zapisano statyczny HTML Vanilla JS z Udostępnianiem: {output_html}")
+        print(f"Zapisano statyczny HTML Vanilla JS z Przyskiem Wróć na Górę: {output_html}")
 
     # 2. GENERACJA WERSJI JQUERY (STANDARD 2026)
     if output_jquery_html:
@@ -628,6 +677,8 @@ def export_csv(
     </tbody>
   </table>
 
+  <button id="btn-back-to-top" class="btn-back-to-top" onclick="scrollToTop()" aria-label="Wróć na górę strony">⬆️ Górę</button>
+
   <script>
     const KEY_LEFT = 'hiper_left_translation';
     const KEY_RIGHT = 'hiper_right_translation';
@@ -648,7 +699,19 @@ def export_csv(
       }});
       $('#btn-today').on('click', jumpToTodayJQuery);
 
+      $(window).on('scroll', function() {{
+        if ($(this).scrollTop() > 300) {{
+          $('#btn-back-to-top').addClass('visible');
+        }} else {{
+          $('#btn-back-to-top').removeClass('visible');
+        }}
+      }});
+
       updateTableLinksJQuery();
+    }}
+
+    function scrollToTop() {{
+      window.scrollTo({{ top: 0, behavior: 'smooth' }});
     }}
 
     function updateTableLinksJQuery() {{
@@ -730,7 +793,7 @@ def export_csv(
 </html>
 """
         output_jquery_html.write_text(jquery_doc, encoding="utf-8")
-        print(f"Zapisano statyczny HTML z jQuery 3.7.1 i Udostępnianiem: {output_jquery_html}")
+        print(f"Zapisano statyczny HTML z jQuery 3.7.1 i Przyciskiem Wróć na Górę: {output_jquery_html}")
 
 
 if __name__ == "__main__":

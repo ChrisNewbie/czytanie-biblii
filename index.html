@@ -213,6 +213,41 @@
     }
     td.num .btn-share { display: none; }
 
+    /* Floating Back to Top Button */
+    .btn-back-to-top {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      z-index: 999;
+      background: var(--accent);
+      color: #ffffff;
+      border: none;
+      border-radius: 999px;
+      padding: 0.75rem 1.25rem;
+      font-weight: 800;
+      font-size: 0.95rem;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(20px);
+      transition: all 0.25s ease;
+      font-family: inherit;
+      min-height: 48px;
+    }
+    .btn-back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    .btn-back-to-top:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+    }
+
     .toast-msg {
       position: fixed;
       bottom: 2rem;
@@ -307,7 +342,7 @@
     /* Dedykowane Style Drukarki (Print CSS 2026) */
     @media print {
       body { background: #ffffff !important; color: #000000 !important; margin: 0; font-size: 12pt; }
-      .controls, .badge-info, p.sub, .btn-share { display: none !important; }
+      .controls, .badge-info, p.sub, .btn-share, .btn-back-to-top { display: none !important; }
       table { border: 1px solid #000 !important; box-shadow: none !important; }
       th, td { border: 1px solid #666 !important; color: #000 !important; background: #fff !important; }
       th { background: #eee !important; color: #000 !important; }
@@ -6978,6 +7013,8 @@
     </tbody>
   </table>
 
+  <button id="btn-back-to-top" class="btn-back-to-top" onclick="scrollToTop()" aria-label="Wróć na górę strony">⬆️ Górę</button>
+
   <script>
     const KEY_LEFT = 'hiper_left_translation';
     const KEY_RIGHT = 'hiper_right_translation';
@@ -6993,7 +7030,19 @@
       document.getElementById('input-date-jump').addEventListener('change', (e) => jumpToDate(e.target.value));
       document.getElementById('btn-today').addEventListener('click', jumpToToday);
 
+      window.addEventListener('scroll', () => {
+        const btn = document.getElementById('btn-back-to-top');
+        if (btn) {
+          if (window.scrollY > 300) btn.classList.add('visible');
+          else btn.classList.remove('visible');
+        }
+      });
+
       updateTableLinks();
+    }
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     function updateTableLinks() {

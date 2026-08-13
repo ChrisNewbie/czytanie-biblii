@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Export Official Christadelphian Bible Reading Plan to PWA Web Application.
-Includes Native Web Share API + Clipboard Toast for sharing daily reading links.
+Includes Floating Back to Top Button, Web Share API + Clipboard Toast for sharing daily reading links.
 """
 from __future__ import annotations
 
@@ -295,6 +295,41 @@ PWA_HTML_TEMPLATE = """<!DOCTYPE html>
       color: #0f172a;
     }}
 
+    /* Floating Back to Top Button */
+    .btn-back-to-top {{
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      z-index: 999;
+      background: var(--accent);
+      color: #0f172a;
+      border: none;
+      border-radius: 999px;
+      padding: 0.75rem 1.25rem;
+      font-weight: 800;
+      font-size: 0.95rem;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.4);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(20px);
+      transition: all 0.25s ease;
+      font-family: inherit;
+      min-height: 48px;
+    }}
+    .btn-back-to-top.visible {{
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }}
+    .btn-back-to-top:hover {{
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+    }}
+
     .toast-msg {{
       position: fixed;
       bottom: 2rem;
@@ -468,6 +503,8 @@ PWA_HTML_TEMPLATE = """<!DOCTYPE html>
 
   <div class="grid" id="plan-grid"></div>
 
+  <button id="btn-back-to-top-pwa" class="btn-back-to-top" onclick="scrollToTopPwa()" aria-label="Wróć na górę strony">⬆️ Górę</button>
+
   <script>
     const PLAN_DATA = {plan_json};
     const STORAGE_KEY = 'roberts_plan_completed_days';
@@ -479,6 +516,18 @@ PWA_HTML_TEMPLATE = """<!DOCTYPE html>
       const savedRight = localStorage.getItem(KEY_RIGHT);
       if (savedLeft) document.getElementById('select-left').value = savedLeft;
       if (savedRight) document.getElementById('select-right').value = savedRight;
+
+      window.addEventListener('scroll', () => {{
+        const btn = document.getElementById('btn-back-to-top-pwa');
+        if (btn) {{
+          if (window.scrollY > 300) btn.classList.add('visible');
+          else btn.classList.remove('visible');
+        }}
+      }});
+    }}
+
+    function scrollToTopPwa() {{
+      window.scrollTo({{ top: 0, behavior: 'smooth' }});
     }}
 
     function onTranslationChange() {{
@@ -664,7 +713,7 @@ def export_pwa(plan: list[dict], output_dir: Path):
     html_content = PWA_HTML_TEMPLATE.replace("{plan_json}", json.dumps(plan, ensure_ascii=False))
     (output_dir / "index.html").write_text(html_content, encoding="utf-8")
     (output_dir / "manifest.json").write_text(MANIFEST_JSON, encoding="utf-8")
-    print(f"Wygenerowano oficjalne PWA Wyroczni z przyciskiem Udostępnij w: {output_dir}")
+    print(f"Wygenerowano oficjalne PWA Wyroczni z przyciskiem Wróć do Góry w: {output_dir}")
 
 
 if __name__ == "__main__":
