@@ -1,0 +1,63 @@
+========================================================================
+       SYSTEM CZYTANIA BIBLII — PLAN ROBERTA ROBERTSA (1853)
+========================================================================
+
+CZYM JEST PLAN ROBERTA ROBERTSA?
+--------------------------------
+Plan Czytania Biblii opracowany w 1853 r. przez Roberta Robertsa (znany jako 
+"The Bible Companion") jest jednym z najpopularniejszych systemów codziennego
+czytania Pisma Świętego.
+
+Kluczowe założenia planu:
+ 1. CAŁA BIBLIA W ROK (365 dni).
+ 2. TRZY NURTY KAŻDEGO DNIA:
+    * Nurt 1: Stary Testament — Prawo i Historia (Rdz - Hi)
+    * Nurt 2: Stary Testament — Poezja i Prorocy (Ps - Ml)
+    * Nurt 3: Nowy Testament — Ewangelie, Dzieje, Listy i Apokalipsa (Mt - Ap)
+ 3. NOWY TESTAMENT CZYTANY DWA RAZY W ROKU:
+    Podczas gdy Stary Testament przechodzi się 1 raz w roku, Nowy Testament
+    pokonuje się w tym samym czasie dwukrotnie.
+
+ROZWINIĘCIE I ULEPSZENIA W NASZYM SYSTEMIE
+------------------------------------------
+Tradycyjny plan Robertsa stosował sztywne przypisanie rozdziałów. W naszym
+systemie zastosowaliśmy algorytm **wygładzania objętości znakowej**:
+ - Objętość czytania mierzona jest liczbą znaków wersetów (z bazy Biblia Tysiąclecia).
+ - Dni są wyrównywane algorytmem zbilansowanego podziału i lokalnego przesuwania
+   rozdziałów (`smooth_daily_load`), dzięki czemu żaden dzień nie jest przeciążony.
+ - Każdy rozdział ma wygenerowany trwały odnośnik do serwisu biblia.deon.pl.
+
+
+DOSTĘPNE FORMATY I PRODUKTY WYJŚCIOWE
+-------------------------------------
+Wszystkie pliki generowane są automatycznie z jednego źródła za pomocą:
+  python3 build_roberts_suite.py [--start YYYY-MM-DD] [--days 365]
+
+Wygenerowane pliki trafiają do katalogu `output/`:
+
+ 1. Aplikacja Webowa / PWA (`output/pwa/index.html`):
+    - Nowoczesny, estetyczny interfejs gotowy do otwarcia na komputerze i telefonie.
+    - Zapamiętywanie odznaczonych dni w przeglądarce (pasek postępu %).
+    - Możliwość "Dodania do ekranu głównego" telefonu (działa jak natywna apka).
+
+ 2. E-book na czytniki Kindle (`output/Biblia_Plan_Robertsa.epub`):
+    - Pełny e-book podzielony na miesiące i dni z aktywnymi linkami Deon.
+    - Umożliwia wygodne czytanie na ekranie e-papierowym.
+
+ 3. Kalendarz osobisty (`output/Biblia_Plan_Robertsa.ics`):
+    - Plik iCal do bezproblemowego zaimportowania w Kalendarzu Google, Apple Calendar
+      lub Outlook.
+    - Zapewnia codzienne przypomnienia na telefonie o ustalonej porze z listą
+      rozdziałów na dany dzień.
+
+ 4. Arkusz CSV i Tabela HTML (`output/harmonogram_robertsa.csv` / `.html`):
+    - Zdatowana tabela do druku, notatnika lub otwarcia w MS Excel / LibreOffice.
+
+
+JAK URUCHOMIĆ GENEROWANIE?
+--------------------------
+Standardowe wygenerowanie pakietu od 1 stycznia 2026 r.:
+  python3 build_roberts_suite.py
+
+Wygenerowanie pakietu z datą startu od dzisiaj:
+  python3 build_roberts_suite.py --start 2026-08-12

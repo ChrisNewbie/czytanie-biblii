@@ -1,0 +1,143 @@
+HARMONOGRAM CZYTANIA BIBLII — JAK TO DZIAŁA
+============================================
+
+Źródło tekstu: Biblia Tysiąclecia pobrana ze strony biblia.deon.pl
+(baza Biblia.db). Harmonogram nie zawiera treści wersetów — tylko
+odnośniki i linki do Deon dla każdego dnia.
+
+
+MIARA OBJĘTOŚCI
+---------------
+Objętość dnia liczona jest w ZNAKACH tekstu wersetów, sumowanych dla
+całego rozdziału — nie liczbą rozdziałów. Dzięki temu dzień z krótkimi
+rozdziałami i dzień z długimi są podobnym wysiłkiem czytelniczym.
+Przykład dlaczego to ważne: Ps 117 ma 2 wersety, a Ps 119 ma 176.
+
+Rozdział jest niepodzielny: dzień to zawsze zakres całych rozdziałów.
+
+
+TRYB MIESZANY (domyślny) — SZEŚĆ NURTÓW
+---------------------------------------
+Każdego dnia biegnie RÓWNOLEGLE sześć niezależnych nurtów, każdy przez
+swoje księgi po kolei (kanonicznie):
+
+  1. Pięcioksiąg i historyczne (Rdz - 2 Mch)   ~5 960 zn./dzień
+  2. Prorocy (Iz - Ml)                         ~2 380 zn./dzień
+  3. Mądrościowe (Hi, Prz, Koh, Pnp, Mdr, Syr) ~1 080 zn./dzień
+  4. Psalmy                                    ~605 zn./dzień
+  5. Ewangelie i Dzieje (Mt - Dz)              ~1 540 zn./dzień
+  6. Listy i Apokalipsa (Rz - Ap)              ~1 130 zn./dzień
+  (wartości dla planu 340-dniowego)
+
+PO CO SZEŚĆ, A NIE TRZY. Chodzi o nudę i o monotonię, bez oceniania przez
+program, co jest nudne. Nie trzeba wiedzieć, że 1 Krn 1-9 to same rodowody
+ani że Kpł 1-7 to same przepisy ofiarne — wystarczy, że nigdy nie czyta się
+tylko jednego nurtu naraz. Gdy nurt 1 brnie przez rodowody, w tle idzie
+prorok, mędrzec, psalm i Ewangelia. W planie 340-dniowym na dzień wypada
+średnio 3 nurty; dni z jednym nurtem jest tylko 3 na 340.
+
+Drugi zysk: Ewangelie i listy to osobne nurty, więc synoptycy nie idą
+blokiem jeden po drugim (Mt, potem Mk, potem Łk), tylko przeplatają się
+z listami. Mniej „to już czytałem" i mniej doczytywania do jednej Ewangelii
+tego, co było w drugiej.
+
+Cena: rozdział Ewangelii wypada co ~3 dni, więc narracja jest bardziej
+porwana niż przy czytaniu ciągiem. Sumarycznie NT idzie w tym samym tempie
+(260 rozdz. na 340 dni), zmienia się tylko przeplot.
+
+PSALMY mają własną regułę: każdy psalm CZYTANY RAZ, W CAŁOŚCI, w swoim
+własnym dniu. Nigdy dwa psalmy tego samego dnia i nigdy w kółko: 150
+psalmów trafia na 150 równomiernie rozłożonych dni, niezależnie od długości
+psalmu (i bardzo krótki, i bardzo długi — dokładnie raz).
+
+WYRÓWNYWANIE DNI. Sześć nurtów układanych niezależnie nakładałoby swoje
+ciężkie dni przypadkiem (bywały dni 2,5x cięższe od średniej). Dlatego na
+koniec idzie wyrównywanie: rozdział przesuwa się o dzień w bok, jeśli dzień
+docelowy — już z tym rozdziałem — będzie lżejszy niż ten, z którego
+rozdział wychodzi. Powtarzane aż nic się nie poprawi. Rozdziały zostają
+całe i w kolejności kanonicznej wewnątrz swojego nurtu. Efekt dla 340 dni:
+8 130 - 18 632 znaków dziennie zamiast 2 278 - 33 761.
+
+TRYB TRZECH NURTÓW (--tracks 3) to poprzedni układ: Stary Testament bez
+Psalmów / Nowy Testament / Psalmy. Nadal działa, też z wyrównywaniem.
+
+CZEGO TO NIE ROZWIĄZUJE. Objętość to nadal znaki, a nie trudność: dzień
+1 Krn 24-27 (spisy służb kapłańskich) ma tyle samo znaków co dzień narracji
+i sporadycznie wypadnie sam, bez towarzystwa innych nurtów.
+
+Ale — i to jest ważne — mierzenie trudności zamiast znaków TEŻ by tego nie
+rozwiązało. Gdyby program wiedział, że rodowody są trudniejsze, dałby na
+dzień mniejszy kawałek — tyle że tego materiału jest tyle, ile jest, więc
+rodowody rozciągnęłyby się wtedy na WIĘCEJ dni. Zamiast dwóch ciężkich dni
+byłoby pięć lekko nudnych. Łącznej „nudy" nie da się zmniejszyć żadnym
+podziałem; można ją tylko rozcieńczyć czymś innym czytanym równolegle —
+i po to właśnie jest sześć nurtów.
+
+Osobna sprawa: rozdział pozostaje niepodzielny, więc perykopy przechodzące
+przez granicę rozdziałów (np. 1 Kor 12,31 zapowiadające 1 Kor 13) mogą
+trafić na różne dni.
+
+
+TRYB KANONICZNY (opcja --mode canonical)
+----------------------------------------
+Jeden nurt: cała Biblia po kolei od Rdz do Ap, pocięta na dni zbilansowane
+po znakach. Najbardziej równe dni, ale bez przeplotu ST/NT/Psalmy.
+
+
+KOLUMNY W PLIKU CSV
+-------------------
+Mieszany, 6 nurtów: dzien, Pięcioksiąg i historyczne, Prorocy,
+                    Mądrościowe, Psalm, Ewangelie i Dzieje,
+                    Listy i Apokalipsa, znaki, linki
+Mieszany, 3 nurty:  dzien, Stary Testament, Nowy Testament, Psalm,
+                    znaki, linki
+Tryb kanoniczny:    dzien, czytanie, znaki, linki
+
+  - dzien   — numer dnia 1, 2, 3, ... (bez daty; patrz niżej)
+  - kolumny odnośników — np. „Rdz 48-50; Wj 1", puste gdy danego nurtu
+    tego dnia nie ma
+  - znaki   — łączna liczba znaków wersetów tego dnia
+  - linki   — po jednym linku Deon na każdy rozdział, oddzielone spacją
+    (otworz.php?skrot=..., skrót kodowany w ISO-8859-2; to trwały adres,
+    rozdzial.php?id=... jest sesyjny i nie nadaje się do zapisania)
+
+
+DATY — ODDZIELNY KROK
+---------------------
+Plan bazowy NIE zawiera dat — pierwsza kolumna to numer dnia. Dzięki temu
+jeden plan działa dla dowolnej daty startu. Datę dokleja się osobnym
+skryptem, bez bazy danych:
+
+  python3 dodaj_daty.py harmonogram_roczny_340.csv 2026-09-01
+
+Powstaje kopia z kolumną „data" (data = start + numer_dnia - 1), gotowa do
+druku/arkusza. Można wygenerować wiele wariantów od różnych dat.
+
+Obok CSV powstaje też plik .html z tą samą tabelą, ale z KLIKALNYMI linkami
+do Deon (LibreOffice/Excel nie zamieniają kolumny „linki" w hiperłącza).
+Każdy link ma czytelną etykietę, np. „Rdz 1". Opcja --no-html pomija HTML,
+a --out pozwala narzucić własną nazwę pliku wyjściowego.
+
+
+WARIANTY DŁUGOŚCI
+-----------------
+  półroczny        — 150 dni  (dokładnie 1 psalm każdego dnia)
+  trzy czwarte roku — 255 dni
+  roczny           — 340 dni  (rok z buforem na opuszczone dni)
+  półtoraroczny    — 510 dni
+  dwuletni         — 680 dni
+
+Im dłuższy plan, tym mniej znaków dziennie. W planie 150-dniowym psalm
+wypada każdego dnia; w dłuższych psalmy są rzadziej (co 2-4 dni), zawsze
+w całości i dokładnie raz.
+
+
+GENEROWANIE
+-----------
+  python3 make_schedule.py --days 340 --out harmonogram_roczny_340.csv
+  python3 make_schedule.py --days 340 --tracks 3 --out plan_3_nurty.csv
+  python3 make_schedule.py --days 340 --mode canonical --out plan_kanoniczny.csv
+  python3 dodaj_daty.py <plan.csv> RRRR-MM-DD [--out plik.csv] [--no-html]
+
+Pliki CSV zapisywane są w UTF-8 z BOM (utf-8-sig): dobrze otwierają się
+zarówno w LibreOffice, jak i w polskim Excelu.
