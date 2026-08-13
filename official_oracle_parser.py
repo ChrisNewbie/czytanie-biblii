@@ -204,6 +204,10 @@ def normalize_grammar_to_nominative(text: str) -> str:
         return text
     text = text.strip().rstrip(".")
     replacements = [
+        ("1 Księgę Królewską", "1 Księga Królewska"),
+        ("2 Księgę Królewską", "2 Księga Królewska"),
+        ("1 Księga Królewską", "1 Księga Królewska"),
+        ("2 Księga Królewską", "2 Księga Królewska"),
         ("1 Księgę ", "1 Księga "),
         ("2 Księgę ", "2 Księga "),
         ("3 Księgę ", "3 Księga "),
@@ -212,6 +216,7 @@ def normalize_grammar_to_nominative(text: str) -> str:
         ("Księgę ", "Księga "),
         ("Ewangelię ", "Ewangelia "),
         ("Apokalipsę ", "Apokalipsa "),
+        ("Królewską", "Królewska"),
     ]
     for old, new in replacements:
         text = text.replace(old, new)
