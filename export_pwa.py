@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Export Official Christadelphian Bible Reading Plan to PWA Web Application.
-Includes Floating Back to Top Button, Web Share API + Clipboard Toast for sharing daily reading links.
+Includes Dual Language (PL / EN), Floating Back to Top Button, Web Share API + Clipboard Toast for sharing daily reading links.
 """
 from __future__ import annotations
 
@@ -46,19 +46,54 @@ PWA_HTML_TEMPLATE = """<!DOCTYPE html>
       text-align: center;
     }}
 
+    .top-bar-pwa {{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.5rem;
+    }}
+
     h1 {{
       font-size: 1.8rem;
       font-weight: 700;
-      margin-bottom: 0.5rem;
       background: linear-gradient(to right, #38bdf8, #818cf8);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      margin: 0;
+    }}
+
+    .lang-switcher {{
+      display: inline-flex;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.25rem;
+      gap: 0.25rem;
+    }}
+    .lang-btn {{
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 0.4rem 0.85rem;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: inherit;
+    }}
+    .lang-btn.active {{
+      background: var(--accent);
+      color: #0f172a;
     }}
 
     .subtitle {{
       color: var(--text-muted);
       font-size: 0.95rem;
       margin-bottom: 1.25rem;
+      text-align: center;
     }}
 
     .translation-controls {{
@@ -415,12 +450,18 @@ PWA_HTML_TEMPLATE = """<!DOCTYPE html>
 </head>
 <body>
   <header>
-    <h1>Oficjalny Plan Czytania Biblii — Chrystadelfianie</h1>
-    <p class="subtitle">Wyrocznia czytań z integracją czytnika HiperBiblia.com (3 nurty dziennie)</p>
+    <div class="top-bar-pwa">
+      <h1 id="pwa-h1">Oficjalny Plan Czytania Biblii — Chrystadelfianie</h1>
+      <div class="lang-switcher">
+        <button type="button" class="lang-btn active" id="btn-pwa-lang-pl" onclick="setPwaLanguage('pl')">🇵🇱 PL</button>
+        <button type="button" class="lang-btn" id="btn-pwa-lang-en" onclick="setPwaLanguage('en')">🇬🇧 EN</button>
+      </div>
+    </div>
+    <p class="subtitle" id="pwa-sub">Wyrocznia czytań z integracją czytnika HiperBiblia.com (3 nurty dziennie)</p>
 
     <div class="translation-controls">
       <div class="select-group">
-        <label for="select-left">Lewy panel (Przekład 1):</label>
+        <label for="select-left" id="pwa-lbl-left">Lewy panel (Przekład 1):</label>
         <select id="select-left" onchange="onTranslationChange()">
           <option value="snpd" selected>EIB Przekład Dosłowny (snpd)</option>
           <option value="snp">EIB Przekład Literacki (snp)</option>
@@ -450,7 +491,7 @@ PWA_HTML_TEMPLATE = """<!DOCTYPE html>
         </select>
       </div>
       <div class="select-group">
-        <label for="select-right">Prawy panel (Przekład 2):</label>
+        <label for="select-right" id="pwa-lbl-right">Prawy panel (Przekład 2):</label>
         <select id="select-right" onchange="onTranslationChange()">
           <option value="lxxhb" selected>Septuaginta / Starożytny (lxxhb)</option>
           <option value="snpd">EIB Przekład Dosłowny (snpd)</option>
@@ -480,7 +521,7 @@ PWA_HTML_TEMPLATE = """<!DOCTYPE html>
         </select>
       </div>
       <div class="select-group">
-        <label for="pwa-date-jump">📅 Skocz do daty:</label>
+        <label for="pwa-date-jump" id="pwa-lbl-date">📅 Skocz do daty:</label>
         <input type="date" id="pwa-date-jump" min="2026-01-01" max="2026-12-31" onchange="jumpToDatePwa(this.value)">
       </div>
     </div>
@@ -488,7 +529,7 @@ PWA_HTML_TEMPLATE = """<!DOCTYPE html>
 
   <div class="progress-container">
     <div class="progress-header">
-      <span>Twój roczny postęp w czytaniu</span>
+      <span id="pwa-lbl-progress-title">Twój roczny postęp w czytaniu</span>
       <span id="progress-text">0 / 365 dni (0%)</span>
     </div>
     <div class="progress-bar-bg">
@@ -497,8 +538,8 @@ PWA_HTML_TEMPLATE = """<!DOCTYPE html>
   </div>
 
   <div class="controls">
-    <button class="today-btn" onclick="scrollToToday()">📅 Przejdź do dzisiejszego dnia</button>
-    <input type="text" id="search" class="search-input" placeholder="Szukaj po dacie lub księdze (np. 12.08, Mojżesza, Psalm, Mateusza)...">
+    <button class="today-btn" id="pwa-btn-today" onclick="scrollToToday()">📅 Przejdź do dzisiejszego dnia</button>
+    <input type="text" id="search" class="search-input" placeholder="Szukaj po dacie lub księdze...">
   </div>
 
   <div class="grid" id="plan-grid"></div>
@@ -510,8 +551,11 @@ PWA_HTML_TEMPLATE = """<!DOCTYPE html>
     const STORAGE_KEY = 'roberts_plan_completed_days';
     const KEY_LEFT = 'hiper_left_translation';
     const KEY_RIGHT = 'hiper_right_translation';
+    const KEY_LANG = 'hiper_lang';
+    let currentLang = 'pl';
 
     function initTranslationControls() {{
+      const savedLang = localStorage.getItem(KEY_LANG) || 'pl';
       const savedLeft = localStorage.getItem(KEY_LEFT);
       const savedRight = localStorage.getItem(KEY_RIGHT);
       if (savedLeft) document.getElementById('select-left').value = savedLeft;
@@ -524,6 +568,35 @@ PWA_HTML_TEMPLATE = """<!DOCTYPE html>
           else btn.classList.remove('visible');
         }}
       }});
+
+      setPwaLanguage(savedLang, false);
+    }}
+
+    function setPwaLanguage(lang, userTriggered = true) {{
+      currentLang = lang;
+      localStorage.setItem(KEY_LANG, lang);
+
+      document.getElementById('btn-pwa-lang-pl').classList.toggle('active', lang === 'pl');
+      document.getElementById('btn-pwa-lang-en').classList.toggle('active', lang === 'en');
+      document.documentElement.lang = lang;
+
+      const isEn = lang === 'en';
+      if (isEn && userTriggered && !localStorage.getItem(KEY_LEFT)) {{
+        document.getElementById('select-left').value = 'kjv';
+        document.getElementById('select-right').value = 'esv';
+      }}
+
+      document.getElementById('pwa-h1').innerText = isEn ? 'Official Bible Reading Companion — Christadelphians' : 'Oficjalny Plan Czytania Biblii — Chrystadelfianie';
+      document.getElementById('pwa-sub').innerText = isEn ? 'Oracle readings integrated with HiperBiblia.com dual-panel reader (3 daily tracks)' : 'Wyrocznia czytań z integracją czytnika HiperBiblia.com (3 nurty dziennie)';
+      document.getElementById('pwa-lbl-left').innerText = isEn ? 'Left Panel (Translation 1):' : 'Lewy panel (Przekład 1):';
+      document.getElementById('pwa-lbl-right').innerText = isEn ? 'Right Panel (Translation 2):' : 'Prawy panel (Przekład 2):';
+      document.getElementById('pwa-lbl-date').innerText = isEn ? '📅 Jump to date:' : '📅 Skocz do daty:';
+      document.getElementById('pwa-lbl-progress-title').innerText = isEn ? 'Your Annual Reading Progress' : 'Twój roczny postęp w czytaniu';
+      document.getElementById('pwa-btn-today').innerText = isEn ? '📅 Jump to Today' : '📅 Przejdź do dzisiejszego dnia';
+      document.getElementById('search').placeholder = isEn ? 'Search by date or book (e.g. 12.08, Genesis, Psalms, Matthew)...' : 'Szukaj po dacie lub księdze (np. 12.08, Mojżesza, Psalm, Mateusza)...';
+      document.getElementById('btn-back-to-top-pwa').innerText = isEn ? '⬆️ Back to Top' : '⬆️ Do góry';
+
+      render(document.getElementById('search').value);
     }}
 
     function scrollToTopPwa() {{
@@ -571,8 +644,9 @@ PWA_HTML_TEMPLATE = """<!DOCTYPE html>
     }}
 
     function updateProgress(completedCount, total) {{
+      const isEn = currentLang === 'en';
       const percent = Math.round((completedCount / total) * 100);
-      document.getElementById('progress-text').innerText = `${{completedCount}} / ${{total}} dni (${{percent}}%)`;
+      document.getElementById('progress-text').innerText = `${{completedCount}} / ${{total}} ${{isEn ? 'days' : 'dni'}} (${{percent}}%)`;
       document.getElementById('progress-fill').style.width = `${{percent}}%`;
     }}
 
@@ -594,16 +668,18 @@ PWA_HTML_TEMPLATE = """<!DOCTYPE html>
     }}
 
     function shareDayPwa(dayNum, dateStr, t1Text, t2Text, t3Text, u1, u2, u3) {{
-      const shareText = `📖 Czytanie Biblii — Dzień ${{dayNum}} (${{dateStr}}):\n\n1. ${{t1Text}}:\n${{u1}}\n\n2. ${{t2Text}}:\n${{u2}}\n\n3. ${{t3Text}}:\n${{u3}}`;
+      const isEn = currentLang === 'en';
+      const titleStr = isEn ? `📖 Bible Reading — Day ${{dayNum}} (${{dateStr}}):` : `📖 Czytanie Biblii — Dzień ${{dayNum}} (${{dateStr}}):`;
+      const shareText = `${{titleStr}}\n\n1. ${{t1Text}}:\n${{u1}}\n\n2. ${{t2Text}}:\n${{u2}}\n\n3. ${{t3Text}}:\n${{u3}}`;
 
       if (navigator.share) {{
         navigator.share({{
-          title: `Czytanie Biblii — Dzień ${{dayNum}}`,
+          title: isEn ? `Bible Reading — Day ${{dayNum}}` : `Czytanie Biblii — Dzień ${{dayNum}}`,
           text: shareText
         }}).catch(() => {{}});
       }} else {{
         navigator.clipboard.writeText(shareText).then(() => {{
-          showToastPwa(`📋 Skopiowano czytanie na Dzień ${{dayNum}} do schowka!`);
+          showToastPwa(isEn ? `📋 Copied Day ${{dayNum}} reading to clipboard!` : `📋 Skopiowano czytanie na Dzień ${{dayNum}} do schowka!`);
         }});
       }}
     }}
@@ -623,6 +699,7 @@ PWA_HTML_TEMPLATE = """<!DOCTYPE html>
       grid.innerHTML = '';
       const completed = getCompleted();
       const todayIso = getTodayIso();
+      const isEn = currentLang === 'en';
 
       const leftTrans = document.getElementById('select-left').value;
       const rightTrans = document.getElementById('select-right').value;
@@ -633,48 +710,57 @@ PWA_HTML_TEMPLATE = """<!DOCTYPE html>
       PLAN_DATA.forEach(day => {{
         const isDone = completed.includes(day.day);
         const isToday = day.date === todayIso;
-        const matchText = `${{day.day}} ${{day.date || ''}} ${{day.month_day || ''}} ${{day.t1_ref}} ${{day.t2_ref}} ${{day.t3_ref}}`.toLowerCase();
+
+        const t1 = isEn ? (day.t1_ref_en || day.t1_ref) : day.t1_ref;
+        const t2 = isEn ? (day.t2_ref_en || day.t2_ref) : day.t2_ref;
+        const t3 = isEn ? (day.t3_ref_en || day.t3_ref) : day.t3_ref;
+
+        const matchText = `${{day.day}} ${{day.date || ''}} ${{day.month_day || ''}} ${{t1}} ${{t2}} ${{t3}}`.toLowerCase();
         if (query && !matchText.includes(query)) return;
 
         const card = document.createElement('div');
         card.className = `card ${{isToday ? 'today' : ''}} ${{isDone ? 'done' : ''}}`;
         card.setAttribute('data-date', day.date);
 
-        const raw1 = day.links[0] || {{ url: '#', label: '' }};
-        const raw2 = day.links[1] || {{ url: '#', label: '' }};
-        const raw3 = day.links[2] || {{ url: '#', label: '' }};
+        const raw1 = day.links[0] || {{ url: '#', label: '', label_en: '' }};
+        const raw2 = day.links[1] || {{ url: '#', label: '', label_en: '' }};
+        const raw3 = day.links[2] || {{ url: '#', label: '', label_en: '' }};
 
         const u1 = buildHiperUrl(raw1.url, leftTrans, rightTrans);
         const u2 = buildHiperUrl(raw2.url, leftTrans, rightTrans);
         const u3 = buildHiperUrl(raw3.url, leftTrans, rightTrans);
 
-        const t1Esc = day.t1_ref.replace(/'/g, "\\'");
-        const t2Esc = day.t2_ref.replace(/'/g, "\\'");
-        const t3Esc = day.t3_ref.replace(/'/g, "\\'");
+        const lbl1 = isEn ? (raw1.label_en || raw1.label) : raw1.label;
+        const lbl2 = isEn ? (raw2.label_en || raw2.label) : raw2.label;
+        const lbl3 = isEn ? (raw3.label_en || raw3.label) : raw3.label;
+
+        const t1Esc = t1.replace(/'/g, "\\'");
+        const t2Esc = t2.replace(/'/g, "\\'");
+        const t3Esc = t3.replace(/'/g, "\\'");
 
         card.innerHTML = `
           <div class="card-top">
             <div>
-              <span class="day-badge">Dzień ${{day.day}}</span>
+              <span class="day-badge">${{isEn ? 'Day' : 'Dzień'}} ${{day.day}}</span>
               <span class="date-label"> • ${{day.date}}</span>
-              ${{isToday ? '<span class="today-tag">Dzisiaj</span>' : ''}}
+              ${{isToday ? `<span class="today-tag">${{isEn ? 'Today' : 'Dzisiaj'}}</span>` : ''}}
             </div>
             <div class="card-top-right">
-              <button type="button" class="btn-pwa-share" onclick="shareDayPwa(${{day.day}}, '${{day.date}}', '${{t1Esc}}', '${{t2Esc}}', '${{t3Esc}}', '${{u1}}', '${{u2}}', '${{u3}}')">📤 Udostępnij</button>
+              <button type="button" class="btn-pwa-share" onclick="shareDayPwa(${{day.day}}, '${{day.date}}', '${{t1Esc}}', '${{t2Esc}}', '${{t3Esc}}', '${{u1}}', '${{u2}}', '${{u3}}')">${{isEn ? '📤 Share' : '📤 Udostępnij'}}</button>
               <input type="checkbox" class="checkbox-btn" ${{isDone ? 'checked' : ''}} onchange="toggleDay(${{day.day}})">
             </div>
           </div>
           <div class="track">
-            <span class="track-title">ST: Prawo i Historia</span>
-            <div><a class="hiper-link" href="${{u1}}" target="_blank" rel="noopener">${{day.t1_ref}} (${{raw1.label}}) ↗</a></div>
+            <span class="track-title">${{isEn ? 'OT: Law & History' : 'ST: Prawo i Historia'}}</span>
+            <div><a class="hiper-link" href="${{u1}}" target="_blank" rel="noopener">${{t1}} (${{lbl1}}) ↗</a></div>
           </div>
           <div class="track">
-            <span class="track-title">ST: Poezja i Prorocy</span>
-            <div><a class="hiper-link" href="${{u2}}" target="_blank" rel="noopener">${{day.t2_ref}} (${{raw2.label}}) ↗</a></div>
+            <span class="track-title">${{isEn ? 'OT: Psalms & Prophets' : 'ST: Poezja i Prorocy'}}</span>
+            <div><a class="hiper-link" href="${{u2}}" target="_blank" rel="noopener">${{t2}} (${{lbl2}}) ↗</a></div>
           </div>
           <div class="track">
-            <span class="track-title">Nowy Testament (x2)</span>
-            <div><a class="hiper-link" href="${{u3}}" target="_blank" rel="noopener">${{day.t3_ref}} (${{raw3.label}}) ↗</a></div>
+            <span class="track-title">${{isEn ? 'New Testament (x2)' : 'Nowy Testament (x2)'}}</span>
+            <div><a class="hiper-link" href="${{u3}}" target="_blank" rel="noopener">${{t3}} (${{lbl3}}) ↗</a></div>
           </div>
         `;
         grid.appendChild(card);
@@ -691,8 +777,8 @@ PWA_HTML_TEMPLATE = """<!DOCTYPE html>
 """
 
 MANIFEST_JSON = """{
-  "name": "Oficjalny Plan Czytania Biblii Chrystadelfian",
-  "short_name": "Biblia Roberts",
+  "name": "Official Christadelphian Bible Reading Plan",
+  "short_name": "Bible Companion",
   "start_url": "index.html",
   "display": "standalone",
   "background_color": "#0f172a",
@@ -713,7 +799,7 @@ def export_pwa(plan: list[dict], output_dir: Path):
     html_content = PWA_HTML_TEMPLATE.replace("{plan_json}", json.dumps(plan, ensure_ascii=False))
     (output_dir / "index.html").write_text(html_content, encoding="utf-8")
     (output_dir / "manifest.json").write_text(MANIFEST_JSON, encoding="utf-8")
-    print(f"Wygenerowano oficjalne PWA Wyroczni z przyciskiem Wróć do Góry w: {output_dir}")
+    print(f"Wygenerowano oficjalne PWA Wyroczni (PL / EN) w: {output_dir}")
 
 
 if __name__ == "__main__":

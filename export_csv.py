@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Export Official Christadelphian Bible Reading Plan to CSV and static HTML tables (Vanilla JS & jQuery versions).
-Fully compliant with 2026 Web Standards: Floating Back to Top Button, Share Button, Dark Mode, OpenGraph, WCAG 2.2 AAA, Print CSS & Security rel=noopener.
+Fully compliant with 2026 Web Standards: Dual Language Support (PL / EN), Floating Back to Top Button, Share Button, Dark Mode, OpenGraph, WCAG 2.2 AAA, Print CSS & Security rel=noopener.
 """
 from __future__ import annotations
 
@@ -13,7 +13,8 @@ def export_csv(
     plan: list[dict],
     output_csv: Path,
     output_html: Path | None = None,
-    output_jquery_html: Path | None = None
+    output_jquery_html: Path | None = None,
+    output_en_html: Path | None = None
 ):
     output_csv.parent.mkdir(parents=True, exist_ok=True)
 
@@ -41,15 +42,22 @@ def export_csv(
     for day in plan:
         day_num = day["day"]
         date_val = day.get("date", "")
-        t1 = day.get("t1_ref", "")
-        t2 = day.get("t2_ref", "")
-        t3 = day.get("t3_ref", "")
+        t1_pl = day.get("t1_ref", "")
+        t2_pl = day.get("t2_ref", "")
+        t3_pl = day.get("t3_ref", "")
+        t1_en = day.get("t1_ref_en", t1_pl)
+        t2_en = day.get("t2_ref_en", t2_pl)
+        t3_en = day.get("t3_ref_en", t3_pl)
 
         link_tags = []
         for link in day.get("links", []):
-            l_label = html.escape(link.get("label", "Link"))
+            l_label_pl = html.escape(link.get("label", "Link"))
+            l_label_en = html.escape(link.get("label_en", l_label_pl))
             l_url = html.escape(link.get("url", "#"))
-            link_tags.append(f'<a href="{l_url}" data-base-url="{l_url}" target="_blank" rel="noopener noreferrer" title="{html.escape(link.get("raw", ""))}">{l_label} ↗</a>')
+            link_tags.append(
+                f'<a href="{l_url}" data-base-url="{l_url}" target="_blank" rel="noopener noreferrer" '
+                f'data-lbl-pl="{l_label_pl} ↗" data-lbl-en="{l_label_en} ↗">{l_label_pl} ↗</a>'
+            )
 
         share_btn = f'<button type="button" class="btn-share" onclick="shareDay({day_num}, \'{date_val}\')">📤 Udostępnij</button>'
 
@@ -57,13 +65,22 @@ def export_csv(
         <tr data-date="{date_val}" data-day="{day_num}">
           <td class="num">
             <div class="day-header-cell">
-              <span>Dzień {day_num} <span class="date-tag">• {date_val}</span></span>
+              <span class="day-title-text" data-pl="Dzień {day_num}" data-en="Day {day_num}">Dzień {day_num} <span class="date-tag">• {date_val}</span></span>
               {share_btn}
             </div>
           </td>
-          <td class="track-cell"><span class="track-lbl">ST 1 (Prawo / Historia):</span> {html.escape(t1)}</td>
-          <td class="track-cell"><span class="track-lbl">ST 2 (Poezja / Prorocy):</span> {html.escape(t2)}</td>
-          <td class="track-cell"><span class="track-lbl">NT (Ewangelie / Listy):</span> {html.escape(t3)}</td>
+          <td class="track-cell">
+            <span class="track-lbl" data-pl="ST 1 (Prawo / Historia):" data-en="OT 1 (Law & History):">ST 1 (Prawo / Historia):</span>
+            <span class="ref-text" data-pl="{html.escape(t1_pl)}" data-en="{html.escape(t1_en)}">{html.escape(t1_pl)}</span>
+          </td>
+          <td class="track-cell">
+            <span class="track-lbl" data-pl="ST 2 (Poezja / Prorocy):" data-en="OT 2 (Psalms & Prophets):">ST 2 (Poezja / Prorocy):</span>
+            <span class="ref-text" data-pl="{html.escape(t2_pl)}" data-en="{html.escape(t2_en)}">{html.escape(t2_pl)}</span>
+          </td>
+          <td class="track-cell">
+            <span class="track-lbl" data-pl="NT (Ewangelie / Listy):" data-en="NT (Gospels & Epistles):">NT (Ewangelie / Listy):</span>
+            <span class="ref-text" data-pl="{html.escape(t3_pl)}" data-en="{html.escape(t3_en)}">{html.escape(t3_pl)}</span>
+          </td>
           <td class="links-cell">
             <div class="btn-group">
               {' '.join(link_tags)}
@@ -121,11 +138,43 @@ def export_csv(
       line-height: 1.5;
       transition: background-color 0.3s ease, color 0.3s ease;
     }
+    .top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.5rem;
+    }
     h1 {
       font-size: 1.5rem;
       font-weight: 800;
       color: var(--text-main);
-      margin-bottom: 0.25rem;
+      margin: 0;
+    }
+    .lang-switcher {
+      display: inline-flex;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 999px;
+      padding: 0.25rem;
+      gap: 0.25rem;
+    }
+    .lang-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 0.4rem 0.85rem;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: inherit;
+    }
+    .lang-btn.active {
+      background: var(--accent);
+      color: #ffffff;
     }
     p.sub {
       font-size: 0.95rem;
@@ -426,7 +475,7 @@ def export_csv(
     /* Dedykowane Style Drukarki (Print CSS 2026) */
     @media print {
       body { background: #ffffff !important; color: #000000 !important; margin: 0; font-size: 12pt; }
-      .controls, .badge-info, p.sub, .btn-share, .btn-back-to-top { display: none !important; }
+      .controls, .badge-info, p.sub, .btn-share, .btn-back-to-top, .lang-switcher { display: none !important; }
       table { border: 1px solid #000 !important; box-shadow: none !important; }
       th, td { border: 1px solid #666 !important; color: #000 !important; background: #fff !important; }
       th { background: #eee !important; color: #000 !important; }
@@ -438,7 +487,7 @@ def export_csv(
     controls_markup = """
   <div class="controls" role="region" aria-label="Wybór przekładów i nawigacja kalendarza">
     <div class="select-group">
-      <label for="select-left">Lewy panel (Przekład 1):</label>
+      <label for="select-left" id="lbl-left">Lewy panel (Przekład 1):</label>
       <select id="select-left" aria-label="Wybór przekładu dla lewej kolumny">
         <option value="snpd" selected>EIB Przekład Dosłowny (snpd)</option>
         <option value="snp">EIB Przekład Literacki (snp)</option>
@@ -468,7 +517,7 @@ def export_csv(
       </select>
     </div>
     <div class="select-group">
-      <label for="select-right">Prawy panel (Przekład 2):</label>
+      <label for="select-right" id="lbl-right">Prawy panel (Przekład 2):</label>
       <select id="select-right" aria-label="Wybór przekładu dla prawej kolumny">
         <option value="lxxhb" selected>Septuaginta / Starożytny (lxxhb)</option>
         <option value="snpd">EIB Przekład Dosłowny (snpd)</option>
@@ -498,7 +547,7 @@ def export_csv(
       </select>
     </div>
     <div class="select-group">
-      <label for="input-date-jump">📅 Skocz do daty:</label>
+      <label for="input-date-jump" id="lbl-date-jump">📅 Skocz do daty:</label>
       <div class="date-input-row">
         <input type="date" id="input-date-jump" min="2026-01-01" max="2026-12-31" aria-label="Wybierz datę z kalendarza">
         <button type="button" id="btn-today" class="btn-today">Dzisiaj</button>
@@ -507,35 +556,42 @@ def export_csv(
   </div>
     """
 
-    # 1. GENERACJA WERSJI VANILLA JS (STANDARD 2026)
+    # 1. GENERACJA WERSJI VANILLA JS (STANDARD 2026 PL/EN)
     if output_html:
         vanilla_doc = f"""<!doctype html>
 <html lang="pl">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Oficjalny Harmonogram Czytania Biblii — Chrystadelfianie (Vanilla JS)</title>
-  <meta name="description" content="Oficjalny roczny plan czytania Biblii towarzysza Roberta Robertsa z integracją czytnika dwupanelowego HiperBiblia.com.">
+  <title id="doc-title">Oficjalny Harmonogram Czytania Biblii — Chrystadelfianie (Vanilla JS)</title>
+  <meta name="description" content="Official Christadelphian Bible Reading Companion (Robert Roberts) integrated with HiperBiblia.com dual-panel reader.">
   <meta property="og:title" content="Oficjalny Harmonogram Czytania Biblii — Chrystadelfianie">
-  <meta property="og:description" content="Czytaj całą Biblię w ciągu roku (3 nurty dziennie) w czytniku HiperBiblia.com z wybranymi przekładami.">
+  <meta property="og:description" content="Read the entire Bible in a year (3 daily tracks) in HiperBiblia.com reader with your choice of translations.">
   <meta property="og:type" content="website">
   <style>{common_style}</style>
 </head>
 <body role="main">
-  <h1>Oficjalny Harmonogram Czytania Biblii (prawdybiblijne.com)</h1>
-  <p class="sub">Kliknięcie w przycisk otwiera czytnik w serwisie <strong>HiperBiblia.com</strong> z Twoimi wybranymi przekładami.</p>
-  <div class="badge-info">⚡ WERSJA NATYWNA 2026 (Vanilla JS • Dark Mode • Udostępnianie • WCAG AAA)</div>
+  <div class="top-bar">
+    <h1 id="main-h1">Oficjalny Harmonogram Czytania Biblii (prawdybiblijne.com)</h1>
+    <div class="lang-switcher">
+      <button type="button" class="lang-btn active" id="btn-lang-pl" onclick="setLanguage('pl')">🇵🇱 PL</button>
+      <button type="button" class="lang-btn" id="btn-lang-en" onclick="setLanguage('en')">🇬🇧 EN</button>
+    </div>
+  </div>
+
+  <p class="sub" id="main-sub">Kliknięcie w przycisk otwiera czytnik w serwisie <strong>HiperBiblia.com</strong> z Twoimi wybranymi przekładami.</p>
+  <div class="badge-info" id="badge-info">⚡ WERSJA NATYWNA 2026 (Vanilla JS • Dark Mode • PL / EN • Udostępnianie)</div>
 
   {controls_markup}
 
   <table aria-label="Tabela rocznego harmonogramu czytania Biblii">
     <thead>
       <tr>
-        <th scope="col">Dzień</th>
-        <th scope="col">ST: Prawo i Historia</th>
-        <th scope="col">ST: Poezja i Prorocy</th>
-        <th scope="col">NT (x2)</th>
-        <th scope="col">Linki HiperBiblia.com</th>
+        <th scope="col" id="th-day">Dzień</th>
+        <th scope="col" id="th-t1">ST: Prawo i Historia</th>
+        <th scope="col" id="th-t2">ST: Poezja i Prorocy</th>
+        <th scope="col" id="th-t3">NT (x2)</th>
+        <th scope="col" id="th-links">Linki HiperBiblia.com</th>
       </tr>
     </thead>
     <tbody>
@@ -548,10 +604,14 @@ def export_csv(
   <script>
     const KEY_LEFT = 'hiper_left_translation';
     const KEY_RIGHT = 'hiper_right_translation';
+    const KEY_LANG = 'hiper_lang';
+    let currentLang = 'pl';
 
     function initControls() {{
+      const savedLang = localStorage.getItem(KEY_LANG) || 'pl';
       const savedLeft = localStorage.getItem(KEY_LEFT);
       const savedRight = localStorage.getItem(KEY_RIGHT);
+
       if (savedLeft) document.getElementById('select-left').value = savedLeft;
       if (savedRight) document.getElementById('select-right').value = savedRight;
       
@@ -566,6 +626,64 @@ def export_csv(
           if (window.scrollY > 300) btn.classList.add('visible');
           else btn.classList.remove('visible');
         }}
+      }});
+
+      setLanguage(savedLang, false);
+      updateTableLinks();
+    }}
+
+    function setLanguage(lang, userTriggered = true) {{
+      currentLang = lang;
+      localStorage.setItem(KEY_LANG, lang);
+
+      document.getElementById('btn-lang-pl').classList.toggle('active', lang === 'pl');
+      document.getElementById('btn-lang-en').classList.toggle('active', lang === 'en');
+      document.documentElement.lang = lang;
+
+      const isEn = lang === 'en';
+      if (isEn && userTriggered && !localStorage.getItem(KEY_LEFT)) {{
+        document.getElementById('select-left').value = 'kjv';
+        document.getElementById('select-right').value = 'esv';
+      }}
+
+      // Text UI translations
+      document.getElementById('main-h1').innerText = isEn ? 'Official Bible Reading Companion (Robert Roberts)' : 'Oficjalny Harmonogram Czytania Biblii (prawdybiblijne.com)';
+      document.getElementById('main-sub').innerHTML = isEn ? 'Clicking any button opens <strong>HiperBiblia.com</strong> dual-panel reader with your chosen translations.' : 'Kliknięcie w przycisk otwiera czytnik w serwisie <strong>HiperBiblia.com</strong> z Twoimi wybranymi przekładami.';
+      document.getElementById('badge-info').innerText = isEn ? '⚡ NATIVE 2026 SUITE (Vanilla JS • Dark Mode • Dual Language • Share)' : '⚡ WERSJA NATYWNA 2026 (Vanilla JS • Dark Mode • PL / EN • Udostępnianie)';
+      document.getElementById('lbl-left').innerText = isEn ? 'Left Panel (Translation 1):' : 'Lewy panel (Przekład 1):';
+      document.getElementById('lbl-right').innerText = isEn ? 'Right Panel (Translation 2):' : 'Prawy panel (Przekład 2):';
+      document.getElementById('lbl-date-jump').innerText = isEn ? '📅 Jump to date:' : '📅 Skocz do daty:';
+      document.getElementById('btn-today').innerText = isEn ? 'Today' : 'Dzisiaj';
+      document.getElementById('btn-back-to-top').innerText = isEn ? '⬆️ Back to Top' : '⬆️ Do góry';
+
+      document.getElementById('th-day').innerText = isEn ? 'Day' : 'Dzień';
+      document.getElementById('th-t1').innerText = isEn ? 'OT: Law & History' : 'ST: Prawo i Historia';
+      document.getElementById('th-t2').innerText = isEn ? 'OT: Psalms & Prophets' : 'ST: Poezja i Prorocy';
+      document.getElementById('th-t3').innerText = isEn ? 'NT (x2)' : 'NT (x2)';
+      document.getElementById('th-links').innerText = isEn ? 'HiperBiblia.com Links' : 'Linki HiperBiblia.com';
+
+      // Update row texts
+      document.querySelectorAll('.day-title-text').forEach(el => {{
+        const dateTag = el.querySelector('.date-tag');
+        const dateStr = dateTag ? dateTag.outerHTML : '';
+        const dayNum = el.closest('tr').getAttribute('data-day');
+        el.innerHTML = isEn ? `Day ${{dayNum}} ${{dateStr}}` : `Dzień ${{dayNum}} ${{dateStr}}`;
+      }});
+
+      document.querySelectorAll('.track-lbl').forEach(el => {{
+        el.innerText = isEn ? el.getAttribute('data-en') : el.getAttribute('data-pl');
+      }});
+
+      document.querySelectorAll('.ref-text').forEach(el => {{
+        el.innerText = isEn ? el.getAttribute('data-en') : el.getAttribute('data-pl');
+      }});
+
+      document.querySelectorAll('a[data-lbl-pl]').forEach(el => {{
+        el.innerText = isEn ? el.getAttribute('data-lbl-en') : el.getAttribute('data-lbl-pl');
+      }});
+
+      document.querySelectorAll('.btn-share').forEach(el => {{
+        el.innerText = isEn ? '📤 Share' : '📤 Udostępnij';
       }});
 
       updateTableLinks();
@@ -617,25 +735,27 @@ def export_csv(
       const row = document.querySelector(`tr[data-day="${{dayNum}}"]`);
       if (!row) return;
 
-      const t1Text = row.cells[1].innerText.replace('ST 1 (Prawo / Historia):', '').trim();
-      const t2Text = row.cells[2].innerText.replace('ST 2 (Poezja / Prorocy):', '').trim();
-      const t3Text = row.cells[3].innerText.replace('NT (Ewangelie / Listy):', '').trim();
+      const isEn = currentLang === 'en';
+      const t1Text = row.cells[1].querySelector('.ref-text').innerText;
+      const t2Text = row.cells[2].querySelector('.ref-text').innerText;
+      const t3Text = row.cells[3].querySelector('.ref-text').innerText;
 
       const links = row.querySelectorAll('a[href]');
       const u1 = links[0] ? links[0].href : '';
       const u2 = links[1] ? links[1].href : '';
       const u3 = links[2] ? links[2].href : '';
 
-      const shareText = `📖 Czytanie Biblii — Dzień ${{dayNum}} (${{dateStr}}):\n\n1. ${{t1Text}}:\n${{u1}}\n\n2. ${{t2Text}}:\n${{u2}}\n\n3. ${{t3Text}}:\n${{u3}}`;
+      const titleStr = isEn ? `📖 Bible Reading — Day ${{dayNum}} (${{dateStr}}):` : `📖 Czytanie Biblii — Dzień ${{dayNum}} (${{dateStr}}):`;
+      const shareText = `${{titleStr}}\n\n1. ${{t1Text}}:\n${{u1}}\n\n2. ${{t2Text}}:\n${{u2}}\n\n3. ${{t3Text}}:\n${{u3}}`;
 
       if (navigator.share) {{
         navigator.share({{
-          title: `Czytanie Biblii — Dzień ${{dayNum}}`,
+          title: isEn ? `Bible Reading — Day ${{dayNum}}` : `Czytanie Biblii — Dzień ${{dayNum}}`,
           text: shareText
         }}).catch(() => {{}});
       }} else {{
         navigator.clipboard.writeText(shareText).then(() => {{
-          showToast(`📋 Skopiowano czytanie na Dzień ${{dayNum}} do schowka!`);
+          showToast(isEn ? `📋 Copied Day ${{dayNum}} reading to clipboard!` : `📋 Skopiowano czytanie na Dzień ${{dayNum}} do schowka!`);
         }});
       }}
     }}
@@ -656,7 +776,14 @@ def export_csv(
 </html>
 """
         output_html.write_text(vanilla_doc, encoding="utf-8")
-        print(f"Zapisano statyczny HTML Vanilla JS z Poprawką Przycisku i Tła: {output_html}")
+        print(f"Zapisano statyczny HTML Vanilla JS (PL / EN): {output_html}")
+
+        if output_en_html:
+            # Pre-configured English HTML version
+            en_doc = vanilla_doc.replace("<html lang=\"pl\">", "<html lang=\"en\">")
+            en_doc = en_doc.replace("const savedLang = localStorage.getItem(KEY_LANG) || 'pl';", "const savedLang = 'en';")
+            output_en_html.write_text(en_doc, encoding="utf-8")
+            print(f"Zapisano dedykowany HTML Angielski: {output_en_html}")
 
     # 2. GENERACJA WERSJI JQUERY (STANDARD 2026)
     if output_jquery_html:
@@ -673,20 +800,27 @@ def export_csv(
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
 <body role="main">
-  <h1>Oficjalny Harmonogram Czytania Biblii (prawdybiblijne.com)</h1>
-  <p class="sub">Kliknięcie w przycisk otwiera czytnik w serwisie <strong>HiperBiblia.com</strong> z Twoimi wybranymi przekładami.</p>
-  <div class="badge-info" style="background:var(--accent-bg); color:var(--accent);">⚙️ WERSJA JQUERY 3.7.1 (Standard 2026 • Dark Mode • Udostępnianie • WCAG AAA)</div>
+  <div class="top-bar">
+    <h1 id="main-h1">Oficjalny Harmonogram Czytania Biblii (prawdybiblijne.com)</h1>
+    <div class="lang-switcher">
+      <button type="button" class="lang-btn active" id="btn-lang-pl" onclick="setLanguageJQuery('pl')">🇵🇱 PL</button>
+      <button type="button" class="lang-btn" id="btn-lang-en" onclick="setLanguageJQuery('en')">🇬🇧 EN</button>
+    </div>
+  </div>
+
+  <p class="sub" id="main-sub">Kliknięcie w przycisk otwiera czytnik w serwisie <strong>HiperBiblia.com</strong> z Twoimi wybranymi przekładami.</p>
+  <div class="badge-info" id="badge-info" style="background:var(--accent-bg); color:var(--accent);">⚙️ WERSJA JQUERY 3.7.1 (Standard 2026 • Dark Mode • PL / EN • Udostępnianie)</div>
 
   {controls_markup}
 
   <table aria-label="Tabela rocznego harmonogramu czytania Biblii">
     <thead>
       <tr>
-        <th scope="col">Dzień</th>
-        <th scope="col">ST: Prawo i Historia</th>
-        <th scope="col">ST: Poezja i Prorocy</th>
-        <th scope="col">NT (x2)</th>
-        <th scope="col">Linki HiperBiblia.com</th>
+        <th scope="col" id="th-day">Dzień</th>
+        <th scope="col" id="th-t1">ST: Prawo i Historia</th>
+        <th scope="col" id="th-t2">ST: Poezja i Prorocy</th>
+        <th scope="col" id="th-t3">NT (x2)</th>
+        <th scope="col" id="th-links">Linki HiperBiblia.com</th>
       </tr>
     </thead>
     <tbody>
@@ -699,14 +833,18 @@ def export_csv(
   <script>
     const KEY_LEFT = 'hiper_left_translation';
     const KEY_RIGHT = 'hiper_right_translation';
+    const KEY_LANG = 'hiper_lang';
+    let currentLang = 'pl';
 
     $(document).ready(function() {{
       initControlsJQuery();
     }});
 
     function initControlsJQuery() {{
+      const savedLang = localStorage.getItem(KEY_LANG) || 'pl';
       const savedLeft = localStorage.getItem(KEY_LEFT);
       const savedRight = localStorage.getItem(KEY_RIGHT);
+
       if (savedLeft) $('#select-left').val(savedLeft);
       if (savedRight) $('#select-right').val(savedRight);
 
@@ -724,6 +862,59 @@ def export_csv(
         }}
       }});
 
+      setLanguageJQuery(savedLang, false);
+      updateTableLinksJQuery();
+    }}
+
+    function setLanguageJQuery(lang, userTriggered = true) {{
+      currentLang = lang;
+      localStorage.setItem(KEY_LANG, lang);
+
+      $('#btn-lang-pl').toggleClass('active', lang === 'pl');
+      $('#btn-lang-en').toggleClass('active', lang === 'en');
+      $('html').attr('lang', lang);
+
+      const isEn = lang === 'en';
+      if (isEn && userTriggered && !localStorage.getItem(KEY_LEFT)) {{
+        $('#select-left').val('kjv');
+        $('#select-right').val('esv');
+      }}
+
+      $('#main-h1').text(isEn ? 'Official Bible Reading Companion (Robert Roberts)' : 'Oficjalny Harmonogram Czytania Biblii (prawdybiblijne.com)');
+      $('#main-sub').html(isEn ? 'Clicking any button opens <strong>HiperBiblia.com</strong> dual-panel reader with your chosen translations.' : 'Kliknięcie w przycisk otwiera czytnik w serwisie <strong>HiperBiblia.com</strong> z Twoimi wybranymi przekładami.');
+      $('#badge-info').text(isEn ? '⚙️ JQUERY 3.7.1 SUITE (Standard 2026 • Dark Mode • PL / EN • Share)' : '⚙️ WERSJA JQUERY 3.7.1 (Standard 2026 • Dark Mode • PL / EN • Udostępnianie)');
+      $('#lbl-left').text(isEn ? 'Left Panel (Translation 1):' : 'Lewy panel (Przekład 1):');
+      $('#lbl-right').text(isEn ? 'Right Panel (Translation 2):' : 'Prawy panel (Przekład 2):');
+      $('#lbl-date-jump').text(isEn ? '📅 Jump to date:' : '📅 Skocz do daty:');
+      $('#btn-today').text(isEn ? 'Today' : 'Dzisiaj');
+      $('#btn-back-to-top').text(isEn ? '⬆️ Back to Top' : '⬆️ Do góry');
+
+      $('#th-day').text(isEn ? 'Day' : 'Dzień');
+      $('#th-t1').text(isEn ? 'OT: Law & History' : 'ST: Prawo i Historia');
+      $('#th-t2').text(isEn ? 'OT: Psalms & Prophets' : 'ST: Poezja i Prorocy');
+      $('#th-t3').text(isEn ? 'NT (x2)' : 'NT (x2)');
+      $('#th-links').text(isEn ? 'HiperBiblia.com Links' : 'Linki HiperBiblia.com');
+
+      $('.day-title-text').each(function() {{
+        const $el = $(this);
+        const dateTag = $el.find('.date-tag').prop('outerHTML') || '';
+        const dayNum = $el.closest('tr').attr('data-day');
+        $el.html(isEn ? `Day ${{dayNum}} ${{dateTag}}` : `Dzień ${{dayNum}} ${{dateTag}}`);
+      }});
+
+      $('.track-lbl').each(function() {{
+        $(this).text(isEn ? $(this).attr('data-en') : $(this).attr('data-pl'));
+      }});
+
+      $('.ref-text').each(function() {{
+        $(this).text(isEn ? $(this).attr('data-en') : $(this).attr('data-pl'));
+      }});
+
+      $('a[data-lbl-pl]').each(function() {{
+        $(this).text(isEn ? $(this).attr('data-lbl-en') : $(this).attr('data-lbl-pl'));
+      }});
+
+      $('.btn-share').text(isEn ? '📤 Share' : '📤 Udostępnij');
       updateTableLinksJQuery();
     }}
 
@@ -774,25 +965,27 @@ def export_csv(
       const $row = $(`tr[data-day="${{dayNum}}"]`);
       if (!$row.length) return;
 
-      const t1Text = $row.find('td').eq(1).text().replace('ST 1 (Prawo / Historia):', '').trim();
-      const t2Text = $row.find('td').eq(2).text().replace('ST 2 (Poezja / Prorocy):', '').trim();
-      const t3Text = $row.find('td').eq(3).text().replace('NT (Ewangelie / Listy):', '').trim();
+      const isEn = currentLang === 'en';
+      const t1Text = $row.find('.ref-text').eq(0).text();
+      const t2Text = $row.find('.ref-text').eq(1).text();
+      const t3Text = $row.find('.ref-text').eq(2).text();
 
       const $links = $row.find('a[href]');
       const u1 = $links.eq(0).attr('href') || '';
       const u2 = $links.eq(1).attr('href') || '';
       const u3 = $links.eq(2).attr('href') || '';
 
-      const shareText = `📖 Czytanie Biblii — Dzień ${{dayNum}} (${{dateStr}}):\n\n1. ${{t1Text}}:\n${{u1}}\n\n2. ${{t2Text}}:\n${{u2}}\n\n3. ${{t3Text}}:\n${{u3}}`;
+      const titleStr = isEn ? `📖 Bible Reading — Day ${{dayNum}} (${{dateStr}}):` : `📖 Czytanie Biblii — Dzień ${{dayNum}} (${{dateStr}}):`;
+      const shareText = `${{titleStr}}\n\n1. ${{t1Text}}:\n${{u1}}\n\n2. ${{t2Text}}:\n${{u2}}\n\n3. ${{t3Text}}:\n${{u3}}`;
 
       if (navigator.share) {{
         navigator.share({{
-          title: `Czytanie Biblii — Dzień ${{dayNum}}`,
+          title: isEn ? `Bible Reading — Day ${{dayNum}}` : `Czytanie Biblii — Dzień ${{dayNum}}`,
           text: shareText
         }}).catch(() => {{}});
       }} else {{
         navigator.clipboard.writeText(shareText).then(() => {{
-          showToast(`📋 Skopiowano czytanie na Dzień ${{dayNum}} do schowka!`);
+          showToast(isEn ? `📋 Copied Day ${{dayNum}} reading to clipboard!` : `📋 Skopiowano czytanie na Dzień ${{dayNum}} do schowka!`);
         }});
       }}
     }}
@@ -810,7 +1003,7 @@ def export_csv(
 </html>
 """
         output_jquery_html.write_text(jquery_doc, encoding="utf-8")
-        print(f"Zapisano statyczny HTML z jQuery 3.7.1 i Poprawką Przycisku: {output_jquery_html}")
+        print(f"Zapisano statyczny HTML z jQuery 3.7.1 (PL / EN): {output_jquery_html}")
 
 
 if __name__ == "__main__":
@@ -820,5 +1013,6 @@ if __name__ == "__main__":
         plan,
         Path("output/harmonogram_chrystadelfianie_2026.csv"),
         Path("output/harmonogram_chrystadelfianie_2026.html"),
-        Path("output/harmonogram_chrystadelfianie_2026_jquery.html")
+        Path("output/harmonogram_chrystadelfianie_2026_jquery.html"),
+        Path("output/harmonogram_chrystadelfianie_2026_en.html")
     )

@@ -5,6 +5,7 @@ Parses prawdy-biblijne-index.html to extract all 365 daily reading definitions
 as the single source of truth (Oracle).
 Converts Polish text descriptions to 100% verified HiperBiblia.com URLs and clean labels.
 Normalizes Polish book names from Accusative (Biernik) to clean Nominative (Mianownik).
+Supports 100% deterministic English translation & book name formatting.
 """
 from __future__ import annotations
 
@@ -70,20 +71,20 @@ HIPERBIBLIA_MAP = [
     ("Księga Przysłów", "pro", "Prz"),
     ("Księgę Koheleta", "ecc", "Koh"),
     ("Księga Koheleta", "ecc", "Koh"),
-    ("Pieśń nad Pieśniami", "sol", "Pnp"),  # 'sol' verified from site HTML
+    ("Pieśń nad Pieśniami", "sol", "Pnp"),
     ("Księgę Izajasza", "isa", "Iz"),
     ("Księga Izajasza", "isa", "Iz"),
     ("Księgę Jeremiasza", "jer", "Jr"),
     ("Księga Jeremiasza", "jer", "Jr"),
     ("Księgę Lamentacji", "lam", "Lm"),
     ("Księga Lamentacji", "lam", "Lm"),
-    ("Księgę Ezechiela", "eze", "Ez"),   # 'eze' verified from site HTML
+    ("Księgę Ezechiela", "eze", "Ez"),
     ("Księga Ezechiela", "eze", "Ez"),
     ("Księgę Daniela", "dan", "Dn"),
     ("Księga Daniela", "dan", "Dn"),
     ("Księgę Ozeasza", "hos", "Oz"),
     ("Księga Ozeasza", "hos", "Oz"),
-    ("Księgę Joela", "joe", "Jl"),     # 'joe' verified from site HTML
+    ("Księgę Joela", "joe", "Jl"),
     ("Księga Joela", "joe", "Jl"),
     ("Księgę Amosa", "amo", "Am"),
     ("Księga Amosa", "amo", "Am"),
@@ -93,7 +94,7 @@ HIPERBIBLIA_MAP = [
     ("Księga Jonasza", "jon", "Jon"),
     ("Księgę Micheasza", "mic", "Mi"),
     ("Księga Micheasza", "mic", "Mi"),
-    ("Księgę Nahuma", "nah", "Na"),     # 'nah' verified from site HTML
+    ("Księgę Nahuma", "nah", "Na"),
     ("Księga Nahuma", "nah", "Na"),
     ("Księgę Habakuka", "hab", "Ha"),
     ("Księga Habakuka", "hab", "Ha"),
@@ -118,23 +119,87 @@ HIPERBIBLIA_MAP = [
     ("List do Galacjan", "gal", "Ga"),
     ("List do Galatów", "gal", "Ga"),
     ("List do Efezjan", "eph", "Ef"),
-    ("List do Filipian", "phi", "Flp"),  # 'phi' verified from site HTML
+    ("List do Filipian", "phi", "Flp"),
     ("List do Kolosan", "col", "Kol"),
     ("List do Tytusa", "tit", "Tt"),
     ("List do Filemona", "phm", "Flm"),
     ("List do Hebrajczyków", "heb", "Hbr"),
-    ("List Jakuba", "jam", "Jk"),       # 'jam' verified from site HTML
+    ("List Jakuba", "jam", "Jk"),
     ("List Judy", "jud", "Jud"),
     ("Apokalipsę Jana", "rev", "Ap"),
     ("Apokalipsa Jana", "rev", "Ap"),
 ]
 
+ENGLISH_BOOK_MAP = {
+    "gen": ("Genesis", "Gen"),
+    "exo": ("Exodus", "Exo"),
+    "lev": ("Leviticus", "Lev"),
+    "num": ("Numbers", "Num"),
+    "deu": ("Deuteronomy", "Deu"),
+    "jos": ("Joshua", "Josh"),
+    "jdg": ("Judges", "Judg"),
+    "rut": ("Ruth", "Ruth"),
+    "1sa": ("1 Samuel", "1Sam"),
+    "2sa": ("2 Samuel", "2Sam"),
+    "1ki": ("1 Kings", "1Kings"),
+    "2ki": ("2 Kings", "2Kings"),
+    "1ch": ("1 Chronicles", "1Chron"),
+    "2ch": ("2 Chronicles", "2Chron"),
+    "ezr": ("Ezra", "Ezra"),
+    "neh": ("Nehemiah", "Neh"),
+    "est": ("Esther", "Esth"),
+    "job": ("Job", "Job"),
+    "psa": ("Psalms", "Ps"),
+    "pro": ("Proverbs", "Prov"),
+    "ecc": ("Ecclesiastes", "Eccl"),
+    "sol": ("Song of Solomon", "Song"),
+    "isa": ("Isaiah", "Isa"),
+    "jer": ("Jeremiah", "Jer"),
+    "lam": ("Lamentations", "Lam"),
+    "eze": ("Ezekiel", "Ezek"),
+    "dan": ("Daniel", "Dan"),
+    "hos": ("Hosea", "Hos"),
+    "joe": ("Joel", "Joel"),
+    "amo": ("Amos", "Amos"),
+    "oba": ("Obadiah", "Obad"),
+    "jon": ("Jonah", "Jonah"),
+    "mic": ("Micah", "Mic"),
+    "nah": ("Nahum", "Nah"),
+    "hab": ("Habakkuk", "Hab"),
+    "zep": ("Zephaniah", "Zeph"),
+    "hag": ("Haggai", "Hag"),
+    "zec": ("Zechariah", "Zech"),
+    "mal": ("Malachi", "Mal"),
+    "mat": ("Matthew", "Matt"),
+    "mar": ("Mark", "Mark"),
+    "luk": ("Luke", "Luke"),
+    "joh": ("John", "John"),
+    "act": ("Acts", "Acts"),
+    "rom": ("Romans", "Rom"),
+    "1co": ("1 Corinthians", "1Cor"),
+    "2co": ("2 Corinthians", "2Cor"),
+    "gal": ("Galatians", "Gal"),
+    "eph": ("Ephesians", "Eph"),
+    "phi": ("Philippians", "Phil"),
+    "col": ("Colossians", "Col"),
+    "1th": ("1 Thessalonians", "1Thess"),
+    "2th": ("2 Thessalonians", "2Thess"),
+    "1ti": ("1 Timothy", "1Tim"),
+    "2ti": ("2 Timothy", "2Tim"),
+    "tit": ("Titus", "Titus"),
+    "phm": ("Philemon", "Philem"),
+    "heb": ("Hebrews", "Heb"),
+    "jam": ("James", "Jas"),
+    "1pe": ("1 Peter", "1Pet"),
+    "2pe": ("2 Peter", "2Pet"),
+    "1jo": ("1 John", "1John"),
+    "2jo": ("2 & 3 John", "2John"),
+    "jud": ("Jude", "Jude"),
+    "rev": ("Revelation", "Rev"),
+}
+
 
 def normalize_grammar_to_nominative(text: str) -> str:
-    """Normalizes Polish book names from Accusative (Biernik) to Nominative (Mianownik)
-    and removes trailing periods.
-    Example: '1 Księgę Mojżesza, rozdział 1 i 2.' -> '1 Księga Mojżesza, rozdział 1 i 2'
-    """
     if not text:
         return text
     text = text.strip().rstrip(".")
@@ -153,10 +218,50 @@ def normalize_grammar_to_nominative(text: str) -> str:
     return text
 
 
-def text_to_hiperbiblia_link(text: str, left: str = "snpd", right: str = "lxxhb") -> tuple[str, str]:
-    """Convert a Polish reading string like '1 Księgę Mojżesza, rozdział 1 i 2.'
-    into a clean label ('Rdz 1-2') and a verified HiperBiblia URL ('https://hiperbiblia.com/reader?book=gen&chapter=1&left=snpd&right=lxxhb').
+def format_english_reading(polish_text: str) -> tuple[str, str, str]:
+    """Translates Polish reading text like '1 Księga Królewska, rozdział 8'
+    into English name ('1 Kings, chapter 8'), English short label ('1Kings 8'), and book code.
     """
+    clean_text = polish_text.rstrip(".").strip()
+    matched_code = None
+    matched_pl_name = None
+
+    for name, code, _ in HIPERBIBLIA_MAP:
+        if name in clean_text:
+            matched_code = code
+            matched_pl_name = name
+            break
+
+    if not matched_code or matched_code not in ENGLISH_BOOK_MAP:
+        return clean_text, clean_text, matched_code or ""
+
+    en_name, en_abbr = ENGLISH_BOOK_MAP[matched_code]
+    after_book = clean_text[clean_text.find(matched_pl_name) + len(matched_pl_name):]
+    nums = re.findall(r'\d+', after_book)
+
+    if "wersety" in after_book.lower() and len(nums) >= 3:
+        ch, v_start, v_end = nums[0], nums[1], nums[2]
+        full_en = f"{en_name}, chapter {ch}, verses {v_start}-{v_end}"
+        abbr_en = f"{en_abbr} {ch}:{v_start}-{v_end}"
+    elif nums:
+        if len(nums) == 1:
+            full_en = f"{en_name}, chapter {nums[0]}"
+            abbr_en = f"{en_abbr} {nums[0]}"
+        elif len(nums) == 2:
+            full_en = f"{en_name}, chapters {nums[0]} and {nums[1]}"
+            abbr_en = f"{en_abbr} {nums[0]}-{nums[1]}"
+        else:
+            full_en = f"{en_name}, chapters {nums[0]} to {nums[-1]}"
+            abbr_en = f"{en_abbr} {nums[0]}-{nums[-1]}"
+    else:
+        full_en = f"{en_name}, chapter 1"
+        abbr_en = f"{en_abbr} 1"
+
+    return full_en, abbr_en, matched_code
+
+
+def text_to_hiperbiblia_link(text: str, left: str = "snpd", right: str = "lxxhb") -> tuple[str, str, str, str]:
+    """Convert a reading string into Polish label, English label, book code and HiperBiblia URL."""
     clean_text = text.rstrip(".").strip()
     matched_code = None
     matched_abbr = None
@@ -171,7 +276,7 @@ def text_to_hiperbiblia_link(text: str, left: str = "snpd", right: str = "lxxhb"
 
     if not matched_code:
         query = urllib.parse.quote_plus(clean_text)
-        return clean_text, f"https://hiperbiblia.com/reader?search={query}"
+        return clean_text, clean_text, "", f"https://hiperbiblia.com/reader?search={query}"
 
     after_book = clean_text[clean_text.find(matched_name) + len(matched_name):]
     nums = re.findall(r'\d+', after_book)
@@ -179,23 +284,34 @@ def text_to_hiperbiblia_link(text: str, left: str = "snpd", right: str = "lxxhb"
     first_ch = nums[0] if nums else "1"
 
     if "wersety" in after_book.lower() and len(nums) >= 3:
-        ch = nums[0]
-        v_start = nums[1]
-        v_end = nums[2]
-        label = f"{matched_abbr} {ch},{v_start}-{v_end}"
+        ch, v_start, v_end = nums[0], nums[1], nums[2]
+        label_pl = f"{matched_abbr} {ch},{v_start}-{v_end}"
         first_ch = ch
     elif nums:
         if len(nums) == 1:
-            label = f"{matched_abbr} {nums[0]}"
+            label_pl = f"{matched_abbr} {nums[0]}"
         elif len(nums) == 2:
-            label = f"{matched_abbr} {nums[0]}-{nums[1]}"
+            label_pl = f"{matched_abbr} {nums[0]}-{nums[1]}"
         else:
-            label = f"{matched_abbr} {nums[0]}-{nums[-1]}"
+            label_pl = f"{matched_abbr} {nums[0]}-{nums[-1]}"
     else:
-        label = f"{matched_abbr} 1"
+        label_pl = f"{matched_abbr} 1"
+
+    en_name, en_abbr = ENGLISH_BOOK_MAP.get(matched_code, (matched_name, matched_abbr))
+    if "wersety" in after_book.lower() and len(nums) >= 3:
+        label_en = f"{en_abbr} {nums[0]}:{nums[1]}-{nums[2]}"
+    elif nums:
+        if len(nums) == 1:
+            label_en = f"{en_abbr} {nums[0]}"
+        elif len(nums) == 2:
+            label_en = f"{en_abbr} {nums[0]}-{nums[1]}"
+        else:
+            label_en = f"{en_abbr} {nums[0]}-{nums[-1]}"
+    else:
+        label_en = f"{en_abbr} 1"
 
     url = f"https://hiperbiblia.com/reader?book={matched_code}&chapter={first_ch}&left={left}&right={right}"
-    return label, url
+    return label_pl, label_en, matched_code, url
 
 
 def extract_oracle_plan(html_path: Path = HTML_PATH, left: str = "snpd", right: str = "lxxhb") -> list[dict]:
@@ -216,11 +332,21 @@ def extract_oracle_plan(html_path: Path = HTML_PATH, left: str = "snpd", right: 
         t2_raw = normalize_grammar_to_nominative(parts[1]) if len(parts) > 1 else ""
         t3_raw = normalize_grammar_to_nominative(parts[2]) if len(parts) > 2 else ""
 
+        t1_en, t1_en_abbr, _ = format_english_reading(t1_raw)
+        t2_en, t2_en_abbr, _ = format_english_reading(t2_raw)
+        t3_en, t3_en_abbr, _ = format_english_reading(t3_raw)
+
         links = []
         for p in parts:
             p_clean = normalize_grammar_to_nominative(p)
-            label, url = text_to_hiperbiblia_link(p, left=left, right=right)
-            links.append({"label": label, "url": url, "raw": p_clean})
+            label_pl, label_en, book_code, url = text_to_hiperbiblia_link(p, left=left, right=right)
+            links.append({
+                "label": label_pl,
+                "label_en": label_en,
+                "book_code": book_code,
+                "url": url,
+                "raw": p_clean
+            })
 
         plan.append({
             "day": day_counter,
@@ -229,6 +355,9 @@ def extract_oracle_plan(html_path: Path = HTML_PATH, left: str = "snpd", right: 
             "t1_ref": t1_raw,
             "t2_ref": t2_raw,
             "t3_ref": t3_raw,
+            "t1_ref_en": t1_en,
+            "t2_ref_en": t2_en,
+            "t3_ref_en": t3_en,
             "t1_chapters": [],
             "t2_chapters": [],
             "t3_chapters": [],
