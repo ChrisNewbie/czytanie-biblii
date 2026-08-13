@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Export Official Christadelphian Bible Reading Plan to PWA Web Application.
-Includes Dual Language (PL / EN + HiperBiblia Locale Sync), Default Today Date Picker, Floating Back to Top Button, Web Share API + Clipboard Toast for sharing daily reading links.
+Includes Dual Language (PL / EN + HiperBiblia Locale Sync), Traditional Tone ("Przejdź do daty"), Default Today Date Picker, Floating Back to Top Button, Web Share API + Clipboard Toast for sharing daily reading links.
 """
 from __future__ import annotations
 
@@ -521,7 +521,7 @@ PWA_HTML_TEMPLATE = """<!DOCTYPE html>
         </select>
       </div>
       <div class="select-group">
-        <label for="pwa-date-jump" id="pwa-lbl-date">📅 Skocz do daty:</label>
+        <label for="pwa-date-jump" id="pwa-lbl-date">📅 Przejdź do daty:</label>
         <input type="date" id="pwa-date-jump" min="2026-01-01" max="2026-12-31" onchange="jumpToDatePwa(this.value)">
       </div>
     </div>
@@ -598,7 +598,7 @@ PWA_HTML_TEMPLATE = """<!DOCTYPE html>
       document.getElementById('pwa-sub').innerText = isEn ? 'Oracle readings integrated with HiperBiblia.com dual-panel reader (3 daily tracks)' : 'Wyrocznia czytań z integracją czytnika HiperBiblia.com (3 nurty dziennie)';
       document.getElementById('pwa-lbl-left').innerText = isEn ? 'Left Panel (Translation 1):' : 'Lewy panel (Przekład 1):';
       document.getElementById('pwa-lbl-right').innerText = isEn ? 'Right Panel (Translation 2):' : 'Prawy panel (Przekład 2):';
-      document.getElementById('pwa-lbl-date').innerText = isEn ? '📅 Jump to date:' : '📅 Skocz do daty:';
+      document.getElementById('pwa-lbl-date').innerText = isEn ? '📅 Jump to date:' : '📅 Przejdź do daty:';
       document.getElementById('pwa-lbl-progress-title').innerText = isEn ? 'Your Annual Reading Progress' : 'Twój roczny postęp w czytaniu';
       document.getElementById('pwa-btn-today').innerText = isEn ? '📅 Jump to Today' : '📅 Przejdź do dzisiejszego dnia';
       document.getElementById('search').placeholder = isEn ? 'Search by date or book (e.g. 12.08, Genesis, Psalms, Matthew)...' : 'Szukaj po dacie lub księdze (np. 12.08, Mojżesza, Psalm, Mateusza)...';
@@ -808,7 +808,7 @@ def export_pwa(plan: list[dict], output_dir: Path):
     html_content = PWA_HTML_TEMPLATE.replace("{plan_json}", json.dumps(plan, ensure_ascii=False))
     (output_dir / "index.html").write_text(html_content, encoding="utf-8")
     (output_dir / "manifest.json").write_text(MANIFEST_JSON, encoding="utf-8")
-    print(f"Wygenerowano oficjalne PWA Wyroczni z Domyślną Datą w: {output_dir}")
+    print(f"Wygenerowano oficjalne PWA Wyroczni z 'Przejdź do daty' w: {output_dir}")
 
 
 if __name__ == "__main__":

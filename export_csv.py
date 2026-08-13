@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Export Official Christadelphian Bible Reading Plan to CSV and static HTML tables (Vanilla JS & jQuery versions).
-Fully compliant with 2026 Web Standards: Dual Language Support (PL / EN + HiperBiblia Locale Sync), Default Today Date Picker, Floating Back to Top Button, Share Button, Dark Mode, OpenGraph, WCAG 2.2 AAA, Print CSS & Security rel=noopener.
+Fully compliant with 2026 Web Standards: Dual Language Support (PL / EN + HiperBiblia Locale Sync), Traditional Tone ("Przejdź do daty"), Default Today Date Picker, Floating Back to Top Button, Share Button, Dark Mode, OpenGraph, WCAG 2.2 AAA, Print CSS & Security rel=noopener.
 """
 from __future__ import annotations
 
@@ -547,7 +547,7 @@ def export_csv(
       </select>
     </div>
     <div class="select-group">
-      <label for="input-date-jump" id="lbl-date-jump">📅 Skocz do daty:</label>
+      <label for="input-date-jump" id="lbl-date-jump">📅 Przejdź do daty:</label>
       <div class="date-input-row">
         <input type="date" id="input-date-jump" min="2026-01-01" max="2026-12-31" aria-label="Wybierz datę z kalendarza">
         <button type="button" id="btn-today" class="btn-today">Dzisiaj</button>
@@ -663,7 +663,7 @@ def export_csv(
       document.getElementById('badge-info').innerText = isEn ? '⚡ NATIVE 2026 SUITE (Vanilla JS • Dark Mode • Dual Language • Share)' : '⚡ WERSJA NATYWNA 2026 (Vanilla JS • Dark Mode • PL / EN • Udostępnianie)';
       document.getElementById('lbl-left').innerText = isEn ? 'Left Panel (Translation 1):' : 'Lewy panel (Przekład 1):';
       document.getElementById('lbl-right').innerText = isEn ? 'Right Panel (Translation 2):' : 'Prawy panel (Przekład 2):';
-      document.getElementById('lbl-date-jump').innerText = isEn ? '📅 Jump to date:' : '📅 Skocz do daty:';
+      document.getElementById('lbl-date-jump').innerText = isEn ? '📅 Jump to date:' : '📅 Przejdź do daty:';
       document.getElementById('btn-today').innerText = isEn ? 'Today' : 'Dzisiaj';
       document.getElementById('btn-back-to-top').innerText = isEn ? '⬆️ Back to Top' : '⬆️ Do góry';
 
@@ -789,14 +789,14 @@ def export_csv(
 </html>
 """
         output_html.write_text(vanilla_doc, encoding="utf-8")
-        print(f"Zapisano statyczny HTML Vanilla JS z Domyślną Datą: {output_html}")
+        print(f"Zapisano statyczny HTML Vanilla JS z 'Przejdź do daty': {output_html}")
 
         if output_en_html:
             # Pre-configured English HTML version
             en_doc = vanilla_doc.replace("<html lang=\"pl\">", "<html lang=\"en\">")
             en_doc = en_doc.replace("const savedLang = localStorage.getItem(KEY_LANG) || 'pl';", "const savedLang = 'en';")
             output_en_html.write_text(en_doc, encoding="utf-8")
-            print(f"Zapisano dedykowany HTML Angielski z Domyślną Datą: {output_en_html}")
+            print(f"Zapisano dedykowany HTML Angielski: {output_en_html}")
 
     # 2. GENERACJA WERSJI JQUERY (STANDARD 2026)
     if output_jquery_html:
@@ -908,7 +908,7 @@ def export_csv(
       $('#badge-info').text(isEn ? '⚙️ JQUERY 3.7.1 SUITE (Standard 2026 • Dark Mode • PL / EN • Share)' : '⚙️ WERSJA JQUERY 3.7.1 (Standard 2026 • Dark Mode • PL / EN • Udostępnianie)');
       $('#lbl-left').text(isEn ? 'Left Panel (Translation 1):' : 'Lewy panel (Przekład 1):');
       $('#lbl-right').text(isEn ? 'Right Panel (Translation 2):' : 'Prawy panel (Przekład 2):');
-      $('#lbl-date-jump').text(isEn ? '📅 Jump to date:' : '📅 Skocz do daty:');
+      $('#lbl-date-jump').text(isEn ? '📅 Jump to date:' : '📅 Przejdź do daty:');
       $('#btn-today').text(isEn ? 'Today' : 'Dzisiaj');
       $('#btn-back-to-top').text(isEn ? '⬆️ Back to Top' : '⬆️ Do góry');
 
@@ -1028,7 +1028,7 @@ def export_csv(
 </html>
 """
         output_jquery_html.write_text(jquery_doc, encoding="utf-8")
-        print(f"Zapisano statyczny HTML z jQuery 3.7.1 z Domyślną Datą: {output_jquery_html}")
+        print(f"Zapisano statyczny HTML z jQuery 3.7.1 z 'Przejdź do daty': {output_jquery_html}")
 
 
 if __name__ == "__main__":
