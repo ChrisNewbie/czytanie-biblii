@@ -342,9 +342,12 @@ def export_csv(
       50% { background-color: var(--flash-bg); }
       100% { background-color: transparent; }
     }
-    .highlight-flash td {
+    .highlight-flash {
       animation: pulseFlash 2.5s ease-out;
       background-color: var(--flash-bg) !important;
+    }
+    .highlight-flash td {
+      background-color: transparent !important;
     }
 
     /* RWD Mobilne Stylizowanie dla Smartfonów */
@@ -370,6 +373,7 @@ def export_csv(
         margin-bottom: 1.25rem;
         padding: 1rem;
         box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        overflow: hidden;
       }
 
       td {
@@ -384,7 +388,20 @@ def export_csv(
         padding-bottom: 0.5rem;
         margin-bottom: 0.5rem;
       }
-      td.num .btn-share { display: inline-flex; }
+      td.num .day-header-cell {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.5rem;
+        width: 100%;
+      }
+      td.num .btn-share {
+        display: inline-flex;
+        font-size: 0.82rem;
+        padding: 0.3rem 0.65rem;
+        min-height: 36px;
+        margin: 0;
+      }
 
       .track-lbl { display: block; margin-bottom: 0.15rem; }
 
@@ -639,7 +656,7 @@ def export_csv(
 </html>
 """
         output_html.write_text(vanilla_doc, encoding="utf-8")
-        print(f"Zapisano statyczny HTML Vanilla JS z Przyskiem Wróć na Górę: {output_html}")
+        print(f"Zapisano statyczny HTML Vanilla JS z Poprawką Przycisku i Tła: {output_html}")
 
     # 2. GENERACJA WERSJI JQUERY (STANDARD 2026)
     if output_jquery_html:
@@ -793,7 +810,7 @@ def export_csv(
 </html>
 """
         output_jquery_html.write_text(jquery_doc, encoding="utf-8")
-        print(f"Zapisano statyczny HTML z jQuery 3.7.1 i Przyciskiem Wróć na Górę: {output_jquery_html}")
+        print(f"Zapisano statyczny HTML z jQuery 3.7.1 i Poprawką Przycisku: {output_jquery_html}")
 
 
 if __name__ == "__main__":
