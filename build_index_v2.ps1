@@ -321,10 +321,17 @@ $headerPart = @'
       cursor: pointer;
       min-height: 48px;
       white-space: nowrap;
-      transition: background 0.2s;
+      transition: all 0.2s;
       font-family: inherit;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.3rem;
     }
-    .btn-today:hover { background: var(--btn-today-hover); }
+    .btn-today:hover {
+      background: var(--btn-today-hover);
+      transform: translateY(-1px);
+    }
 
     /* Table & High Performance Row Rendering */
     table {
@@ -341,7 +348,10 @@ $headerPart = @'
     /* CSS content-visibility for ultra-fast initial render of 365 rows */
     tbody tr {
       content-visibility: auto;
-      contain-intrinsic-size: auto 58px;
+      contain-intrinsic-size: auto 60px;
+      scroll-margin-top: 100px;
+      scroll-margin-bottom: 100px;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
     }
 
     th, td {
@@ -363,6 +373,30 @@ $headerPart = @'
     }
 
     tbody tr:nth-child(even) td { background: var(--table-stripe); }
+
+    /* Permanent highlight for Today's row */
+    tr.today-row {
+      border-left: 5px solid var(--btn-today-bg) !important;
+      background-color: var(--accent-bg) !important;
+    }
+    tr.today-row td {
+      background-color: transparent !important;
+    }
+    
+    .today-badge {
+      display: inline-flex;
+      align-items: center;
+      background: var(--btn-today-bg);
+      color: #ffffff;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      margin-left: 0.4rem;
+      vertical-align: middle;
+      letter-spacing: 0.02em;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    }
 
     td.num { font-weight: bold; color: var(--accent); white-space: nowrap; }
     .day-header-cell { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; }
@@ -474,14 +508,31 @@ $headerPart = @'
       100% { opacity: 0; transform: translate(-50%, -20px); }
     }
 
-    @keyframes pulseFlash {
-      0% { background-color: var(--flash-bg); }
-      50% { background-color: var(--flash-bg); }
-      100% { background-color: transparent; }
+    /* Dynamic Flash Glow Pulse on Target Jump */
+    @keyframes targetGlowPulse {
+      0% {
+        outline: 3px solid #6366f1;
+        box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.7);
+        background-color: var(--flash-bg) !important;
+      }
+      35% {
+        outline: 3px solid #6366f1;
+        box-shadow: 0 0 0 14px rgba(99, 102, 241, 0);
+        background-color: var(--flash-bg) !important;
+      }
+      70% {
+        background-color: var(--flash-bg) !important;
+      }
+      100% {
+        outline: 3px solid transparent;
+        box-shadow: none;
+      }
     }
+
     .highlight-flash {
-      animation: pulseFlash 2.5s ease-out;
-      background-color: var(--flash-bg) !important;
+      animation: targetGlowPulse 2.8s ease-out forwards;
+      position: relative;
+      z-index: 5;
     }
     .highlight-flash td {
       background-color: transparent !important;
@@ -511,6 +562,14 @@ $headerPart = @'
         padding: 1rem;
         box-shadow: 0 2px 8px rgba(0,0,0,0.08);
         overflow: hidden;
+        contain-intrinsic-size: auto 190px;
+        scroll-margin-top: 20px;
+        scroll-margin-bottom: 20px;
+      }
+
+      tr.today-row {
+        border: 2px solid var(--btn-today-bg) !important;
+        border-left: 6px solid var(--btn-today-bg) !important;
       }
 
       td {
@@ -654,7 +713,7 @@ $headerPart = @'
         <label for="input-date-jump" id="lbl-date-jump">📅 Przejdź do daty:</label>
         <div class="date-input-row">
           <input type="date" id="input-date-jump" min="2026-01-01" max="2026-12-31" aria-label="Wybierz datę z kalendarza">
-          <button type="button" id="btn-today" class="btn-today" aria-label="Przejdź do dzisiejszego dnia">Dzisiaj</button>
+          <button type="button" id="btn-today" class="btn-today" onclick="jumpToToday()" aria-label="Przejdź do dzisiejszego dnia">🎯 Dzisiaj</button>
         </div>
       </div>
     </section>
@@ -690,6 +749,13 @@ $footerPart = @'
     let currentLang = 'pl';
     let currentTheme = 'auto';
 
+    function getTodayIso() {
+      const now = new Date();
+      const mm = String(now.getMonth() + 1).padStart(2, '0');
+      const dd = String(now.getDate()).padStart(2, '0');
+      return `2026-${mm}-${dd}`;
+    }
+
     function initApp() {
       const savedLang = localStorage.getItem(KEY_LANG) || 'pl';
       const savedLeft = localStorage.getItem(KEY_LEFT) || 'snpd';
@@ -699,16 +765,15 @@ $footerPart = @'
       document.getElementById('select-left').value = savedLeft;
       document.getElementById('select-right').value = savedRight;
 
-      // Set current date
-      const d = new Date();
-      const todayIso = d.toISOString().split('T')[0];
+      // Set current date in picker
+      const todayIso = getTodayIso();
       const dateInput = document.getElementById('input-date-jump');
       if (dateInput) dateInput.value = todayIso;
       
       document.getElementById('select-left').addEventListener('change', updateTableLinks);
       document.getElementById('select-right').addEventListener('change', updateTableLinks);
       document.getElementById('input-date-jump').addEventListener('change', (e) => jumpToDate(e.target.value));
-      document.getElementById('btn-today').addEventListener('click', jumpToToday);
+      document.getElementById('btn-today').addEventListener('click', () => jumpToToday(false));
 
       // Delegated link click for maximum performance
       document.getElementById('main-table').addEventListener('click', handleTableClick);
@@ -724,6 +789,29 @@ $footerPart = @'
       setTheme(savedTheme, false);
       setLanguage(savedLang, false);
       updateTableLinks();
+      markTodayRow();
+
+      // Automatically jump to today on initial page load
+      setTimeout(() => {
+        jumpToToday(true);
+      }, 150);
+    }
+
+    function markTodayRow() {
+      const todayIso = getTodayIso();
+      const targetRow = document.querySelector(`tr[data-date="${todayIso}"]`);
+      if (targetRow) {
+        targetRow.classList.add('today-row');
+        const dayTitle = targetRow.querySelector('.day-title-text');
+        if (dayTitle && !dayTitle.querySelector('.today-badge')) {
+          const badge = document.createElement('span');
+          badge.className = 'today-badge';
+          badge.setAttribute('data-pl', 'Dzisiaj');
+          badge.setAttribute('data-en', 'Today');
+          badge.innerText = currentLang === 'en' ? 'Today' : 'Dzisiaj';
+          dayTitle.appendChild(badge);
+        }
+      }
     }
 
     function handleTableClick(e) {
@@ -799,7 +887,7 @@ $footerPart = @'
       document.getElementById('lbl-left').innerText = isEn ? 'Left Panel (Translation 1):' : 'Lewy panel (Przekład 1):';
       document.getElementById('lbl-right').innerText = isEn ? 'Right Panel (Translation 2):' : 'Prawy panel (Przekład 2):';
       document.getElementById('lbl-date-jump').innerText = isEn ? '📅 Jump to date:' : '📅 Przejdź do daty:';
-      document.getElementById('btn-today').innerText = isEn ? 'Today' : 'Dzisiaj';
+      document.getElementById('btn-today').innerHTML = isEn ? '🎯 Today' : '🎯 Dzisiaj';
       document.getElementById('btn-back-to-top').innerText = isEn ? '⬆️ Back to Top' : '⬆️ Do góry';
 
       document.getElementById('th-day').innerText = isEn ? 'Day' : 'Dzień';
@@ -813,7 +901,9 @@ $footerPart = @'
         const dateTag = el.querySelector('.date-tag');
         const dateStr = dateTag ? dateTag.outerHTML : '';
         const dayNum = el.closest('tr').getAttribute('data-day');
-        el.innerHTML = isEn ? `Day ${dayNum} ${dateStr}` : `Dzień ${dayNum} ${dateStr}`;
+        const badge = el.querySelector('.today-badge');
+        const badgeHtml = badge ? `<span class="today-badge" data-pl="Dzisiaj" data-en="Today">${isEn ? 'Today' : 'Dzisiaj'}</span>` : '';
+        el.innerHTML = isEn ? `Day ${dayNum} ${dateStr}${badgeHtml}` : `Dzień ${dayNum} ${dateStr}${badgeHtml}`;
       });
 
       document.querySelectorAll('.track-lbl').forEach(el => {
@@ -861,23 +951,54 @@ $footerPart = @'
       });
     }
 
-    function jumpToDate(isoDate) {
+    function jumpToDate(isoDate, isInitialLoad = false) {
       if (!isoDate) return;
-      const targetRow = document.querySelector(`tr[data-date="${isoDate}"]`);
+
+      // Handle any year mismatch by looking up month-day in 2026
+      let targetIso = isoDate;
+      let targetRow = document.querySelector(`tr[data-date="${targetIso}"]`);
+      if (!targetRow) {
+        const parts = isoDate.split('-');
+        if (parts.length === 3) {
+          targetIso = `2026-${parts[1]}-${parts[2]}`;
+          targetRow = document.querySelector(`tr[data-date="${targetIso}"]`);
+        }
+      }
+
       if (targetRow) {
-        targetRow.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        // First instant jump to force un-virtualization in browser rendering engine
+        targetRow.scrollIntoView({ behavior: 'auto', block: 'center' });
+
+        // Second micro-task for pixel-perfect centering
+        requestAnimationFrame(() => {
+          const rect = targetRow.getBoundingClientRect();
+          const idealOffset = (window.innerHeight / 2) - (rect.height / 2);
+          const delta = rect.top - idealOffset;
+          if (Math.abs(delta) > 5) {
+            window.scrollBy({ top: delta, behavior: isInitialLoad ? 'auto' : 'smooth' });
+          }
+        });
+
+        // Trigger flash highlight animation
+        targetRow.classList.remove('highlight-flash');
+        void targetRow.offsetWidth; // Force CSS reflow
         targetRow.classList.add('highlight-flash');
-        announceA11y(currentLang === 'en' ? `Jumped to reading for ${isoDate}` : `Przewinięto do czytania na dzień ${isoDate}`);
-        setTimeout(() => targetRow.classList.remove('highlight-flash'), 2500);
+
+        if (!isInitialLoad) {
+          announceA11y(currentLang === 'en' ? `Jumped to reading for ${targetIso}` : `Przewinięto do czytania na dzień ${targetIso}`);
+        }
+
+        setTimeout(() => {
+          targetRow.classList.remove('highlight-flash');
+        }, 2800);
       }
     }
 
-    function jumpToToday() {
-      const d = new Date();
-      const iso = d.toISOString().split('T')[0];
+    function jumpToToday(isInitialLoad = false) {
+      const todayIso = getTodayIso();
       const picker = document.getElementById('input-date-jump');
-      if (picker) picker.value = iso;
-      jumpToDate(iso);
+      if (picker) picker.value = todayIso;
+      jumpToDate(todayIso, isInitialLoad);
     }
 
     function shareDay(dayNum, dateStr) {
@@ -935,4 +1056,4 @@ $footerPart = @'
 
 $newDocument = $headerPart + $enhancedTbody + $footerPart
 [System.IO.File]::WriteAllText($v2Path, $newDocument, [System.Text.Encoding]::UTF8)
-Write-Host "SUKCES! Pomyślnie wygenerowano $v2Path z domyślnymi przekładami: snpd + ubg."
+Write-Host "SUKCES! Pomyślnie wygenerowano $v2Path z ulepszonym skokiem do dzisiejszego dnia."
