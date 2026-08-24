@@ -778,7 +778,7 @@ $headerPart = @'
           <th scope="col" role="columnheader" id="th-day">Dzień</th>
           <th scope="col" role="columnheader" id="th-t1">ST: Prawo i Historia</th>
           <th scope="col" role="columnheader" id="th-t2">ST: Psalmy i Prorocy</th>
-          <th scope="col" role="columnheader" id="th-t3">NT (x2)</th>
+          <th scope="col" role="columnheader" id="th-t3">Nowy Testament</th>
           <th scope="col" role="columnheader" id="th-links">Linki HiperBiblia.com</th>
         </tr>
       </thead>
@@ -947,7 +947,7 @@ $footerPart = @'
       document.getElementById('th-day').innerText = isEn ? 'Day' : 'Dzień';
       document.getElementById('th-t1').innerText = isEn ? 'OT: Law & History' : 'ST: Prawo i Historia';
       document.getElementById('th-t2').innerText = isEn ? 'OT: Psalms & Prophets' : 'ST: Psalmy i Prorocy';
-      document.getElementById('th-t3').innerText = isEn ? 'NT (x2)' : 'NT (x2)';
+      document.getElementById('th-t3').innerText = isEn ? 'New Testament' : 'Nowy Testament';
       document.getElementById('th-links').innerText = isEn ? 'HiperBiblia.com Links' : 'Linki HiperBiblia.com';
 
       // Update row texts batch
@@ -1110,4 +1110,4 @@ $footerPart = @'
 
 $newDocument = $headerPart + $enhancedTbody + $footerPart
 [System.IO.File]::WriteAllText($v2Path, $newDocument, [System.Text.Encoding]::UTF8)
-Write-Host "SUKCES! Pomyślnie wygenerowano $v2Path ze zmianą 'Poezja' na 'Psalmy'."
+Write-Host "SUKCES! Pomyślnie wygenerowano $v2Path z nagłówkiem 'Nowy Testament'."
