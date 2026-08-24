@@ -8,7 +8,7 @@ Write-Host "Wczytywanie $indexPath..."
 $content = [System.IO.File]::ReadAllText($indexPath, [System.Text.Encoding]::UTF8)
 
 # Extract tbody content
-$tbodyMatch = [regex]::Match($content, '(?s)<tbody>(.*?)</tbody>')
+$tbodyMatch = [regex]::Match($content, '(?s)<tbody[^>]*>(.*?)</tbody>')
 if (-not $tbodyMatch.Success) {
     throw "Nie znaleziono tagu <tbody> w pliku index.html"
 }
@@ -35,14 +35,14 @@ $headerPart = @'
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title id="doc-title">Oficjalny Harmonogram Czytania Biblii — Chrystadelfianie</title>
-  <meta name="description" content="Oficjalny roczny plan czytania całej Biblii (Plan Roberta Robertsa — Bible Companion) zintegrowany z dwupanelowym czytnikiem HiperBiblia.com.">
+  <title id="doc-title">Harmonogram Czytania Biblii — prawdybiblijne.com</title>
+  <meta name="description" content="Roczny plan czytania całej Biblii (Plan Roberta Robertsa — Bible Companion) zintegrowany z dwupanelowym czytnikiem HiperBiblia.com.">
   <link rel="canonical" href="https://chrisnewbie.github.io/czytanie-biblii/">
 
   <!-- Open Graph / Facebook / WhatsApp -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://chrisnewbie.github.io/czytanie-biblii/">
-  <meta property="og:title" content="Oficjalny Harmonogram Czytania Biblii — Chrystadelfianie">
+  <meta property="og:title" content="Harmonogram Czytania Biblii (prawdybiblijne.com)">
   <meta property="og:description" content="Przeczytaj całą Biblię w rok (3 nurty dziennie) w czytniku HiperBiblia.com z wybranymi przekładami.">
   <meta property="og:image" content="https://chrisnewbie.github.io/czytanie-biblii/apple-touch-icon.png">
   <meta property="og:locale" content="pl_PL">
@@ -50,7 +50,7 @@ $headerPart = @'
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Oficjalny Harmonogram Czytania Biblii — Chrystadelfianie">
+  <meta name="twitter:title" content="Harmonogram Czytania Biblii (prawdybiblijne.com)">
   <meta name="twitter:description" content="Roczny plan czytania Biblii zintegrowany z HiperBiblia.com.">
   <meta name="twitter:image" content="https://chrisnewbie.github.io/czytanie-biblii/apple-touch-icon.png">
 
@@ -65,7 +65,7 @@ $headerPart = @'
   {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "name": "Oficjalny Harmonogram Czytania Biblii — Plan Roberta Robertsa",
+    "name": "Harmonogram Czytania Biblii (prawdybiblijne.com)",
     "url": "https://chrisnewbie.github.io/czytanie-biblii/",
     "description": "Roczny plan czytania całej Biblii oparty na stałym kalendarzu chrystadelfiańskim (Bible Companion) zintegrowany z czytnikiem HiperBiblia.com",
     "applicationCategory": "LifestyleApplication",
@@ -187,6 +187,26 @@ $headerPart = @'
       font-weight: 800;
       color: var(--text-main);
       margin: 0;
+    }
+
+    h1 a.title-link {
+      display: inline;
+      background: transparent;
+      border: none;
+      padding: 0;
+      min-height: auto;
+      border-radius: 0;
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      font-size: inherit;
+      font-weight: inherit;
+      transition: color 0.15s ease;
+    }
+    h1 a.title-link:hover {
+      background: transparent;
+      color: var(--text-main);
+      text-decoration: underline;
     }
 
     .nav-actions {
@@ -548,7 +568,7 @@ $headerPart = @'
 
   <header class="app-header">
     <div class="top-bar">
-      <h1 id="main-h1">Oficjalny Harmonogram Czytania Biblii (prawdybiblijne.com)</h1>
+      <h1 id="main-h1">Harmonogram Czytania Biblii (<a href="https://prawdybiblijne.com" target="_blank" rel="noopener noreferrer" class="title-link">prawdybiblijne.com</a>)</h1>
       <div class="nav-actions">
         <!-- Theme Switcher (Light / Dark / Auto) -->
         <div class="switcher-pill" role="group" aria-label="Wybór motywu kolorystycznego">
@@ -770,7 +790,9 @@ $footerPart = @'
 
       // Text UI translations
       document.getElementById('skip-link-text').innerText = isEn ? 'Skip to reading table' : 'Przejdź do tabeli czytań';
-      document.getElementById('main-h1').innerText = isEn ? 'Official Bible Reading Companion (Robert Roberts)' : 'Oficjalny Harmonogram Czytania Biblii (prawdybiblijne.com)';
+      document.getElementById('main-h1').innerHTML = isEn 
+        ? 'Bible Reading Companion (<a href="https://prawdybiblijne.com" target="_blank" rel="noopener noreferrer" class="title-link">prawdybiblijne.com</a>)' 
+        : 'Harmonogram Czytania Biblii (<a href="https://prawdybiblijne.com" target="_blank" rel="noopener noreferrer" class="title-link">prawdybiblijne.com</a>)';
       document.getElementById('main-sub').innerHTML = isEn ? 'Clicking any button opens <strong>HiperBiblia.com</strong> dual-panel reader with your chosen translations.' : 'Kliknięcie w przycisk otwiera czytnik w serwisie <strong>HiperBiblia.com</strong> z Twoimi wybranymi przekładami.';
       document.getElementById('lbl-left').innerText = isEn ? 'Left Panel (Translation 1):' : 'Lewy panel (Przekład 1):';
       document.getElementById('lbl-right').innerText = isEn ? 'Right Panel (Translation 2):' : 'Prawy panel (Przekład 2):';
@@ -911,4 +933,4 @@ $footerPart = @'
 
 $newDocument = $headerPart + $enhancedTbody + $footerPart
 [System.IO.File]::WriteAllText($v2Path, $newDocument, [System.Text.Encoding]::UTF8)
-Write-Host "SUKCES! Pomyślnie wygenerowano $v2Path z nienaruszonym kodem JS i wszystkimi usprawnieniami."
+Write-Host "SUKCES! Pomyślnie wygenerowano $v2Path z nowym tytułem i aktywnym linkiem."
