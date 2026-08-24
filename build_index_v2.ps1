@@ -20,6 +20,7 @@ $rawTbody = $tbodyMatch.Groups[1].Value
 # 2. Add role="cell" to <td>
 # 3. Clean duplicate share buttons inside btn-group while keeping all 3 reading links
 # 4. Enhance share button with accessibility and icon
+# 5. Set default right translation to ubg
 $enhancedTbody = $rawTbody `
     -replace '<tr\s+data-date="([^"]+)"\s+data-day="([^"]+)">', '<tr role="row" data-date="$1" data-day="$2">' `
     -replace '<td class="num">', '<td role="cell" class="num">' `
@@ -27,7 +28,8 @@ $enhancedTbody = $rawTbody `
     -replace '<td class="links-cell">', '<td role="cell" class="links-cell">' `
     -replace '<div class="btn-group">', '<div class="btn-group" role="group" aria-label="Odnośniki do czytnika HiperBiblia">' `
     -replace '(?s)(<div class="btn-group"[^>]*>.*?)\s*<button type="button" class="btn-share"[^>]*>.*?</button>\s*(</div>)', '$1$2' `
-    -replace '<button type="button" class="btn-share" onclick="shareDay\((\d+),\s*''([^'']+)''\)">📤 Udostępnij</button>', '<button type="button" class="btn-share" onclick="shareDay($1, ''$2'')" aria-label="Udostępnij czytanie na dzień $1 ($2)"><span class="share-icon" aria-hidden="true">📤</span> <span class="share-text" data-pl="Udostępnij" data-en="Share">Udostępnij</span></button>'
+    -replace '<button type="button" class="btn-share" onclick="shareDay\((\d+),\s*''([^'']+)''\)">📤 Udostępnij</button>', '<button type="button" class="btn-share" onclick="shareDay($1, ''$2'')" aria-label="Udostępnij czytanie na dzień $1 ($2)"><span class="share-icon" aria-hidden="true">📤</span> <span class="share-text" data-pl="Udostępnij" data-en="Share">Udostępnij</span></button>' `
+    -replace 'right=lxxhb', 'right=ubg'
 
 $headerPart = @'
 <!doctype html>
@@ -621,7 +623,7 @@ $headerPart = @'
       <div class="select-group">
         <label for="select-right" id="lbl-right">Prawy panel (Przekład 2):</label>
         <select id="select-right" aria-label="Wybór przekładu dla prawej kolumny">
-          <option value="lxxhb" selected>Septuaginta / Starożytny (lxxhb)</option>
+          <option value="ubg" selected>Uwspółcześniona Biblia Gdańska (ubg)</option>
           <option value="snpd">EIB Przekład Dosłowny (snpd)</option>
           <option value="snp">EIB Przekład Literacki (snp)</option>
           <option value="bt5">Biblia Tysiąclecia V (bt5)</option>
@@ -630,7 +632,6 @@ $headerPart = @'
           <option value="bp">Biblia Poznańska (bp)</option>
           <option value="bw">Biblia Warszawska (bw)</option>
           <option value="bwp">Biblia Warszawsko-Praska (bwp)</option>
-          <option value="ubg">Uwspółcześniona Biblia Gdańska (ubg)</option>
           <option value="bg">Biblia Gdańska (bg)</option>
           <option value="bgn">Nowa Biblia Gdańska (bgn)</option>
           <option value="bb">Biblia Brzeska (bb)</option>
@@ -641,6 +642,7 @@ $headerPart = @'
           <option value="psz">Słowo Życia (psz)</option>
           <option value="wuj">Biblia Wujka (wuj)</option>
           <option value="stern">Przekład Żydowski - Stern (stern)</option>
+          <option value="lxxhb">Septuaginta / Starożytny (lxxhb)</option>
           <option value="gnt">Grecki NT krytyczny (gnt)</option>
           <option value="gnt-tr">Textus Receptus (gnt-tr)</option>
           <option value="nov">Nova Vulgata (nov)</option>
@@ -690,12 +692,12 @@ $footerPart = @'
 
     function initApp() {
       const savedLang = localStorage.getItem(KEY_LANG) || 'pl';
-      const savedLeft = localStorage.getItem(KEY_LEFT);
-      const savedRight = localStorage.getItem(KEY_RIGHT);
+      const savedLeft = localStorage.getItem(KEY_LEFT) || 'snpd';
+      const savedRight = localStorage.getItem(KEY_RIGHT) || 'ubg';
       const savedTheme = localStorage.getItem(KEY_THEME) || 'auto';
 
-      if (savedLeft) document.getElementById('select-left').value = savedLeft;
-      if (savedRight) document.getElementById('select-right').value = savedRight;
+      document.getElementById('select-left').value = savedLeft;
+      document.getElementById('select-right').value = savedRight;
 
       // Set current date
       const d = new Date();
@@ -784,7 +786,7 @@ $footerPart = @'
           document.getElementById('select-right').value = 'esv';
         } else {
           document.getElementById('select-left').value = 'snpd';
-          document.getElementById('select-right').value = 'lxxhb';
+          document.getElementById('select-right').value = 'ubg';
         }
       }
 
@@ -933,4 +935,4 @@ $footerPart = @'
 
 $newDocument = $headerPart + $enhancedTbody + $footerPart
 [System.IO.File]::WriteAllText($v2Path, $newDocument, [System.Text.Encoding]::UTF8)
-Write-Host "SUKCES! Pomyślnie wygenerowano $v2Path z nowym tytułem i aktywnym linkiem."
+Write-Host "SUKCES! Pomyślnie wygenerowano $v2Path z domyślnymi przekładami: snpd + ubg."
