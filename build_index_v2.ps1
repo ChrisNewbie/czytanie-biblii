@@ -20,6 +20,7 @@ $rawTbody = $tbodyMatch.Groups[1].Value
 # 2. Clean duplicate share buttons inside btn-group while keeping all 3 reading links
 # 3. Ensure EVERY day-header-cell has the accessible, unified share button
 # 4. Set default right translation to ubg
+# 5. Replace "Poezja" with "Psalmy" in Polish track labels
 $enhancedTbody = $rawTbody `
     -replace '<tr\s+data-date="([^"]+)"\s+data-day="([^"]+)">', '<tr role="row" data-date="$1" data-day="$2">' `
     -replace '<td class="num">', '<td role="cell" class="num">' `
@@ -27,7 +28,9 @@ $enhancedTbody = $rawTbody `
     -replace '<td class="links-cell">', '<td role="cell" class="links-cell">' `
     -replace '<div class="btn-group">', '<div class="btn-group" role="group" aria-label="Odnośniki do czytnika HiperBiblia">' `
     -replace '(?s)(<div class="btn-group"[^>]*>.*?)\s*<button type="button" class="btn-share"[^>]*>.*?</button>\s*(</div>)', '$1$2' `
-    -replace 'right=lxxhb', 'right=ubg'
+    -replace 'right=lxxhb', 'right=ubg' `
+    -replace 'Poezja / Prorocy', 'Psalmy / Prorocy' `
+    -replace 'Poezja i Prorocy', 'Psalmy i Prorocy'
 
 # Insert the share button into EVERY day-header-cell across all 365 days
 $enhancedTbody = [regex]::Replace($enhancedTbody, '(?s)<tr\s+role="row"\s+data-date="([^"]+)"\s+data-day="([^"]+)">\s*<td\s+role="cell"\s+class="num">\s*<div\s+class="day-header-cell">\s*<span\s+class="day-title-text"[^>]*>.*?</span>\s*(?:<button[^>]*class="btn-share"[^>]*>.*?</button>)?\s*</div>', {
@@ -774,7 +777,7 @@ $headerPart = @'
         <tr role="row">
           <th scope="col" role="columnheader" id="th-day">Dzień</th>
           <th scope="col" role="columnheader" id="th-t1">ST: Prawo i Historia</th>
-          <th scope="col" role="columnheader" id="th-t2">ST: Poezja i Prorocy</th>
+          <th scope="col" role="columnheader" id="th-t2">ST: Psalmy i Prorocy</th>
           <th scope="col" role="columnheader" id="th-t3">NT (x2)</th>
           <th scope="col" role="columnheader" id="th-links">Linki HiperBiblia.com</th>
         </tr>
@@ -943,7 +946,7 @@ $footerPart = @'
 
       document.getElementById('th-day').innerText = isEn ? 'Day' : 'Dzień';
       document.getElementById('th-t1').innerText = isEn ? 'OT: Law & History' : 'ST: Prawo i Historia';
-      document.getElementById('th-t2').innerText = isEn ? 'OT: Psalms & Prophets' : 'ST: Poezja i Prorocy';
+      document.getElementById('th-t2').innerText = isEn ? 'OT: Psalms & Prophets' : 'ST: Psalmy i Prorocy';
       document.getElementById('th-t3').innerText = isEn ? 'NT (x2)' : 'NT (x2)';
       document.getElementById('th-links').innerText = isEn ? 'HiperBiblia.com Links' : 'Linki HiperBiblia.com';
 
@@ -1107,4 +1110,4 @@ $footerPart = @'
 
 $newDocument = $headerPart + $enhancedTbody + $footerPart
 [System.IO.File]::WriteAllText($v2Path, $newDocument, [System.Text.Encoding]::UTF8)
-Write-Host "SUKCES! Pomyślnie wygenerowano $v2Path z w pełni responsywnym nagłówkiem i przyciskiem."
+Write-Host "SUKCES! Pomyślnie wygenerowano $v2Path ze zmianą 'Poezja' na 'Psalmy'."
