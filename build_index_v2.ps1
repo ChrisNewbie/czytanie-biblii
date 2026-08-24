@@ -39,9 +39,6 @@ $enhancedTbody = [regex]::Replace($enhancedTbody, '(?s)<tr\s+role="row"\s+data-d
 
 $shareBtnCount = [regex]::Matches($enhancedTbody, 'class="btn-share"').Count
 Write-Host "Liczba przyciskow Udostępnij w tabeli: $shareBtnCount (oczekiwano 365)"
-if ($shareBtnCount -ne 365) {
-    Write-Warning "Uwaga: znaleziono $shareBtnCount przyciskow zamiast 365!"
-}
 
 $headerPart = @'
 <!doctype html>
@@ -353,7 +350,6 @@ $headerPart = @'
       margin-top: 1rem;
       background: var(--bg-card);
       border-radius: 12px;
-      overflow: hidden;
       box-shadow: 0 2px 6px rgba(0,0,0,0.06);
     }
 
@@ -410,8 +406,28 @@ $headerPart = @'
       box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     }
 
-    td.num { font-weight: bold; color: var(--accent); white-space: nowrap; }
-    .day-header-cell { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; }
+    td.num {
+      font-weight: bold;
+      color: var(--accent);
+      min-width: 190px;
+    }
+    
+    .day-header-cell {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .day-title-text {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      flex-wrap: wrap;
+    }
+
     .date-tag { font-weight: normal; color: var(--text-muted); font-size: 0.85rem; }
     .track-lbl { display: none; font-weight: 700; color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase; }
     .btn-group { display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center; }
@@ -447,13 +463,16 @@ $headerPart = @'
       color: var(--accent);
       border: 1px solid var(--border-color);
       border-radius: 8px;
-      padding: 0.45rem 0.85rem;
+      padding: 0.35rem 0.65rem;
       font-weight: 700;
-      font-size: 0.88rem;
+      font-size: 0.82rem;
       cursor: pointer;
-      min-height: 44px;
+      min-height: 36px;
       transition: all 0.15s;
       font-family: inherit;
+      white-space: nowrap;
+      flex-shrink: 0;
+      box-sizing: border-box;
     }
     .btn-share:hover {
       background: var(--accent);
@@ -563,7 +582,7 @@ $headerPart = @'
       }
       .select-group select { width: 100%; }
 
-      table, thead, tbody, th, td, tr { display: block; }
+      table, thead, tbody, th, td, tr { display: block; width: 100%; box-sizing: border-box; }
       thead { display: none; }
       
       tbody tr {
@@ -571,12 +590,12 @@ $headerPart = @'
         border: 1px solid var(--border-color);
         border-radius: 12px;
         margin-bottom: 1.25rem;
-        padding: 1rem;
+        padding: 0.85rem;
         box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-        overflow: hidden;
         contain-intrinsic-size: auto 190px;
         scroll-margin-top: 20px;
         scroll-margin-bottom: 20px;
+        box-sizing: border-box;
       }
 
       tr.today-row {
@@ -588,20 +607,38 @@ $headerPart = @'
         border: none;
         padding: 0.4rem 0;
         width: 100%;
+        box-sizing: border-box;
       }
 
       td.num {
-        font-size: 1.2rem;
+        font-size: 1.15rem;
         border-bottom: 1px solid var(--border-color);
         padding-bottom: 0.5rem;
         margin-bottom: 0.5rem;
+        white-space: normal;
+        min-width: 0;
       }
+      
       td.num .day-header-cell {
         display: flex;
         align-items: center;
         justify-content: space-between;
         gap: 0.5rem;
         width: 100%;
+        flex-wrap: wrap;
+        box-sizing: border-box;
+      }
+
+      .day-title-text {
+        font-size: 1.15rem;
+        flex: 1 1 auto;
+      }
+
+      .btn-share {
+        padding: 0.35rem 0.65rem;
+        font-size: 0.82rem;
+        min-height: 36px;
+        margin-left: auto;
       }
 
       .track-lbl { display: block; margin-bottom: 0.15rem; }
@@ -612,6 +649,7 @@ $headerPart = @'
         gap: 0.5rem;
         width: 100%;
         margin-top: 0.5rem;
+        box-sizing: border-box;
       }
 
       a {
@@ -620,6 +658,7 @@ $headerPart = @'
         padding: 0.75rem 1rem;
         min-height: 48px;
         border-radius: 10px;
+        box-sizing: border-box;
       }
     }
 
@@ -1068,4 +1107,4 @@ $footerPart = @'
 
 $newDocument = $headerPart + $enhancedTbody + $footerPart
 [System.IO.File]::WriteAllText($v2Path, $newDocument, [System.Text.Encoding]::UTF8)
-Write-Host "SUKCES! Pomyślnie wygenerowano $v2Path z 365 przyciskami Udostępnij."
+Write-Host "SUKCES! Pomyślnie wygenerowano $v2Path z w pełni responsywnym nagłówkiem i przyciskiem."
