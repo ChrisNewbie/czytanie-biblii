@@ -16,11 +16,10 @@ if (-not $tbodyMatch.Success) {
 $rawTbody = $tbodyMatch.Groups[1].Value
 
 # Clean and enhance tbody rows:
-# 1. Add role="row" to <tr>
-# 2. Add role="cell" to <td>
-# 3. Clean duplicate share buttons inside btn-group while keeping all 3 reading links
-# 4. Enhance share button with accessibility and icon
-# 5. Set default right translation to ubg
+# 1. Normalize <tr> and <td> roles
+# 2. Clean duplicate share buttons inside btn-group while keeping all 3 reading links
+# 3. Ensure EVERY day-header-cell has the accessible, unified share button
+# 4. Set default right translation to ubg
 $enhancedTbody = $rawTbody `
     -replace '<tr\s+data-date="([^"]+)"\s+data-day="([^"]+)">', '<tr role="row" data-date="$1" data-day="$2">' `
     -replace '<td class="num">', '<td role="cell" class="num">' `
@@ -28,8 +27,21 @@ $enhancedTbody = $rawTbody `
     -replace '<td class="links-cell">', '<td role="cell" class="links-cell">' `
     -replace '<div class="btn-group">', '<div class="btn-group" role="group" aria-label="Odnośniki do czytnika HiperBiblia">' `
     -replace '(?s)(<div class="btn-group"[^>]*>.*?)\s*<button type="button" class="btn-share"[^>]*>.*?</button>\s*(</div>)', '$1$2' `
-    -replace '<button type="button" class="btn-share" onclick="shareDay\((\d+),\s*''([^'']+)''\)">📤 Udostępnij</button>', '<button type="button" class="btn-share" onclick="shareDay($1, ''$2'')" aria-label="Udostępnij czytanie na dzień $1 ($2)"><span class="share-icon" aria-hidden="true">📤</span> <span class="share-text" data-pl="Udostępnij" data-en="Share">Udostępnij</span></button>' `
     -replace 'right=lxxhb', 'right=ubg'
+
+# Insert the share button into EVERY day-header-cell across all 365 days
+$enhancedTbody = [regex]::Replace($enhancedTbody, '(?s)<tr\s+role="row"\s+data-date="([^"]+)"\s+data-day="([^"]+)">\s*<td\s+role="cell"\s+class="num">\s*<div\s+class="day-header-cell">\s*<span\s+class="day-title-text"[^>]*>.*?</span>\s*(?:<button[^>]*class="btn-share"[^>]*>.*?</button>)?\s*</div>', {
+    param($m)
+    $dDate = $m.Groups[1].Value
+    $dDay = $m.Groups[2].Value
+    return "<tr role=`"row`" data-date=`"$dDate`" data-day=`"$dDay`">`n          <td role=`"cell`" class=`"num`">`n            <div class=`"day-header-cell`">`n              <span class=`"day-title-text`" data-pl=`"Dzień $dDay`" data-en=`"Day $dDay`">Dzień $dDay <span class=`"date-tag`">• $dDate</span></span>`n              <button type=`"button`" class=`"btn-share`" onclick=`"shareDay($dDay, '$dDate')`" aria-label=`"Udostępnij czytanie na dzień $dDay ($dDate)`"><span class=`"share-icon`" aria-hidden=`"true`">📤</span> <span class=`"share-text`" data-pl=`"Udostępnij`" data-en=`"Share`">Udostępnij</span></button>`n            </div>"
+})
+
+$shareBtnCount = [regex]::Matches($enhancedTbody, 'class="btn-share"').Count
+Write-Host "Liczba przyciskow Udostępnij w tabeli: $shareBtnCount (oczekiwano 365)"
+if ($shareBtnCount -ne 365) {
+    Write-Warning "Uwaga: znaleziono $shareBtnCount przyciskow zamiast 365!"
+}
 
 $headerPart = @'
 <!doctype html>
@@ -1056,4 +1068,4 @@ $footerPart = @'
 
 $newDocument = $headerPart + $enhancedTbody + $footerPart
 [System.IO.File]::WriteAllText($v2Path, $newDocument, [System.Text.Encoding]::UTF8)
-Write-Host "SUKCES! Pomyślnie wygenerowano $v2Path z ulepszonym skokiem do dzisiejszego dnia."
+Write-Host "SUKCES! Pomyślnie wygenerowano $v2Path z 365 przyciskami Udostępnij."
