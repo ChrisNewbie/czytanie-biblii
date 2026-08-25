@@ -32,6 +32,22 @@ $enhancedTbody = $rawTbody `
     -replace 'Poezja / Prorocy', 'Psalmy / Prorocy' `
     -replace 'Poezja i Prorocy', 'Psalmy i Prorocy'
 
+# Normalise Polish data-pl reading references (standard edytorstwa biblijnego):
+# 1. Psalm ranges: "Psalm 1 i 2" -> "Psalmy 1–2", "Psalm 3, 4 i 5" -> "Psalmy 3–5"
+$enhancedTbody = [regex]::Replace($enhancedTbody, 'data-pl="Psalm\s+(\d+)\s+i\s+(\d+)"', 'data-pl="Psalmy $1–$2"')
+$enhancedTbody = [regex]::Replace($enhancedTbody, 'data-pl="Psalm\s+(\d+)(?:,\s*\d+)*\s+i\s+(\d+)"', 'data-pl="Psalmy $1–$2"')
+# 2. Readings with verses (e.g. 1 Księga Królewska 8:1-20)
+$enhancedTbody = [regex]::Replace($enhancedTbody, 'data-pl="([^",]+),\s*rozdział\s+(\d+),\s*wersety?\s*([\d\-]+)"', 'data-pl="$1 $2:$3"')
+# 3. Multi-chapter ranges for other books (with comma/semicolon/i/do)
+$enhancedTbody = [regex]::Replace($enhancedTbody, 'data-pl="([^",]+),?\s+rozdział\s+(\d+)(?:[,;]\s*\d+)*\s*(?:i|[;,]|do)\s*(\d+)"', 'data-pl="$1 $2–$3"')
+$enhancedTbody = [regex]::Replace($enhancedTbody, 'data-pl="([^",]+),?\s+rozdział\s+(\d+)\s*;\s*(\d+)"', 'data-pl="$1 $2–$3"')
+$enhancedTbody = [regex]::Replace($enhancedTbody, 'data-pl="([^",]+),?\s+rozdział\s+(\d+)\s+i\s+(\d+)"', 'data-pl="$1 $2–$3"')
+$enhancedTbody = [regex]::Replace($enhancedTbody, 'data-pl="([^",]+),?\s+rozdział\s+(\d+)\s+do\s+(\d+)"', 'data-pl="$1 $2–$3"')
+# 4. Single chapters for other books
+$enhancedTbody = [regex]::Replace($enhancedTbody, 'data-pl="([^",]+),?\s+rozdział\s+(\d+)"', 'data-pl="$1 $2"')
+# 5. Synchronize innerText of span.ref-text with the new clean data-pl content
+$enhancedTbody = [regex]::Replace($enhancedTbody, '(?s)(<span class="ref-text"\s+data-pl="([^"]+)"[^>]*>).*?(</span>)', '$1$2$3')
+
 # Normalise British English data-en reading references (Robert Roberts Bible Companion 1883 standard):
 # 1. Singular Psalm (Psalm 17, Psalm 23)
 $enhancedTbody = [regex]::Replace($enhancedTbody, 'data-en="Psalms,\s*chapter\s+(\d+)"', 'data-en="Psalm $1"')
@@ -710,7 +726,7 @@ $headerPart = @'
         </div>
       </div>
     </div>
-    <p class="sub" id="main-sub">Kliknięcie w przycisk otwiera czytnik w serwisie <strong>HiperBiblia.com</strong> z wybranymi przez Ciebie przekładami.</p>
+    <p class="sub" id="main-sub">Wybierz dowolne czytanie, aby otworzyć czytnik w serwisie <strong>HiperBiblia.com</strong> z wybranymi przez Ciebie przekładami.</p>
   </header>
 
   <main id="main-content">
@@ -718,29 +734,29 @@ $headerPart = @'
       <div class="select-group">
         <label for="select-left" id="lbl-left">Lewy panel (Przekład 1):</label>
         <select id="select-left" aria-label="Wybór przekładu dla lewej kolumny">
-          <option value="snpd" selected>EIB Przekład Dosłowny (snpd)</option>
-          <option value="snp">EIB Przekład Literacki (snp)</option>
-          <option value="bt5">Biblia Tysiąclecia V (bt5)</option>
-          <option value="bt4">Biblia Tysiąclecia IV (bt4)</option>
-          <option value="bt2">Biblia Tysiąclecia II (bt2)</option>
-          <option value="bp">Biblia Poznańska (bp)</option>
-          <option value="bw">Biblia Warszawska (bw)</option>
-          <option value="bwp">Biblia Warszawsko-Praska (bwp)</option>
-          <option value="ubg">Uwspółcześniona Biblia Gdańska (ubg)</option>
-          <option value="bg">Biblia Gdańska (bg)</option>
-          <option value="bgn">Nowa Biblia Gdańska (bgn)</option>
-          <option value="bb">Biblia Brzeska (bb)</option>
-          <option value="npd">Nowy Przekład Dynamiczny (npd)</option>
-          <option value="be">Biblia Ekumeniczna (be)</option>
-          <option value="pau">Biblia Paulistów (pau)</option>
-          <option value="pop">Popowski [NT] (pop)</option>
-          <option value="psz">Słowo Życia (psz)</option>
-          <option value="wuj">Biblia Wujka (wuj)</option>
-          <option value="stern">Przekład Żydowski - Stern (stern)</option>
-          <option value="lxxhb">Septuaginta / Starożytny (lxxhb)</option>
-          <option value="gnt">Grecki NT krytyczny (gnt)</option>
-          <option value="gnt-tr">Textus Receptus (gnt-tr)</option>
-          <option value="nov">Nova Vulgata (nov)</option>
+          <option value="snpd" selected>EIB Przekład Dosłowny (SNPD)</option>
+          <option value="snp">EIB Przekład Literacki (SNP)</option>
+          <option value="bt5">Biblia Tysiąclecia V (BT5)</option>
+          <option value="bt4">Biblia Tysiąclecia IV (BT4)</option>
+          <option value="bt2">Biblia Tysiąclecia II (BT2)</option>
+          <option value="bp">Biblia Poznańska (BP)</option>
+          <option value="bw">Biblia Warszawska (BW)</option>
+          <option value="bwp">Biblia Warszawsko-Praska (BWP)</option>
+          <option value="ubg">Uwspółcześniona Biblia Gdańska (UBG)</option>
+          <option value="bg">Biblia Gdańska (BG)</option>
+          <option value="bgn">Nowa Biblia Gdańska (BGN)</option>
+          <option value="bb">Biblia Brzeska (BB)</option>
+          <option value="npd">Nowy Przekład Dynamiczny (NPD)</option>
+          <option value="be">Biblia Ekumeniczna (BE)</option>
+          <option value="pau">Biblia Paulistów (PAU)</option>
+          <option value="pop">Popowski [NT] (POP)</option>
+          <option value="psz">Słowo Życia (PSZ)</option>
+          <option value="wuj">Biblia Wujka (WUJ)</option>
+          <option value="stern">Przekład Żydowski - Stern (STERN)</option>
+          <option value="lxxhb">Septuaginta / Starożytny (LXXHB)</option>
+          <option value="gnt">Grecki NT krytyczny (GNT)</option>
+          <option value="gnt-tr">Textus Receptus (GNT-TR)</option>
+          <option value="nov">Nova Vulgata (NOV)</option>
           <option value="kjv">King James Version (KJV)</option>
           <option value="esv">English Standard Version (ESV)</option>
         </select>
@@ -748,29 +764,29 @@ $headerPart = @'
       <div class="select-group">
         <label for="select-right" id="lbl-right">Prawy panel (Przekład 2):</label>
         <select id="select-right" aria-label="Wybór przekładu dla prawej kolumny">
-          <option value="ubg" selected>Uwspółcześniona Biblia Gdańska (ubg)</option>
-          <option value="snpd">EIB Przekład Dosłowny (snpd)</option>
-          <option value="snp">EIB Przekład Literacki (snp)</option>
-          <option value="bt5">Biblia Tysiąclecia V (bt5)</option>
-          <option value="bt4">Biblia Tysiąclecia IV (bt4)</option>
-          <option value="bt2">Biblia Tysiąclecia II (bt2)</option>
-          <option value="bp">Biblia Poznańska (bp)</option>
-          <option value="bw">Biblia Warszawska (bw)</option>
-          <option value="bwp">Biblia Warszawsko-Praska (bwp)</option>
-          <option value="bg">Biblia Gdańska (bg)</option>
-          <option value="bgn">Nowa Biblia Gdańska (bgn)</option>
-          <option value="bb">Biblia Brzeska (bb)</option>
-          <option value="npd">Nowy Przekład Dynamiczny (npd)</option>
-          <option value="be">Biblia Ekumeniczna (be)</option>
-          <option value="pau">Biblia Paulistów (pau)</option>
-          <option value="pop">Popowski [NT] (pop)</option>
-          <option value="psz">Słowo Życia (psz)</option>
-          <option value="wuj">Biblia Wujka (wuj)</option>
-          <option value="stern">Przekład Żydowski - Stern (stern)</option>
-          <option value="lxxhb">Septuaginta / Starożytny (lxxhb)</option>
-          <option value="gnt">Grecki NT krytyczny (gnt)</option>
-          <option value="gnt-tr">Textus Receptus (gnt-tr)</option>
-          <option value="nov">Nova Vulgata (nov)</option>
+          <option value="ubg" selected>Uwspółcześniona Biblia Gdańska (UBG)</option>
+          <option value="snpd">EIB Przekład Dosłowny (SNPD)</option>
+          <option value="snp">EIB Przekład Literacki (SNP)</option>
+          <option value="bt5">Biblia Tysiąclecia V (BT5)</option>
+          <option value="bt4">Biblia Tysiąclecia IV (BT4)</option>
+          <option value="bt2">Biblia Tysiąclecia II (BT2)</option>
+          <option value="bp">Biblia Poznańska (BP)</option>
+          <option value="bw">Biblia Warszawska (BW)</option>
+          <option value="bwp">Biblia Warszawsko-Praska (BWP)</option>
+          <option value="bg">Biblia Gdańska (BG)</option>
+          <option value="bgn">Nowa Biblia Gdańska (BGN)</option>
+          <option value="bb">Biblia Brzeska (BB)</option>
+          <option value="npd">Nowy Przekład Dynamiczny (NPD)</option>
+          <option value="be">Biblia Ekumeniczna (BE)</option>
+          <option value="pau">Biblia Paulistów (PAU)</option>
+          <option value="pop">Popowski [NT] (POP)</option>
+          <option value="psz">Słowo Życia (PSZ)</option>
+          <option value="wuj">Biblia Wujka (WUJ)</option>
+          <option value="stern">Przekład Żydowski - Stern (STERN)</option>
+          <option value="lxxhb">Septuaginta / Starożytny (LXXHB)</option>
+          <option value="gnt">Grecki NT krytyczny (GNT)</option>
+          <option value="gnt-tr">Textus Receptus (GNT-TR)</option>
+          <option value="nov">Nova Vulgata (NOV)</option>
           <option value="kjv">King James Version (KJV)</option>
           <option value="esv">English Standard Version (ESV)</option>
         </select>
@@ -790,8 +806,8 @@ $headerPart = @'
           <th scope="col" role="columnheader" id="th-day">Dzień</th>
           <th scope="col" role="columnheader" id="th-t1">ST: Prawo i Historia</th>
           <th scope="col" role="columnheader" id="th-t2">ST: Psalmy i Prorocy</th>
-          <th scope="col" role="columnheader" id="th-t3">Nowy Testament</th>
-          <th scope="col" role="columnheader" id="th-links">Linki HiperBiblia.com</th>
+          <th scope="col" role="columnheader" id="th-t3">NT: Ewangelie i Listy</th>
+          <th scope="col" role="columnheader" id="th-links">Czytaj online</th>
         </tr>
       </thead>
       <tbody role="rowgroup">
@@ -946,7 +962,7 @@ $footerPart = @'
         : 'Harmonogram Czytania Biblii (<a href="https://prawdybiblijne.com" target="_blank" rel="noopener noreferrer" class="title-link">prawdybiblijne.com</a>)';
       document.getElementById('main-sub').innerHTML = isEn 
         ? 'Select any reading to open the <strong>HiperBiblia.com</strong> dual-panel reader with your chosen translations.' 
-        : 'Kliknięcie w przycisk otwiera czytnik w serwisie <strong>HiperBiblia.com</strong> z wybranymi przez Ciebie przekładami.';
+        : 'Wybierz dowolne czytanie, aby otworzyć czytnik w serwisie <strong>HiperBiblia.com</strong> z wybranymi przez Ciebie przekładami.';
       document.getElementById('lbl-left').innerText = isEn ? 'Left Panel (Translation 1):' : 'Lewy panel (Przekład 1):';
       document.getElementById('lbl-right').innerText = isEn ? 'Right Panel (Translation 2):' : 'Prawy panel (Przekład 2):';
       document.getElementById('lbl-date-jump').innerText = isEn ? '📅 Jump to date:' : '📅 Przejdź do daty:';
@@ -956,8 +972,8 @@ $footerPart = @'
       document.getElementById('th-day').innerText = isEn ? 'Day' : 'Dzień';
       document.getElementById('th-t1').innerText = isEn ? 'OT: Law & History' : 'ST: Prawo i Historia';
       document.getElementById('th-t2').innerText = isEn ? 'OT: Psalms & Prophets' : 'ST: Psalmy i Prorocy';
-      document.getElementById('th-t3').innerText = isEn ? 'NT: Gospels & Epistles' : 'Nowy Testament';
-      document.getElementById('th-links').innerText = isEn ? 'Read Online' : 'Linki HiperBiblia.com';
+      document.getElementById('th-t3').innerText = isEn ? 'NT: Gospels & Epistles' : 'NT: Ewangelie i Listy';
+      document.getElementById('th-links').innerText = isEn ? 'Read Online' : 'Czytaj online';
 
       // Update row texts batch
       document.querySelectorAll('.day-title-text').forEach(el => {
@@ -1119,4 +1135,4 @@ $footerPart = @'
 
 $newDocument = $headerPart + $enhancedTbody + $footerPart
 [System.IO.File]::WriteAllText($v2Path, $newDocument, [System.Text.Encoding]::UTF8)
-Write-Host "SUKCES! Pomyślnie wygenerowano $v2Path w standardzie British English & Bible Companion."
+Write-Host "SUKCES! Pomyślnie wygenerowano $v2Path w pełnym standardzie filologicznym i teologicznym (PL & EN)."
