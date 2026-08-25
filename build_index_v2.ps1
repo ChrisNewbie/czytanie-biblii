@@ -844,11 +844,6 @@ $footerPart = @'
       setLanguage(savedLang, false);
       updateTableLinks();
       markTodayRow();
-
-      // Automatically jump to today on initial page load
-      setTimeout(() => {
-        jumpToToday(true);
-      }, 150);
     }
 
     function markTodayRow() {
