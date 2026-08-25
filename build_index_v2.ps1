@@ -32,6 +32,18 @@ $enhancedTbody = $rawTbody `
     -replace 'Poezja / Prorocy', 'Psalmy / Prorocy' `
     -replace 'Poezja i Prorocy', 'Psalmy i Prorocy'
 
+# Normalise British English data-en reading references (Robert Roberts Bible Companion 1883 standard):
+# 1. Singular Psalm (Psalm 17, Psalm 23)
+$enhancedTbody = [regex]::Replace($enhancedTbody, 'data-en="Psalms,\s*chapter\s+(\d+)"', 'data-en="Psalm $1"')
+# 2. Plural Psalms ranges (Psalms 1–2, Psalms 3–5)
+$enhancedTbody = [regex]::Replace($enhancedTbody, 'data-en="Psalms,\s*chapters\s+(\d+)\s+(?:and|to)\s+(\d+)"', 'data-en="Psalms $1–$2"')
+# 3. Readings with verses (e.g. 1 Kings 8:1-20)
+$enhancedTbody = [regex]::Replace($enhancedTbody, 'data-en="([^",]+),\s*chapter\s+(\d+),\s*verses?\s*([\d\-]+)"', 'data-en="$1 $2:$3"')
+# 4. Multi-chapter ranges for other books (e.g. Genesis 1–2)
+$enhancedTbody = [regex]::Replace($enhancedTbody, 'data-en="([^",]+),\s*chapters\s+(\d+)\s+(?:and|to)\s+(\d+)"', 'data-en="$1 $2–$3"')
+# 5. Single chapters for other books (e.g. Matthew 5)
+$enhancedTbody = [regex]::Replace($enhancedTbody, 'data-en="([^",]+),\s*chapter\s+(\d+)"', 'data-en="$1 $2"')
+
 # Insert the share button into EVERY day-header-cell across all 365 days
 $enhancedTbody = [regex]::Replace($enhancedTbody, '(?s)<tr\s+role="row"\s+data-date="([^"]+)"\s+data-day="([^"]+)">\s*<td\s+role="cell"\s+class="num">\s*<div\s+class="day-header-cell">\s*<span\s+class="day-title-text"[^>]*>.*?</span>\s*(?:<button[^>]*class="btn-share"[^>]*>.*?</button>)?\s*</div>', {
     param($m)
@@ -60,7 +72,7 @@ $headerPart = @'
   <meta property="og:description" content="Przeczytaj całą Biblię w rok (3 nurty dziennie) w czytniku HiperBiblia.com z wybranymi przekładami.">
   <meta property="og:image" content="https://chrisnewbie.github.io/czytanie-biblii/apple-touch-icon.png">
   <meta property="og:locale" content="pl_PL">
-  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:locale:alternate" content="en_GB">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
@@ -694,7 +706,7 @@ $headerPart = @'
         <!-- Language Switcher -->
         <div class="switcher-pill" role="group" aria-label="Wybór języka interfejsu">
           <button type="button" class="pill-btn active" id="btn-lang-pl" onclick="setLanguage('pl')" aria-label="Język polski" aria-pressed="true">🇵🇱 PL</button>
-          <button type="button" class="pill-btn" id="btn-lang-en" onclick="setLanguage('en')" aria-label="English language" aria-pressed="false">🇬🇧 EN</button>
+          <button type="button" class="pill-btn" id="btn-lang-en" onclick="setLanguage('en')" aria-label="English (UK)" aria-pressed="false">🇬🇧 EN (UK)</button>
         </div>
       </div>
     </div>
@@ -729,8 +741,8 @@ $headerPart = @'
           <option value="gnt">Grecki NT krytyczny (gnt)</option>
           <option value="gnt-tr">Textus Receptus (gnt-tr)</option>
           <option value="nov">Nova Vulgata (nov)</option>
-          <option value="kjv">King James Version (kjv)</option>
-          <option value="esv">English Standard Version (esv)</option>
+          <option value="kjv">King James Version (KJV)</option>
+          <option value="esv">English Standard Version (ESV)</option>
         </select>
       </div>
       <div class="select-group">
@@ -759,8 +771,8 @@ $headerPart = @'
           <option value="gnt">Grecki NT krytyczny (gnt)</option>
           <option value="gnt-tr">Textus Receptus (gnt-tr)</option>
           <option value="nov">Nova Vulgata (nov)</option>
-          <option value="kjv">King James Version (kjv)</option>
-          <option value="esv">English Standard Version (esv)</option>
+          <option value="kjv">King James Version (KJV)</option>
+          <option value="esv">English Standard Version (ESV)</option>
         </select>
       </div>
       <div class="select-group">
@@ -915,7 +927,7 @@ $footerPart = @'
       document.getElementById('btn-lang-pl').setAttribute('aria-pressed', !isEn);
       document.getElementById('btn-lang-en').classList.toggle('active', isEn);
       document.getElementById('btn-lang-en').setAttribute('aria-pressed', isEn);
-      document.documentElement.lang = lang;
+      document.documentElement.lang = isEn ? 'en-GB' : 'pl';
 
       if (userTriggered) {
         if (isEn) {
@@ -932,7 +944,9 @@ $footerPart = @'
       document.getElementById('main-h1').innerHTML = isEn 
         ? 'Bible Reading Companion (<a href="https://prawdybiblijne.com" target="_blank" rel="noopener noreferrer" class="title-link">prawdybiblijne.com</a>)' 
         : 'Harmonogram Czytania Biblii (<a href="https://prawdybiblijne.com" target="_blank" rel="noopener noreferrer" class="title-link">prawdybiblijne.com</a>)';
-      document.getElementById('main-sub').innerHTML = isEn ? 'Clicking any button opens <strong>HiperBiblia.com</strong> dual-panel reader with your chosen translations.' : 'Kliknięcie w przycisk otwiera czytnik w serwisie <strong>HiperBiblia.com</strong> z wybranymi przez Ciebie przekładami.';
+      document.getElementById('main-sub').innerHTML = isEn 
+        ? 'Select any reading to open the <strong>HiperBiblia.com</strong> dual-panel reader with your chosen translations.' 
+        : 'Kliknięcie w przycisk otwiera czytnik w serwisie <strong>HiperBiblia.com</strong> z wybranymi przez Ciebie przekładami.';
       document.getElementById('lbl-left').innerText = isEn ? 'Left Panel (Translation 1):' : 'Lewy panel (Przekład 1):';
       document.getElementById('lbl-right').innerText = isEn ? 'Right Panel (Translation 2):' : 'Prawy panel (Przekład 2):';
       document.getElementById('lbl-date-jump').innerText = isEn ? '📅 Jump to date:' : '📅 Przejdź do daty:';
@@ -942,8 +956,8 @@ $footerPart = @'
       document.getElementById('th-day').innerText = isEn ? 'Day' : 'Dzień';
       document.getElementById('th-t1').innerText = isEn ? 'OT: Law & History' : 'ST: Prawo i Historia';
       document.getElementById('th-t2').innerText = isEn ? 'OT: Psalms & Prophets' : 'ST: Psalmy i Prorocy';
-      document.getElementById('th-t3').innerText = isEn ? 'New Testament' : 'Nowy Testament';
-      document.getElementById('th-links').innerText = isEn ? 'HiperBiblia.com Links' : 'Linki HiperBiblia.com';
+      document.getElementById('th-t3').innerText = isEn ? 'NT: Gospels & Epistles' : 'Nowy Testament';
+      document.getElementById('th-links').innerText = isEn ? 'Read Online' : 'Linki HiperBiblia.com';
 
       // Update row texts batch
       document.querySelectorAll('.day-title-text').forEach(el => {
@@ -1105,4 +1119,4 @@ $footerPart = @'
 
 $newDocument = $headerPart + $enhancedTbody + $footerPart
 [System.IO.File]::WriteAllText($v2Path, $newDocument, [System.Text.Encoding]::UTF8)
-Write-Host "SUKCES! Pomyślnie wygenerowano $v2Path z nagłówkiem 'Nowy Testament'."
+Write-Host "SUKCES! Pomyślnie wygenerowano $v2Path w standardzie British English & Bible Companion."
